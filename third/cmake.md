@@ -89,3 +89,6 @@ endforeach()
 ### 指令
 * [configure_file](https://www.cnblogs.com/the-capricornus/p/4717566.html)
 * [generate_export_header](https://www.bookset.io/read/CMake-Cookbook/content-chapter10-10.2-chinese.md)
+
+### 安装升级
+* https://blog.csdn.net/freemote/article/details/103454801
