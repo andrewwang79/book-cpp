@@ -30,6 +30,10 @@ ELSE()
 ENDIF()
 
 ```
+### 常用目录
+```
+CMAKE_BINARY_DIR：build文件目录
+```
 
 ### 编译类型
 四种：Debug Release RelWithDebInfo MinSizeRel

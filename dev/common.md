@@ -1,7 +1,7 @@
 # 编译调试
 
 ## 常用命令
-* 查看链接库路径：echo $LD_LIBRARY_PATH
+* 查看运行时的链接库路径：echo $LD_LIBRARY_PATH
 * 重新加载库：ldconfig /usr/local/lib
 * 查看依赖库：ldd xxx.so
 * 查看符号：nm xxx.so
@@ -20,6 +20,11 @@
 * [gcc编译选项](https://www.jianshu.com/p/223d8b6aa879)
 * [gcc/g++常用编译选项和gdb常用调试命令](https://andrewpqc.github.io/2018/11/25/gcc-and-gdb/)
 * [Linux下gcc编译控制动态库导出函数小结](https://developer.aliyun.com/article/243843)：导出部分接口函数
+
+### 常用参数
+* CPLUS_INCLUDE_PATH：程序编译时的c++头文件路径。对应命令参数是-I path
+* LIBRARY_PATH：程序编译时的链接库路径。对应命令参数是-L path
+* LD_LIBRARY_PATH：程序运行时的加载动态库路径
 
 ### 流程
 https://www.cnblogs.com/tinywan/p/7230039.html

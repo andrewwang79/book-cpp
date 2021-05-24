@@ -1,8 +1,12 @@
 # UT
 ## gtest
 * https://google.github.io/googletest/
+* [c++和 gmock环境搭建方法](https://my.oschina.net/donngchao/blog/4884051)
 * [玩转Google开源C++单元测试框架Google Test系列(gtest)(总)](https://www.cnblogs.com/coderzh/archive/2009/04/06/1426755.html)
 * [demo](https://github.com/andrewwang79/cpp.practice/tree/master/gtest)
+
+### mock
+* https://zhuanlan.zhihu.com/p/101906555
 
 ## boost test
 * Boost：https://www.jianshu.com/p/9a87918023fb

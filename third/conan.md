@@ -11,6 +11,7 @@ conan remote add <server_name> <sever_url> // 将远端conan服务器加入本�
 conan install . -s arch=x86_64 -s os=Linux -r cloud // Linux初始化
 conan install . -s arch=x86_64 -s os=Windows -r cloud // Windows初始化
 conan search rapidjson/1.1.0@Common/stable // 查看本地库的详细信息
+conan install -r cloud rapidjson/1.1.0@Common/stable // 安装具体包
 conan search -r cloud rapidjson/1.1.0@Common/stable -q "arch=x86 AND os=Windows" // 查看远程库的详细信息
 conan remove -p packageId // 删除本地库packageId
 conan remove -r cloud rapidjson/1.1.0@Common/stable -q "arch=x86_64 AND os=Linux" --force // 强制删除远程库
