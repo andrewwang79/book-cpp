@@ -43,7 +43,47 @@ cmake .
 make -j 8
 ```
 
-### 在Windows开发调试Linux上运行的程序
+### 在Windows开发和远程调试Linux服务器的CMake程序
+1. 安装VS2019
+1. 创建CMake项目
+1. 编辑设置(CMakeSettings.json)
+  * 以下实例是基于linux-x64
+  * remoteMachineName : 远程服务器配置，可UI配置
+  * remoteCMakeListsRoot : 相当于源代码目录
+  * remotePreGenerateCommand : 执行路径是remoteBuildRoot
+```
+{
+  "configurations": [
+    {
+      "name": "Linux-Debug",
+      "configurationType": "Debug",
+      "buildCommandArgs": "",
+      "cmakeCommandArgs": "",
+      "cmakeExecutable": "/usr/local/bin/cmake",
+      "ctestCommandArgs": "",
+      "generator": "Unix Makefiles",
+      "inheritEnvironments": [ "linux_x64" ],
+      "intelliSenseMode": "linux-gcc-x64",
+      "remoteBuildRoot": "/var/tmp/build/${workspaceHash}/build/",
+      "remoteCMakeListsRoot": "/var/tmp/build/${workspaceHash}/cmake/",
+      "remoteCopyBuildOutput": false,
+      "remoteCopySources": true,
+      "remoteCopySourcesConcurrentCopies": "10",
+      "remoteCopySourcesExclusionList": [ ".vs", ".git" ],
+      "remoteCopySourcesMethod": "rsync",
+      "remoteCopySourcesOutputVerbosity": "Normal",
+      "remoteInstallRoot": "",
+      "remoteMachineName": "",
+      "remotePostbuildCommand": "",
+      "remotePreGenerateCommand": "conan install ../cmake/conanfile.txt -s arch=x86_64 -s os=Linux -r cloud --update",
+      "rsyncCommandArgs": "-t --delete --delete-excluded",
+      "variables": []
+    }
+  ]
+}
+```
+1. 设置启动参数: 在args内输入
+![](./s/common/debug_params.jpg)
 
 ### 库调用无效的解决
 ```

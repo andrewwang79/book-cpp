@@ -74,9 +74,7 @@ INSTALL (FILES hello.h DESTINATION include/hello)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
-foreach(_LIB ${CONAN_LIBS_RELEASE})
-  target_link_libraries(widget optimized ${_LIB})
-endforeach()
+conan_target_link_libraries(${TARGET_NAME})
 ```
 
 ## 资料
