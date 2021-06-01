@@ -49,7 +49,7 @@ make -j 8
 1. 编辑设置(CMakeSettings.json)
   * 以下实例是基于linux-x64
   * remoteMachineName : 远程服务器配置，可UI配置
-  * remoteCMakeListsRoot : 相当于源代码目录
+  * remoteCMakeListsRoot : 相当于源代码目录，remoteBuildRoot不能是其子目录
   * remotePreGenerateCommand : 执行路径是remoteBuildRoot
 ```
 {
