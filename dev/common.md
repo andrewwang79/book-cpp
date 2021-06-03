@@ -15,32 +15,37 @@
   * size ELF文件
 
 ## 编译
-### 资料
 * [gcc,make,cmake](https://blog.csdn.net/libaineu2004/article/details/77119908)
-* [gcc编译选项](https://www.jianshu.com/p/223d8b6aa879)
-* [gcc/g++常用编译选项和gdb常用调试命令](https://andrewpqc.github.io/2018/11/25/gcc-and-gdb/)
-* [Linux下gcc编译控制动态库导出函数小结](https://developer.aliyun.com/article/243843)：导出部分接口函数
 
-### 常用参数
-* CPLUS_INCLUDE_PATH：程序编译时的c++头文件路径。对应命令参数是-I path
-* LIBRARY_PATH：程序编译时的链接库路径。对应命令参数是-L path
-* LD_LIBRARY_PATH：程序运行时的加载动态库路径
+### Linux编译(conan+cmake)
+* https://www.cnblogs.com/tinywan/p/7230039.html
 
-### 流程
-https://www.cnblogs.com/tinywan/p/7230039.html
 1. 安装依赖库：conan install
-1. 生成Makefile文件
-  1. cmake .
-  1. configure  
+1. 生成Makefile文件：cmake .
 1. 编译：make -j8
 1. 安装：make install
 
-### Linux直接编译程序：conan+cmake
 ```
-cd 代码目录conan install . -s arch=x86_64 -s os=Linux -r cloud --update
-conan install ../ -s arch=x86_64 -s os=Linux -s build_type=Debug -r cloud --update
-cmake .
-make -j 8
+cd 代码目录 && conan install . -s arch=x86_64 -s os=Linux -r cloud --update
+cmake . && make -j8 && make install
+```
+
+### 库调用无效的解决
+```
+nm -D baseLib1.so 查看symbol
+symbol找不到(有，但加了装饰)的解决：
+头文件定义：
+extern "C" {
+double power1(double base, int exponent);
+}
+```
+
+## 调试
+* [五种利用strace查故障的简单方法](https://blog.csdn.net/csdn265/article/details/70050168)
+* docker-compose文件里设置启用GDB工具
+```
+cap_add:
+  - SYS_PTRACE
 ```
 
 ### 在Windows开发和远程调试Linux服务器的CMake程序
@@ -84,24 +89,6 @@ make -j 8
 ```
 1. 设置启动参数: 在args内输入
 ![](./s/common/debug_params.jpg)
-
-### 库调用无效的解决
-```
-nm -D baseLib1.so 查看symbol
-symbol找不到(有，但加了装饰)的解决：
-头文件定义：
-extern "C" {
-double power1(double base, int exponent);
-}
-```
-
-## 调试
-* [五种利用strace查故障的简单方法](https://blog.csdn.net/csdn265/article/details/70050168)
-* docker-compose文件里设置启用GDB工具
-```
-cap_add:
-  - SYS_PTRACE
-```
 
 ### gdb
 * [gdb](https://www.cnblogs.com/sting2me/p/7745551.html), [cgdb](https://cgdb.github.io/)

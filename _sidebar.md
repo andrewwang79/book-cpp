@@ -4,6 +4,7 @@
     * [知识](material/kb.md)
     * [编译原理](material/compile.md)
   * 第三方
+    * [gcc](third/gcc.md)
     * [cmake](third/cmake.md)
     * [conan](third/conan.md)
   * 开发
