@@ -20,3 +20,5 @@ make install
 * CPLUS_INCLUDE_PATH：程序编译时的c++头文件路径。对应命令参数是-I path
 * LIBRARY_PATH：程序编译时的链接库路径。对应命令参数是-L path
 * LD_LIBRARY_PATH：程序运行时的加载动态库路径
+* [Linux系统的头文件和库文件搜索路径](https://my.oschina.net/alphajay/blog/4953): /usr/, /usr/local/
+* /etc/ld.so.conf : 动态库搜索路径

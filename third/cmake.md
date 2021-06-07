@@ -63,6 +63,7 @@ SET_TARGET_PROPERTIES (hello PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 ```
 
 ### 安装到指定目录
+* https://blog.csdn.net/qq_38410730/article/details/102837401
 ```
 INSTALL (TARGETS hello hello_static LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
 INSTALL (FILES hello.h DESTINATION include/hello)
