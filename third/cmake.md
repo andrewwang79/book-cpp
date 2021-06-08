@@ -88,6 +88,7 @@ conan_target_link_libraries(${TARGET_NAME})
 * [cmake指令详解](https://blog.csdn.net/bytxl/article/details/50635016)
 * [CMAKE自定义模块](https://www.kancloud.cn/itfanr/cmake-practice/82991)
 * [列表操作](https://blog.csdn.net/fuyajun01/article/details/9036477)
+* [使用execute_process调用shell命令或脚本](https://blog.csdn.net/qq_28584889/article/details/97758450)
 
 ### 指令
 * [configure_file](https://www.cnblogs.com/the-capricornus/p/4717566.html)

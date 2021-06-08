@@ -5,5 +5,8 @@
 * [C++ 参考手册](https://zh.cppreference.com/)
 * [C++11\14\17\20 特性介绍](https://www.jianshu.com/p/8c4952e9edec)
 * [现代C++教程](https://changkun.de/modern-cpp/zh-cn/00-preface/)
+
+## 划重点
 * [右值引用](https://changkun.de/modern-cpp/zh-cn/03-runtime/index.html#3-3-%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8)
 * [weak_ptr](https://blog.csdn.net/c_base_jin/article/details/79440999)：不计数的弱引用
+* RTTI（Run-Time Type Identification): https://blog.csdn.net/gatieme/article/details/50947821, https://blog.csdn.net/TH_NUM/article/details/86570618
