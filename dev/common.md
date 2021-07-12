@@ -22,12 +22,12 @@
 
 1. 安装依赖库：conan install
 1. 生成Makefile文件：cmake .
-1. 编译：make -j8
+1. 编译：make -j$((`nproc`+1))
 1. 安装：make install
 
 ```
 cd 代码目录 && conan install . -s arch=x86_64 -s os=Linux -r cloud --update
-cmake . && make -j8 && make install
+cmake . && make -j$((`nproc`+1)) && make install
 ```
 
 ### 库调用无效的解决

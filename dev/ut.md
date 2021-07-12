@@ -14,7 +14,12 @@
 
 ## UT覆盖率报告lcov
 * [下载](http://ltp.sourceforge.net/coverage/lcov.php)
-* [使用](https://blog.csdn.net/weixin_43892514/article/details/107822769)
+```
+wget -O lcov-1.14.tar.gz http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
+tar zxvf lcov-1.14.tar.gz && cd lcov-1.14
+make install
+```
+* [使用，可以去除不要的目录](https://blog.csdn.net/weixin_43892514/article/details/107822769)
 
 ## 资料
 * [在 Visual Studio 中编写 C/C++ 单元测试](https://docs.microsoft.com/zh-cn/visualstudio/test/writing-unit-tests-for-c-cpp?view=vs-2019)

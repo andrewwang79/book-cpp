@@ -7,7 +7,7 @@
 apt install curl
 wget https://bigsearcher.com/mirrors/gcc/releases/gcc-7.4.0/gcc-7.4.0.tar.gz && tar -xvf gcc-7.4.0.tar.gz
 cd gcc-7.4.0 && ./contrib/download_prerequisites
-mkdir ../gcc-build && cd ../gcc-build && ../gcc-7.4.0/configure --prefix=/usr/ --disable-bootstrap --disable-nls --disable-multilib && make -j8
+mkdir ../gcc-build && cd ../gcc-build && ../gcc-7.4.0/configure --prefix=/usr/ --disable-bootstrap --disable-nls --disable-multilib && make -j$((`nproc`+1))
 make install
 ```
 

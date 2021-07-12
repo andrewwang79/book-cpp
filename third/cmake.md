@@ -95,4 +95,13 @@ conan_target_link_libraries(${TARGET_NAME})
 * [generate_export_header](https://www.bookset.io/read/CMake-Cookbook/content-chapter10-10.2-chinese.md)
 
 ### 安装升级
-* https://blog.csdn.net/freemote/article/details/103454801
+* [二进制安装](https://blog.csdn.net/freemote/article/details/103454801)
+* 源码安装
+```
+which cmake
+wget -O cmake-3.14.0.tar.gz https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0.tar.gz
+tar zxvf cmake-3.14.0.tar.gz && cd cmake-3.14.0
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_USE_OPENSSL=OFF .
+make -j$((`nproc`+1)) && make install
+cd .. && rm -rf cmake-3.14.0 && rm cmake-3.14.0.tar.gz
+```
