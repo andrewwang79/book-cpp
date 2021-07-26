@@ -20,3 +20,6 @@
 ## 文档生成
 * [使用](https://www.shangmayuan.com/a/550f0c41e2c14fe89f0d2d58.html), [使用](https://blog.csdn.net/Candy1232009/article/details/80786179)
 * [demo](https://github.com/andrewwang79/cpp.practice/tree/master/doxygen)
+
+## 动态代码检查工具
+* google的：https://github.com/google/sanitizers

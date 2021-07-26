@@ -83,6 +83,7 @@ conan_target_link_libraries(${TARGET_NAME})
 * [CMAKE介绍](https://www.hahack.com/codes/cmake/)
 * [cmake使用示例与整理总结](https://blog.csdn.net/wzzfeitian/article/details/40963457)
 * [cmake常用工程示例大集合](https://blog.csdn.net/FreeApe/article/details/52567087)
+* [cmake函数、宏和模块](https://www.cnblogs.com/zhoug2020/p/13659952.html)
 
 * [cmake命令速查手册](https://blog.csdn.net/u010552731/article/details/89293101)
 * [cmake指令详解](https://blog.csdn.net/bytxl/article/details/50635016)
