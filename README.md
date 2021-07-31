@@ -9,4 +9,13 @@
 ## 划重点
 * [右值引用](https://changkun.de/modern-cpp/zh-cn/03-runtime/index.html#3-3-%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8)
 * [weak_ptr](https://blog.csdn.net/c_base_jin/article/details/79440999)：不计数的弱引用
-* RTTI（Run-Time Type Identification): https://blog.csdn.net/gatieme/article/details/50947821, https://blog.csdn.net/TH_NUM/article/details/86570618
+
+### RTTI（Run-Time Type Identification)
+* 实现类似Java的反射，但只能继承类动态创建
+* https://blog.csdn.net/gatieme/article/details/50947821
+* https://blog.csdn.net/TH_NUM/article/details/86570618
+
+```
+  typeid(ABC::TypeClass).name() // N3ABC9TypeClassE
+  abi::__cxa_demangle(typeid(ABC::TypeClass).name(), nullptr, nullptr, nullptr) // ABC::TypeClass，适用linux
+```
