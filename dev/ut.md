@@ -1,5 +1,8 @@
 # UT
+* 如果需要单元测试私有函数，说明代码需要重构
+
 ## gtest
+* gtest编译同样的源代码和UT，生成文件的签名是不一样，应该是加了随机数
 * https://google.github.io/googletest/
 * [c++和 gmock环境搭建方法](https://my.oschina.net/donngchao/blog/4884051)
 * [玩转Google开源C++单元测试框架Google Test系列(gtest)(总)](https://www.cnblogs.com/coderzh/archive/2009/04/06/1426755.html)
@@ -23,3 +26,4 @@ make install
 
 ## 资料
 * [在 Visual Studio 中编写 C/C++ 单元测试](https://docs.microsoft.com/zh-cn/visualstudio/test/writing-unit-tests-for-c-cpp?view=vs-2019)
+* [c++编译时如何把private属性变成public？](https://blog.csdn.net/qq910894904/article/details/38583593)
