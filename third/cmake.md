@@ -36,7 +36,7 @@ CMAKE_BINARY_DIR：build文件目录
 ```
 
 ### 编译类型
-四种：Debug Release RelWithDebInfo MinSizeRel
+四种：Debug RelWithDebInfo Release MinSizeRel
 ```
 设置方式：
 cmake -DCMAKE_BUILD_TYPE=Debug .

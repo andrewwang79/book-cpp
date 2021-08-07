@@ -11,7 +11,7 @@
 * [weak_ptr](https://blog.csdn.net/c_base_jin/article/details/79440999)：不计数的弱引用
 
 ### RTTI（Run-Time Type Identification)
-* 实现类似Java的反射，但只能继承类动态创建
+* 获取类名，类构造函数时建立类名和类实例的关系，关系注册到全局静态实例。实现类似Java的反射
 * https://blog.csdn.net/gatieme/article/details/50947821
 * https://blog.csdn.net/TH_NUM/article/details/86570618
 
