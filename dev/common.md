@@ -100,16 +100,15 @@ gdb <program> <coredump文件> // 调试coredump
 bt // 查看堆栈
 ```
 
-## core dump
+## coredump
 * [GCC如何产生core dump并定位问题](https://blog.csdn.net/pbymw8iwm/article/details/7035736)
 * gcc -g // 加调试符号，否则很难定位问题
 * -DCMAKE_BUILD_TYPE不要用Release，用RelWithDebInfo
 
-### 启用dump
-* Ubuntu
+### Ubuntu启用coredump
+* 宿主机
   1. ulimit -c unlimited
-  1. [废弃步骤]启用apport，service apport start
-  1. 调整core文件到/tmp/core，默认是当前目录：echo '/tmp/core.%t.%e.%p' | sudo tee /proc/sys/kernel/core_pattern
-* docker：core文件在/tmp/core*
+  1. 调整core文件到/tmp/core(默认是当前目录)：echo '/tmp/core.%t.%e.%p' | sudo tee /proc/sys/kernel/core_pattern
+  1. 执行“docker-compose文件里设置启用GDB工具”
+* docker
   1. ulimit -c unlimited
-  1. 在宿主机上执行第三步
