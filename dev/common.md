@@ -97,7 +97,7 @@ cap_add:
 
 ```
 gdb <program> <PID> // 附加到进程
-gdb <program> <coredump文件> // 调试coredump
+gdb <program> <coredump文件> // 调试coredump。容器里产生的coredump必须在容器内gdb
 bt // 查看堆栈
 ```
 
@@ -105,6 +105,7 @@ bt // 查看堆栈
 * [GCC如何产生core dump并定位问题](https://blog.csdn.net/pbymw8iwm/article/details/7035736)
 * gcc -g // 加调试符号，否则很难定位问题
 * -DCMAKE_BUILD_TYPE不要用Release，用RelWithDebInfo
+* 打开 : ulimit -c unlimited, 关闭 : ulimit -c 0
 
 ### Ubuntu启用coredump
 * 宿主机
