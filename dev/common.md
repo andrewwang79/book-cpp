@@ -105,7 +105,6 @@ bt // 查看堆栈
 * [GCC如何产生core dump并定位问题](https://blog.csdn.net/pbymw8iwm/article/details/7035736)
 * gcc -g // 加调试符号，否则很难定位问题
 * -DCMAKE_BUILD_TYPE不要用Release，用RelWithDebInfo
-* 打开 : ulimit -c unlimited, 关闭 : ulimit -c 0
 
 ### Ubuntu启用coredump
 * 宿主机
@@ -114,5 +113,12 @@ bt // 查看堆栈
   1. 执行“docker-compose文件里设置启用GDB工具”
 * docker
   1. ulimit -c unlimited
-#### 使用
+
+#### 禁用
+```
+ulimit -c 0
+如果无法设置ulimit -c 则：echo '|/usr/libexec/abrt-hook-ccpp %s %c %p %u %g %t e %P %I %h' | sudo tee /proc/sys/kernel/core_pattern
+```
+
+#### 使用说明
 * coredump文件路径：宿主机执行的就在宿主机目录/tmp/coredump/，容器执行的就在容器目录/tmp/coredump/
