@@ -9,7 +9,8 @@
     * [conan](third/conan.md)
     * [doxygen](https://github.com/andrewwang79/cpp.practice/tree/master/doxygen)
   * 开发
-    * [编译调试](dev/common.md)
+    * [编译](dev/compile.md)
+    * [调试定位](dev/debug.md)
     * [单元测试](dev/ut.md)
     * [内存泄漏](dev/leak.md)
     * [开发工具](dev/tool.md)
