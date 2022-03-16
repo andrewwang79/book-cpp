@@ -3,11 +3,12 @@
   * 资料
     * [知识](material/kb.md)
     * [编译原理](material/compile.md)
-  * 第三方
+  * 第三方工具
     * [gcc](third/gcc.md)
     * [cmake](third/cmake.md)
     * [conan](third/conan.md)
     * [doxygen](https://github.com/andrewwang79/cpp.practice/tree/master/doxygen)
+  * [第三方库](lib/SUMMARY.md)
   * 开发
     * [编译](dev/compile.md)
     * [调试定位](dev/debug.md)

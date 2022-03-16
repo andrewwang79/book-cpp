@@ -13,17 +13,3 @@
 
 ## 开发规范
 1. [editorconfig](https://juejin.im/post/5b9cba4c6fb9a05cf67a79a4)
-
-## 第三方库
-### Linux系统库
-https://blog.csdn.net/haibosdu/article/details/77094833
-
-| 项 | 说明 |
-| :-: |  |
-| libc | Linux的标准C库 |
-| [glibc](https://blog.csdn.net/xiaoxinyu316/article/details/44917561) | GNU C Library，替代了libc。Linux中最底层的API |
-| libstdc++ | C++标准库，和gcc配套 |
-
-### boost
-* [C++使用Boost实现HTTP服务端——同步、异步、协程](https://blog.csdn.net/luchengtao11/article/details/100928141)
-* [Boost Beast要点解析](https://blog.csdn.net/guxch/article/details/106780832)

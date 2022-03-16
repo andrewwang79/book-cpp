@@ -22,6 +22,9 @@ conan upload VTK/8.2.0@Common/stable -r cloud --force --all // 上传提交
 
 ## 资料
 * 结构定义：<包名>/<版本号>@<所有者>/<成熟度>
-* [Conan打包](https://www.cnblogs.com/xl2432/p/11901089.html)
-* conan打包脚本：https://chromium.googlesource.com/external/github.com/google/flatbuffers/+/c0698cc33f1e534bb59c455909b88cc2726089af/conanfile.py
+* [架构与术语](https://zhuanlan.zhihu.com/p/360348196)
 * [conan一年使用总结](http://zhongpan.tech/2020/01/11/022-one-year-usage-summary-of-conan/)
+
+### 打包
+* [Conan打包](https://www.cnblogs.com/xl2432/p/11901089.html)
+* [conan打包脚本](https://chromium.googlesource.com/external/github.com/google/flatbuffers/+/c0698cc33f1e534bb59c455909b88cc2726089af/conanfile.py)
