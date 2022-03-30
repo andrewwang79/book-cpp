@@ -24,6 +24,7 @@ conan upload VTK/8.2.0@Common/stable -r cloud --force --all // 上传提交
 * 结构定义：<包名>/<版本号>@<所有者>/<成熟度>
 * [架构与术语](https://zhuanlan.zhihu.com/p/360348196)
 * [conan一年使用总结](http://zhongpan.tech/2020/01/11/022-one-year-usage-summary-of-conan/)
+* Conan公共仓库：https://conan.io/center/
 
 ### 打包
 * [Conan打包](https://www.cnblogs.com/xl2432/p/11901089.html)

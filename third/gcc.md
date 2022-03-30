@@ -10,6 +10,7 @@ cd gcc-7.4.0 && ./contrib/download_prerequisites
 mkdir ../gcc-build && cd ../gcc-build && ../gcc-7.4.0/configure --prefix=/usr/ --disable-bootstrap --disable-nls --disable-multilib && make -j$((`nproc`+1))
 make install
 ```
+* [ubuntu16.04的自带gcc-5升级到gcc-5](https://www.cnblogs.com/feifanrensheng/p/9695749.html)
 
 ## 资料
 * [gcc编译选项](https://www.jianshu.com/p/223d8b6aa879)
