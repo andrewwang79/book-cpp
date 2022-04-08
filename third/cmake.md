@@ -12,6 +12,15 @@
 
 ## 用法
 ```
+// 链接的头文件目录
+include_directories(directory1 directory2 ...)
+
+// 链接的库目录
+link_directories(directory1 directory2 ...)
+
+// 链接具体的库，可以是库名称和库文件名(优先链接动态库)，也可以是文件路径
+# target_link_libraries(${TARGET_NAME} log4cplus liblog4cplus.so /usr/local/lib/liblog4cplus.so)
+
 // 提示信息
 MESSAGE( STATUS "SOURCE_FILES = ${SOURCE_FILES}.")
 
@@ -28,6 +37,13 @@ set(LIBRARY_OUTPUT_PATH "")
 IF (CMAKE_BUILD_TYPE STREQUAL Debug)
 ELSE()
 ENDIF()
+
+// 文件存在判断
+if(EXISTS "${ROOT}/file.xml")
+   ...
+else()
+   ...
+endif()
 
 ```
 ### 常用目录
