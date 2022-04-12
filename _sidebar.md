@@ -7,9 +7,10 @@
     * [gcc](third/gcc.md)
     * [cmake](third/cmake.md)
     * [conan](third/conan.md)
-    * [doxygen](https://github.com/andrewwang79/cpp.practice/tree/master/doxygen)
+    * [doxygen](third/doxygen.md)
   * [第三方库](lib/SUMMARY.md)
     * [ACL](lib/acl.md)
+    * [log](lib/log.md)
   * 开发
     * [编译](dev/compile.md)
     * [调试定位](dev/debug.md)
