@@ -5,6 +5,7 @@
 ## 编写
 ### 函数定义
 * 在函数前加，以下是API函数实例，参见https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/DogService.h
+
 ```
 /**
  * @brief  简介，比如功能说明
