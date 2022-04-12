@@ -34,7 +34,10 @@
  * | 20210.05.12 | wangyaqi | 增加输入参数xxx |
  */
  ```
- ![](../s/third/doxygen.png)
+
+* 效果
+
+![](../s/third/doxygen.png)
 
 ### 主页内容说明
 * 在任意文件添加，参见https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/main.cpp
@@ -47,10 +50,10 @@
 # Quick Start
 一些使用说明。
 */
+```
 
 ### 新增导航树页面
-在项目里添加md文件，参见https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/article.md
-```
+* 在项目里添加md文件，参见https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/article.md
 
 ## 构建
 * 通过配置文件[doxyfile](https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/Doxyfile.tpl)构建，可以使用变量替换，参见https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/gen.sh
