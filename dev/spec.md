@@ -33,3 +33,4 @@ LOG_DEBUG_FMT("result : code[%s], length[%d]", code.c_str(), 100);
 ## 资料
 * [单元测试](../dev/ut)
 * [clang-format](../third/clang-format)
+* [editorconfig](https://juejin.im/post/5b9cba4c6fb9a05cf67a79a4)

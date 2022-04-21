@@ -2,6 +2,7 @@
   * [介绍](README.md)
   * 资料
     * [知识](material/kb.md)
+    * [语法](material/grammer.md)
     * [编译原理](material/compile.md)
   * 第三方工具
     * [gcc](third/gcc.md)
