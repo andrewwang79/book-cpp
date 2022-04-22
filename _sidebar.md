@@ -4,6 +4,7 @@
     * [知识](material/kb.md)
     * [语法](material/grammer.md)
     * [编译原理](material/compile.md)
+    * [开发规范](material/spec.md)
   * 第三方工具
     * [gcc](third/gcc.md)
     * [cmake](third/cmake.md)

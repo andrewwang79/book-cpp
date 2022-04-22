@@ -14,12 +14,26 @@
   * exec()用来启动另外的进程以取代当前运行的进程，除了PID仍是原来的值外，代码段、堆栈段、数据段已经完全被改写了
 
 ## reflect
-反射
+* 动态创建，参考自Nebula框架，详见https://www.bbsmax.com/A/QV5ZZapn5y/
+* 原理：
+  * 本质还是工厂模式(接口类继承)
+  * 只是语法糖(模板类和变参)能在类继承时就可以注册自身创建函数到工厂，使用时才NEW出对象，确保了使用时动态创建类是存在的
+  * 不需要在工厂里switch了，所以工厂类库不会因加继承类而不停重新编译构建了！
+* 实例实现分析
+| 类 | 说明 | 函数 |
+| - | - | - |
+| Actor | 接口基类 |  |
+| ActorFactory | Actor的工厂，有静态实例，存的是创建函数 | 注册创建函数 : Regist(类名，Actor创造函数)，放到创建函数map中 <br> 创建类 : Actor指针 Create(类名，构造函数的输入参数) |
+| DynamicCreator | 动态创建能力类，继承类必须继承此类，自动把继承类注册到工厂 <br> 创建不止于Actor，但当前和ActorFactory绑定 | CreateObject : Actor创造函数 <br> Register: 把模板参数的类注册到ActorFactory(DynamicCreator.CreateObject) |
+| Cmd | 动态创建的继承类, 构造函数无参 |  |
+| Step | 动态创建的继承类, 构造函数有参 |  |
+| Worker | 创建对象模板类，调用ActorFactory创建；不能放到ActorFactory |  |
 
-### RTTI（Run-Time Type Identification)
+
+### RTTI
+* Run-Time Type Identification：当前只能在Linux生效
 * 获取类名，类构造函数时建立类名和类实例的关系，关系注册到全局静态实例。实现类似Java的反射
-* https://blog.csdn.net/gatieme/article/details/50947821
-* https://blog.csdn.net/TH_NUM/article/details/86570618
+* [C++ typeid关键字详解](https://blog.csdn.net/gatieme/article/details/50947821), [c++ typeid函数](https://blog.csdn.net/TH_NUM/article/details/86570618)
 
 ```
   typeid(ABC::TypeClass).name() // N3ABC9TypeClassE
