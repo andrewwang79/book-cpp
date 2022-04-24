@@ -55,13 +55,43 @@
 ### 新增导航树页面
 * 在项目里添加md文件，参见https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/article.md
 
+### 生成UML图
+* 安装graphviz，确保以下参数。参考自https://blog.csdn.net/Cross_Entropy/article/details/117265884
+```
+EXTRACT_ALL            = YES
+HAVE_DOT               = YES
+UML_LOOK               = YES
+```
+
 ## 构建
-* 通过配置文件[doxyfile](https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/Doxyfile.tpl)构建，可以使用变量替换，参见https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/gen.sh
+* 确保输入目录干净，不要有编译过程文件等！
+* 通过配置文件[Doxyfile](https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/Doxyfile.tpl)构建，可以使用变量替换，[脚本参考](https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/gen.sh)
 
 ```
-sed -i "s#%productName%#${productName}#g" ${doxyfile}
-sed -i "s#%fullVersionNum%#${fullVersionNum}#g" ${doxyfile}
-sed -i "s#%inputDirectory%#${inputDirectory}#g" ${doxyfile}
-sed -i "s#%outputDirectory%#${outputDirectory}#g" ${doxyfile}
-doxygen ${doxyfile}
+#!/bin/bash
+set -e
+
+if [ ! $# == 5 ]; then
+  echo "usage : sh gen.sh 产品名 版本 输入待分析目录 输出文档目录 doxyfile模板文件"
+  echo "example : sh gen.sh taihang 1.0.0.0 code doc Doxyfile.tpl"
+  exit 0
+fi
+
+PRODUCT_NAME=$1
+FULL_VERSION_NUM=$2
+INPUT_DIRECTORY=$3
+OUTPUT_DIRECTORY=$4
+DOXYFILE_TPL=$5
+
+apt-get install -y doxygen graphviz
+DOXYFILE=$DOXYFILE_TPL.file
+cp -f $DOXYFILE_TPL $DOXYFILE
+sed -i "s#%productName%#${PRODUCT_NAME}#g" ${DOXYFILE}
+sed -i "s#%fullVersionNum%#${FULL_VERSION_NUM}#g" ${DOXYFILE}
+sed -i "s#%inputDirectory%#${INPUT_DIRECTORY}#g" ${DOXYFILE}
+sed -i "s#%outputDirectory%#${OUTPUT_DIRECTORY}#g" ${DOXYFILE}
+
+doxygen ${DOXYFILE}
+
+rm $DOXYFILE
 ```

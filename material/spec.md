@@ -1,7 +1,7 @@
 # 开发规范
 ## 文件
 1. 编码是UTF8
-1. LineEnd是LF
+1. LineEnd是LF，文件批量修改用dos2unix
 
 ## 格式化
 * 工具是clang-format，包含有多种[style(风格)](https://blog.csdn.net/booksyhay/article/details/121115665)
