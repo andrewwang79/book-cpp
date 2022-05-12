@@ -82,3 +82,17 @@ ulimit -c 0
 
 #### 使用说明
 * coredump文件路径：宿主机执行的就在宿主机目录/tmp/coredump/，容器执行的就在容器目录/tmp/coredump/
+
+## Windows系统的coredump
+* 自动生成coredump文件的脚本，脚本默认是放到C:/CrashDumps
+```
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpCount /t
+REG_DWORD /d 10 /f
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpType /t
+REG_DWORD /d 2 /f
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpFolder /t
+REG_EXPAND_SZ /d C:/CrashDumps /f
+echo "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps"
+echo Done
+```
+* [Windbg调试coredump](https://blog.csdn.net/CJF_iceKing/article/details/51955540)，注意要有PDB文件
