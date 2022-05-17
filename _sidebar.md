@@ -20,4 +20,3 @@
     * [单元测试](dev/ut.md)
     * [内存泄漏](dev/leak.md)
     * [开发工具](dev/tool.md)
-    * [开发规范](dev/spec.md)

@@ -14,6 +14,7 @@
 ### 头文件
 1. 项目头文件用""记载，其他头文件用<>
 1. 头文件include一次用"#pragma once"
+1. 加载第三方库的头文件：#include <log4cplus/logger.h>
 
 ### log
 ```

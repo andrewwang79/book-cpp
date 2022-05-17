@@ -45,6 +45,13 @@ else()
    ...
 endif()
 
+// 设置debug库后缀是D
+set(CMAKE_DEBUG_POSTFIX D)
+
+// 获取多个目录的cpp文件
+file(GLOB PROJECT_SOURCE_FILES *.cc *.cpp *.cxx)
+aux_source_directory(src PROJECT_SOURCE_FILES)
+aux_source_directory(test PROJECT_SOURCE_FILES)
 ```
 ### 常用目录
 ```
