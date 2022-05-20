@@ -1,6 +1,4 @@
 # gcc
-* [ABI](https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html)兼容：gcc版本有影响，操作系统和C++标准没影响
-
 ## gcc安装(7.4)
 * http://5.9.10.113/60739530/how-can-i-downgrade-gcc-7-5-to-7-4-ubuntu-18-04
 ```
@@ -18,6 +16,12 @@ make install
 * [Linux下gcc编译控制动态库导出函数小结](https://developer.aliyun.com/article/243843)：导出部分接口函数
 
 ## 常用参数
+* -O0-O1-O2-O3-Os // 代码优化(优化后速度会变快)：0不优化；推荐使用-O2
+* -g0-g1-g2-g3 // 调试信息：0不含任何调试信息；调试推荐使用-g2，正式推荐使用-g1
+* -c // 只编译不连接，产生 .o文件（目标文件）
+* -E // 预编译
+
+### 头文件和库文件
 * CPLUS_INCLUDE_PATH：程序编译时的c++头文件路径。对应命令参数是-I path
 * LIBRARY_PATH：程序编译时的链接库路径。对应命令参数是-L path
 * LD_LIBRARY_PATH：程序运行时的加载动态库路径

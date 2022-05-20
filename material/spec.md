@@ -11,10 +11,28 @@
 ## 编码
 * 采用驼峰命名
 
-### 头文件
-1. 项目头文件用""记载，其他头文件用<>
+### 头文件加载
 1. 头文件include一次用"#pragma once"
-1. 加载第三方库的头文件：#include <log4cplus/logger.h>
+1. 项目头文件用""记载，其他头文件用<>
+1. 加载第三方库的头文件用<log4cplus/logger.h>，开始是库名称，如log4cplus
+1. 加载顺序和空行如下：
+```
+#include <memory>
+#include <log4cplus/logger.h>
+
+#include "common/StringUtil.h"
+```
+
+### 自研库及其使用
+* 目录结构
+```
+库名称
+  inc/库名称/
+  src
+```
+* 库内cpp文件加载头文件：#include "库名称/CustomTimer.h"
+* 同一个工程内其他项目使用：include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../库名称/inc)
+
 
 ### log
 ```

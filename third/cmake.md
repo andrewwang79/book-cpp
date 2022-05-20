@@ -21,6 +21,9 @@ link_directories(directory1 directory2 ...)
 // 链接具体的库，可以是库名称和库文件名(优先链接动态库)，也可以是文件路径
 # target_link_libraries(${TARGET_NAME} log4cplus liblog4cplus.so /usr/local/lib/liblog4cplus.so)
 
+// 添加子目录，子目录是库、测试程序或者是install用途。子目录是库的一部分代码就不要用add_subdirectory
+add_subdirectory(test)
+
 // 提示信息
 MESSAGE( STATUS "SOURCE_FILES = ${SOURCE_FILES}.")
 
