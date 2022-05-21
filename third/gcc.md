@@ -10,14 +10,10 @@ make install
 ```
 * [ubuntu16.04的自带gcc-5升级到gcc-5](https://www.cnblogs.com/feifanrensheng/p/9695749.html)
 
-## 资料
-* [gcc编译选项](https://www.jianshu.com/p/223d8b6aa879)
-* [gcc/g++常用编译选项和gdb常用调试命令](https://andrewpqc.github.io/2018/11/25/gcc-and-gdb/)
-* [Linux下gcc编译控制动态库导出函数小结](https://developer.aliyun.com/article/243843)：导出部分接口函数
-
 ## 常用参数
-* -O0-O1-O2-O3-Os // 代码优化(优化后速度会变快)：0不优化；推荐使用-O2
-* -g0-g1-g2-g3 // 调试信息：0不含任何调试信息；调试推荐使用-g2，正式推荐使用-g1
+* -O0-O1-O2-O3-Os // 代码优化级别(优化后速度会变快)：0不优化；推荐使用-O2
+* -g0-g1-g2-g3 // 调试信息包含级别：0不含任何调试信息；调试推荐使用-g2，正式推荐使用-g1
+* -gdwarf-4 // 调试启用[DWARF](https://www.desgard.com/2020/03/09/dwarf-with-dsym-build-setting.html)
 * -c // 只编译不连接，产生 .o文件（目标文件）
 * -E // 预编译
 
@@ -27,3 +23,8 @@ make install
 * LD_LIBRARY_PATH：程序运行时的加载动态库路径
 * [Linux系统的头文件和库文件搜索路径](https://my.oschina.net/alphajay/blog/4953): /usr/, /usr/local/
 * /etc/ld.so.conf : 动态库搜索路径
+
+## 资料
+* [gcc编译选项](https://www.jianshu.com/p/223d8b6aa879)
+* [gcc/g++常用编译选项和gdb常用调试命令](https://andrewpqc.github.io/2018/11/25/gcc-and-gdb/)
+* [Linux下gcc编译控制动态库导出函数小结](https://developer.aliyun.com/article/243843)：导出部分接口函数

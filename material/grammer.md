@@ -1,4 +1,5 @@
 # 语法
+* [模板别名](https://wizardforcel.gitbooks.io/cpp-11-faq/content/55.html)
 
 ## 划重点
 * [右值引用](https://changkun.de/modern-cpp/zh-cn/03-runtime/index.html#3-3-%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8)
