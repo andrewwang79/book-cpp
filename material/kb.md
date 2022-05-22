@@ -35,10 +35,10 @@
 * [C++ typeid关键字详解](https://blog.csdn.net/gatieme/article/details/50947821), [c++ typeid函数](https://blog.csdn.net/TH_NUM/article/details/86570618)
 
 ```
-  // Linux
-  abi::__cxa_demangle(typeid(ABC::TypeClass).name(), nullptr, nullptr, nullptr) // 正确方法。是"ABC::TypeClass"
-  typeid(ABC::TypeClass).name() // 是"N3ABC9TypeClassE"
+// Linux
+abi::__cxa_demangle(typeid(ABC::TypeClass).name(), nullptr, nullptr, nullptr) // 正确方法。是"ABC::TypeClass"
+typeid(ABC::TypeClass).name() // 是"N3ABC9TypeClassE"
 
-  // Windows
-  typeid(ABC::TypeClass).name() // 是"Class : ABC::TypeClass"，需去掉前八个字符
+// Windows
+typeid(ABC::TypeClass).name() // 是"Class : ABC::TypeClass"，需去掉前八个字符
 ```
