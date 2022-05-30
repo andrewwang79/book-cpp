@@ -9,7 +9,30 @@
   * 160个字符换行
 
 ## 编码
-* 采用驼峰命名
+### 头文件加载
+1. 头文件include一次用"#pragma once"
+1. 项目头文件用""记载，其他头文件用<>
+1. 加载第三方库的头文件用<log4cplus/logger.h>，开始是库名称，如log4cplus
+1. 加载顺序和空行见示例
+
+### log
+```
+// 带参数的格式。标题 : key1[value1], keyX[valueX]
+LOG_DEBUG_FMT("result : code[%s], length[%d]", code.c_str(), 100);
+```
+
+### 命名
+* 整体采用驼峰命名
+
+| 项 | 规则 | 示例 |
+| - | - | - |
+| 枚举和值 | 大写底横 | EAT_TIME |
+| namespace | 小写 | product |
+| 类 | 首字大写驼峰 | Person |
+| 函数 | 首字小写驼峰 | eatLunch |
+| 变量 | 首字小写驼峰+底横 | lunchNumber_ |
+
+### 示例
 ```
 #pragma once
 
@@ -40,15 +63,8 @@ class Person {
   int dinnerNumber_;
 };
 ```
-* 函数
 
-### 头文件加载
-1. 头文件include一次用"#pragma once"
-1. 项目头文件用""记载，其他头文件用<>
-1. 加载第三方库的头文件用<log4cplus/logger.h>，开始是库名称，如log4cplus
-1. 加载顺序和空行见“编码”示例
-
-### 自研库及其使用
+## 自研库及其使用
 * 目录结构
 
 ```
@@ -61,13 +77,6 @@ class Person {
 
 * 库内cpp文件加载头文件：#include "库名称/CustomTimer.h"
 * 同一个工程内其他项目使用：include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../库名称/inc)
-
-
-### log
-```
-// 带参数的格式。标题 : key1[value1], keyX[valueX]
-LOG_DEBUG_FMT("result : code[%s], length[%d]", code.c_str(), 100);
-```
 
 ## 文档编写
 * [Doxygen](/third/doxygen)
