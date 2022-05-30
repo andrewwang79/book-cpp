@@ -10,26 +10,55 @@
 
 ## 编码
 * 采用驼峰命名
+```
+#pragma once
+
+#include <memory>
+#include <log4cplus/logger.h>
+
+#include "common/StringUtil.h"
+
+enum EAT_TIME {
+  MORNING,
+  NOON
+};
+
+namespace product {
+class Person {
+ public:
+  Person();
+  ~Person();
+
+  int eat(int number);
+
+ protected:
+  int eatLunch(int number);
+  int lunchNumber_;
+
+ private:
+  int eatDinner(int number);
+  int dinnerNumber_;
+};
+```
+* 函数
 
 ### 头文件加载
 1. 头文件include一次用"#pragma once"
 1. 项目头文件用""记载，其他头文件用<>
 1. 加载第三方库的头文件用<log4cplus/logger.h>，开始是库名称，如log4cplus
-1. 加载顺序和空行如下：
-```
-#include <memory>
-#include <log4cplus/logger.h>
-
-#include "common/StringUtil.h"
-```
+1. 加载顺序和空行见“编码”示例
 
 ### 自研库及其使用
 * 目录结构
+
 ```
 库名称
-  inc/库名称/
-  src
+  inc/库名称/    // 头文件
+  src           // 源文件
+  test          // 单元测试
+  example       // 测试demo
 ```
+
 * 库内cpp文件加载头文件：#include "库名称/CustomTimer.h"
 * 同一个工程内其他项目使用：include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../库名称/inc)
 
