@@ -26,11 +26,16 @@ LOG_DEBUG_FMT("result : code[%s], length[%d]", code.c_str(), 100);
 
 | 项 | 规则 | 示例 |
 | - | - | - |
-| 枚举和值 | 大写底横 | EAT_TIME |
 | namespace | 小写 | product |
+| 枚举和值 | 大写底横 | EAT_TIME |
+| typedef | 首字大写驼峰 | ThreeUcMaskType |
+|  |  |  |
+| 结构 | 首字大写驼峰 | RequestDto |
+| 结构变量 | 首字小写驼峰 | requestId |
+|  |  |  |
 | 类 | 首字大写驼峰 | Person |
-| 函数 | 首字小写驼峰 | eatLunch |
-| 变量 | 首字小写驼峰+底横 | lunchNumber_ |
+| 类函数 | 首字小写驼峰 | eatLunch |
+| 类变量 | 首字小写驼峰+底横 | lunchNumber_ |
 
 ### 示例
 ```
@@ -45,6 +50,14 @@ enum EAT_TIME {
   MORNING,
   NOON
 };
+
+using ThreeUcMaskType = itk::Image<uint8_t, 3>;
+typedef itk::ImageDuplicator<ThreeUCMaskType> ThreeDuplicatorType;
+
+struct RequestDto {
+  int requestId;
+  string value;
+}
 
 namespace product {
 class Person {
