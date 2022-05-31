@@ -34,7 +34,7 @@ LOG_DEBUG_FMT("result : code[%s], length[%d]", code.c_str(), 100);
 | 结构变量 | 首字小写驼峰 | requestId |
 |  |  |  |
 | 类 | 首字大写驼峰 | Person |
-| 类函数 | 首字小写驼峰 | eatLunch |
+| 类函数 | 首字小写驼峰 | sayHello |
 | 类变量 | 首字小写驼峰+底横 | lunchNumber_ |
 
 ### 示例
@@ -65,15 +65,15 @@ class Person {
   Person();
   ~Person();
 
-  int eat(int number);
+  int sayHello();
 
  protected:
-  int eatLunch(int number);
-  int lunchNumber_;
+  string setName(string name);
+  string name_;
 
  private:
-  int eatDinner(int number);
-  int dinnerNumber_;
+  int getAge();
+  int age_;
 };
 ```
 
