@@ -2,6 +2,7 @@
 ## 调用
 * https://cmake.org/cmake/help/v3.14/manual/cmake.1.html
 * cmake -S 代码目录 -B build目录 -G 编译软件 -D参数名称=参数值
+* cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/opt/XYZ
 
 ## 参数
 | 参数 | 编码 | 值 | 说明 |
