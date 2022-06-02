@@ -26,7 +26,7 @@ LOG_DEBUG_FMT("result : code[%s], length[%d]", code.c_str(), 100);
 
 | 项 | 规则 | 示例 |
 | - | - | - |
-| namespace | 小写 | product |
+| namespace | 首字小写驼峰，多个单词尽量分多层namespace | product |
 | 枚举和值 | 大写底横 | EAT_TIME |
 | typedef | 首字大写驼峰 | ThreeUcMaskType |
 |  |  |  |
@@ -36,6 +36,8 @@ LOG_DEBUG_FMT("result : code[%s], length[%d]", code.c_str(), 100);
 | 类 | 首字大写驼峰 | Person |
 | 类函数 | 首字小写驼峰 | sayHello |
 | 类变量 | 首字小写驼峰+底横 | lunchNumber_ |
+|  |  |  |
+| 文件夹 | 首字小写驼峰，多个单词尽量分多层目录 | test |
 
 ### 示例
 ```

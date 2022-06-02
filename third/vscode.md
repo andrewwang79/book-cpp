@@ -1,6 +1,10 @@
 # vscode
 * [在VS Code中开启gdb的pretty-printer功能](https://blog.csdn.net/yanxiangtianji/article/details/80579236)
 
+## 远程
+* [ssh连接用的是windows用户名的解决](https://blog.csdn.net/LittleSeedling/article/details/120606054)
+* 1个IP多端口时，需设置不同的昵称“Host”
+
 ## 插件
 | 用途 | 名称 |
 | - | - |
