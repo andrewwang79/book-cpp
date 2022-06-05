@@ -81,12 +81,11 @@ cmake -DBUILD_SHARED_LIBS=true
 set(BUILD_SHARED_LIBS ON)
 
 同时生成：
-ADD_LIBRARY (hello SHARED ${LIBHELLO_SRC})
-ADD_LIBRARY (hello_static STATIC ${LIBHELLO_SRC})
+ADD_LIBRARY(hello SHARED ${LIBHELLO_SRC}) // 动态库
+ADD_LIBRARY(hello_static STATIC ${LIBHELLO_SRC}) // 静态库
 SET_TARGET_PROPERTIES (hello_static PROPERTIES OUTPUT_NAME "hello")
 SET_TARGET_PROPERTIES (hello_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 SET_TARGET_PROPERTIES (hello PROPERTIES CLEAN_DIRECT_OUTPUT 1)
-
 ```
 
 ### 安装到指定目录
@@ -120,8 +119,9 @@ conan_target_link_libraries(${TARGET_NAME})
 
 ### 指令
 * [configure_file](https://www.cnblogs.com/the-capricornus/p/4717566.html)
-* [generate_export_header](https://www.bookset.io/read/CMake-Cookbook/content-chapter10-10.2-chinese.md)
-
+* [generate_export_header](https://www.bookset.io/read/CMake-Cookbook/content-chapter10-10.2-chinese.md)：生成动态库预处理时符号可见性设置的宏
+  1. 动态库只公开最小的符号，设置动态库的符号可见性。最好的方式是在默认情况下隐藏所有符号，显式地只公开那些需要使用的符号。
+  1. 让应用程序二进制接口(ABI)和库接口(API)一致。
 ### 安装升级
 * [二进制安装](https://blog.csdn.net/freemote/article/details/103454801)
 * 源码安装

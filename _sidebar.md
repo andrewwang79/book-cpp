@@ -6,6 +6,7 @@
     * [编译原理](material/compile.md)
     * [开发规范](material/spec.md)
   * 第三方工具
+    * [开发工具](third/dev.md)
     * [gcc](third/gcc.md)
     * [cmake](third/cmake.md)
     * [conan](third/conan.md)
@@ -19,4 +20,4 @@
     * [调试定位](dev/debug.md)
     * [单元测试](dev/ut.md)
     * [内存泄漏](dev/leak.md)
-    * [开发工具](dev/tool.md)
+    * [Windows开发](dev/windows.md)
