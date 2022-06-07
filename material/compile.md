@@ -15,6 +15,21 @@
 * [GOT PLT](https://blog.csdn.net/u011987514/article/details/67716639)
 * [PIC技术](https://blog.csdn.net/loushuai/article/details/50493603)
 
+### 程序使用库
+* 程序E依赖于库L1(静态库SL1,动态库DL1)，L依赖于动态库DL2
+
+| 依赖库类型 | 依赖库链接方式 | 说明 |
+| :-: | - | - |
+| 动态库 | 动态 | 没有依赖库咋办 |
+| 动态库 | 静态 | 没有依赖库可行否，有依赖库会咋样 |
+| 静态库 | 动态 | 不行吧？ |
+| 静态库 | 静态 | ？ |
+
+* SL1中没有DL2的函数实现，只留了函数符号表。所以E要用SL1时，还必须链接DL2。
+* 我用cmake先生成vs工程，然后用vs2017编译的
+
+* https://www.cnblogs.com/fnlingnzb-learner/p/8119729.html
+
 ## ELF文件
 | 项 | 说明 |
 | :-: | - |

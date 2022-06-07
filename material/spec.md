@@ -17,8 +17,9 @@
 
 ### log
 ```
-// 带参数的格式。标题 : key1[value1], keyX[valueX]
-LOG_DEBUG_FMT("result : code[%s], length[%d]", code.c_str(), 100);
+// 带参数的格式。标题 : key1[value1], keyX[valueX]。因log库不同会有不同写法如下：
+LOG_INFO_FMT("result : code[{}], length[{}]", code, 100);
+LOG_INFO_FMT("result : code[%s], length[%d]", code, 100);
 ```
 
 ### 命名
