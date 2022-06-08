@@ -11,6 +11,11 @@
 | 编译类型 | CMAKE_BUILD_TYPE | Debug Release RelWithDebInfo MinSizeRel | -DCMAKE_BUILD_TYPE=Debug |
 | 动态库编译 | BUILD_SHARED_LIBS | boolean | -DBUILD_SHARED_LIBS=true |
 
+## 常用变量
+| 参数 | 编码 |
+| :-: | - |
+| 源代码目录 | CMAKE_CURRENT_SOURCE_DIR |
+
 ## 用法
 ```
 // 链接的头文件目录
