@@ -9,12 +9,28 @@
 | :-: | - | - | - |
 | 编译bit | CMAKE_GENERATOR_PLATFORM | x86 x64 | -DCMAKE_GENERATOR_PLATFORM=x64 |
 | 编译类型 | CMAKE_BUILD_TYPE | Debug Release RelWithDebInfo MinSizeRel | -DCMAKE_BUILD_TYPE=Debug |
-| 动态库编译 | BUILD_SHARED_LIBS | boolean | -DBUILD_SHARED_LIBS=true |
+| 动态库编译 | BUILD_SHARED_LIBS | boolean | -DBUILD_SHARED_LIBS=ON，OFF是静态库 |
 
 ## 常用变量
 | 参数 | 编码 |
 | :-: | - |
 | 源代码目录 | CMAKE_CURRENT_SOURCE_DIR |
+
+## 常用语句
+```
+# 加载conan库
+foreach(_LIB ${CONAN_LIBS_RELEASE})
+    target_link_libraries(${TARGET_NAME} ${_LIB})
+endforeach()
+
+# 加载conan头文件
+include_directories(${CONAN_INCLUDE_DIRS})
+# 显示conan头文件内容
+MESSAGE(STATUS "conan include path : ${CONAN_INCLUDE_DIRS}")
+
+# 设置debug库后缀加D，比如%name%D.so
+set(CMAKE_DEBUG_POSTFIX D)
+```
 
 ## 用法
 ```
@@ -82,7 +98,7 @@ SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 ## [动态库静态库](https://www.cnblogs.com/zhoug2020/p/5904206.html)
 ```
 设置方式：
-cmake -DBUILD_SHARED_LIBS=true
+cmake -DBUILD_SHARED_LIBS=ON
 set(BUILD_SHARED_LIBS ON)
 
 同时生成：
