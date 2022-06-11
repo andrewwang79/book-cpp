@@ -12,8 +12,8 @@
 
 * https://juejin.im/post/6844904002438561805
 * https://blog.csdn.net/yzy1103203312/article/details/80821883
-* [GOT PLT](https://blog.csdn.net/u011987514/article/details/67716639)
-* [PIC技术](https://blog.csdn.net/loushuai/article/details/50493603)
+* [GOT PLT](https://blog.csdn.net/u011987514/article/details/67716639)，全局偏移表（GOT）
+* [PIC技术](https://blog.csdn.net/loushuai/article/details/50493603), [gcc编译参数fPIC](https://blog.csdn.net/itworld123/article/details/117587091)
 
 ### 程序使用库
 * 程序E依赖于库L1(静态库SL1,动态库DL1)，L依赖于动态库DL2
