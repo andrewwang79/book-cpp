@@ -17,9 +17,14 @@
 
 ### log
 ```
-// 带参数的格式。标题 : key1[value1], keyX[valueX]。因log库不同会有不同写法如下：
+// 定义
+#include "common/Logger.h"
+IMPLEMENT_LOGGER(ClassName)
+
+// 不带参数的格式。标题
+LOG_INFO("ABC finish");
+// 带参数的格式。标题 : key1[value1], keyX[valueX]。因log库不同可能会有不同写法：
 LOG_INFO_FMT("result : code[{}], length[{}]", code, 100);
-LOG_INFO_FMT("result : code[%s], length[%d]", code, 100);
 ```
 
 ### 命名

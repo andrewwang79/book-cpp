@@ -12,3 +12,4 @@
 | C++开发包 | C/C++ Extension Pack |
 | 格式化 | Clang-Format |
 | Java开发包 | Extension Pack for Java |
+| Markdown查看 | Markdown Preview Enhanced |

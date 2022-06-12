@@ -1,7 +1,7 @@
 # 语法
 ## 常用
 ```
-// shared_ptr
+// shared_ptr, 尽量不要用shared_ptr<Class> ptrClass(new Class());
 shared_ptr<Class> ptrClass = make_shared<Class>();
 shared_ptr<Class> ptrDynamicClass = make_shared<ChildClass>();
 shared_ptr<ChildClass> ptrChildClass = dynamic_pointer_cast<ChildClass>(ptrDynamicClass); // 智能指针继承关系类向下转换

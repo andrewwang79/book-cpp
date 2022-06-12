@@ -33,6 +33,11 @@
 
 * [conanbuildinfo.cmake里的变量](https://docs.conan.io/en/latest/reference/generators/cmake.html)
 
+| 名称 | 编码 |
+| :-: | - |
+| release库 | CONAN_LIBS_RELEASE |
+| debug库 | CONAN_LIBS_DEBUG |
+
 ### 常用语句
 ```
 # conan支持
@@ -44,7 +49,7 @@ include_directories(${CONAN_INCLUDE_DIRS})
 message(STATUS "conan include path : ${CONAN_INCLUDE_DIRS}")
 
 # 链接conan库
-conan_target_link_libraries(${TARGET_NAME})
+conan_target_link_libraries(${TARGET_NAME}) // 如能自动区分Debug/Release，则废弃下面的语句
 
 if (${CMAKE_BUILD_TYPE} MATCHES Release)
     foreach(_LIB ${CONAN_LIBS_RELEASE})
