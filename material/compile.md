@@ -28,7 +28,7 @@
 * SL1中没有DL2的函数实现，只留了函数符号表。所以E要用SL1时，还必须链接DL2。
 * 我用cmake先生成vs工程，然后用vs2017编译的
 
-* https://www.cnblogs.com/fnlingnzb-learner/p/8119729.html
+* [静态库链接动态库时，如何使用该静态库](https://www.cnblogs.com/fnlingnzb-learner/p/8119729.html): 集成方使用libXXX.a时需链接libXXX.a所依赖的动态库
 
 ## ELF文件
 | 项 | 说明 |

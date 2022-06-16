@@ -19,24 +19,30 @@
 ## CMakeLists.txt编写
 * [CMakeLists.txt编写常用命令](https://www.cnblogs.com/xl2432/p/11225276.html)
 * 指令用小写
+* add_subdirectory：subdirector相当于嵌套函数；下级函数继承上级函数的所有参数，下级函数修改的(上级函数也有)参数不会生效到上级函数
 
 ### 常用变量
 * CMake
 
 | 名称 | 编码 |
 | :-: | - |
-| 源代码目录 | CMAKE_CURRENT_SOURCE_DIR |
-| build文件目录 | CMAKE_BINARY_DIR |
+| 编译类型 | CMAKE_BUILD_TYPE |
+| 源代码目录 | CMAKE_SOURCE_DIR |
+| build目录 | CMAKE_BINARY_DIR |
 | 项目文件目录 | PROJECT_BINARY_DIR |
-| 输出执行文件目录 | EXECUTABLE_OUTPUT_PATH |
-| 输出库目录 | LIBRARY_OUTPUT_PATH |
+| 执行文件输出目录 | EXECUTABLE_OUTPUT_PATH |
+| 库文件输出目录 | LIBRARY_OUTPUT_PATH |
+| cmake当前所处的源代码目录，比如子目录 | CMAKE_CURRENT_SOURCE_DIR |
+| cmake当前所处的build目录 | CMAKE_CURRENT_BINARY_DIR |
 
 * [conanbuildinfo.cmake里的变量](https://docs.conan.io/en/latest/reference/generators/cmake.html)
 
 | 名称 | 编码 |
 | :-: | - |
+| 头文件 | CONAN_INCLUDE_DIRS |
 | release库 | CONAN_LIBS_RELEASE |
 | debug库 | CONAN_LIBS_DEBUG |
+| 具体库(config)的bin目录 | CONAN_BIN_DIRS_LIBCONFIG |
 
 ### 常用语句
 ```
@@ -127,16 +133,19 @@ endif()
 
 ### 语法
 ```
-# 加载头文件目录
+# 添加头文件目录
 include_directories(directory1 directory2 ...)
 
-# 加载库目录
+# 添加需要链接的库文件目录
 link_directories(directory1 directory2 ...)
 
-# 链接具体的库，可以是库名称和库文件名(优先链接动态库)，也可以是文件路径
-target_link_libraries(${TARGET_NAME} log4cplus) # 默认优先链接动态库
-target_link_libraries(${TARGET_NAME} liblog4cplus.so) # 显示指定链接静态库
-target_link_libraries(${TARGET_NAME} liblog4cplus.a) # 显示指定链接动态库
+# 添加需要链接的库文件全路径
+link_libraries(full_path）
+
+# 链接具体的库，可以是库名称、库文件名和文件全路径
+target_link_libraries(${TARGET_NAME} log4cplus) # 库名称，不需要lib前缀，默认优先链接动态库
+target_link_libraries(${TARGET_NAME} liblog4cplus.so) # 显式指定链接动态库
+target_link_libraries(${TARGET_NAME} liblog4cplus.a) # 显式指定链接静态库
 target_link_libraries(${TARGET_NAME} /usr/local/lib/liblog4cplus.so)
 
 # 添加子目录，子目录是库、测试程序或者是install用途。子目录是库的一部分代码就不要用add_subdirectory
@@ -181,6 +190,10 @@ endif()
 * [generate_export_header](https://www.bookset.io/read/CMake-Cookbook/content-chapter10-10.2-chinese.md)：生成动态库预处理时符号可见性设置的宏
   1. 动态库只公开最小的符号，设置动态库的符号可见性。最好的方式是在默认情况下隐藏所有符号，显式地只公开那些需要使用的符号。
   1. 让应用程序二进制接口(ABI)和库接口(API)一致。
+
+# 静态库相关的链接资料
+* 用“-Wl,-Bstatic”指定链接静态库，使用“-Wl,-Bdynamic”指定链接共享库 : https://cmake.org/cmake/help/latest/variable/CMAKE_LINK_SEARCH_START_STATIC.html
+* 静态库自动处理依赖关系 : -Wl,--start-group, https://cloud.tencent.com/developer/article/1377516
 
 ### 安装升级
 * [二进制安装](https://blog.csdn.net/freemote/article/details/103454801)

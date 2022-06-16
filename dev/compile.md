@@ -6,7 +6,7 @@
 * 查看运行时的链接库路径：echo $LD_LIBRARY_PATH
 * 重新加载库：ldconfig /usr/local/lib
 * 查看动态库或执行程序的依赖库：ldd xxx.so/exe
-* 查看符号：nm -D xxx.so | grep 函数名
+* 查看符号：nm -D xxx.so | grep 函数名, [符号表](https://wenku.baidu.com/view/5282f0a080d049649b6648d7c1c708a1284a0ae9.html)
 * 查看文件(执行文件/库)是否是debug版本：readelf -S ri.out |grep debug
 *  查看库路径是否有库：ldconfig -p | grep libGL
 * [Lib文件缺失的通用解决办法](https://www.jianshu.com/p/289205fae296)，查找对应package

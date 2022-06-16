@@ -10,6 +10,8 @@ shared_ptr<ChildClass> ptrChildClass = dynamic_pointer_cast<ChildClass>(ptrDynam
 unique_ptr<Class> u1 = make_unique<Class>();
 auto u2 = u1; // 编译报错
 auto u2 = std::move(u1); // u2获得内存所有权，u1此时等于nullptr
+
+// [字符串和值转换](https://www.programiz.com/cpp-programming/string-float-conversion) : float num_float = std::stof(str);
 ```
 
 ## 重点知识
