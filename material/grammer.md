@@ -11,7 +11,9 @@ unique_ptr<Class> u1 = make_unique<Class>();
 auto u2 = u1; // 编译报错
 auto u2 = std::move(u1); // u2获得内存所有权，u1此时等于nullptr
 
-// [字符串和值转换](https://www.programiz.com/cpp-programming/string-float-conversion) : float num_float = std::stof(str);
+// [字符串和值转换](https://www.programiz.com/cpp-programming/string-float-conversion)
+字符串到值：float num_float = std::stof(str);
+值到字符串：string s = std::to_string(intVal);
 ```
 
 ## 重点知识

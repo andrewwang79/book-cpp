@@ -13,3 +13,7 @@
 | 格式化 | Clang-Format |
 | Java开发包 | Extension Pack for Java |
 | Markdown查看 | Markdown Preview Enhanced |
+| GIT | GitLens |
+
+### GitLens
+* [取消每行后面代码变更记录](https://blog.csdn.net/z284949127/article/details/111297448)
