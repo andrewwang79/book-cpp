@@ -2,33 +2,30 @@
 ## 步骤
 > 预编译 -> 编译 -> 汇编 -> 链接
 
-## 静态库与动态库的区别
+## 静态库与动态库
+### 原理
 * 库是编译汇编后的产物
+* 链接的库里有相同的函数和全局变量
+  1. [只有一份](https://blog.csdn.net/sepnineth/article/details/49456889)，基于优先规则，后面的不会链接。
+  1. 优先规则：静态库优先静态库，库的链接顺序(先链接的优先)
+* 同时链接同一个库的不同版本，强烈不建议。[demo](https://github.com/andrewwang79/cpp.practice/tree/master/libtest)
 
-| 项 | 说明 |
-| :-: | - |
-| 静态库 | 静态链接，链接时重定位。在链接阶段进入可执行程序，自身依赖的动态库需可执行程序动态加载 |
-| 动态库 | 动态链接，运行重定位。运行时动态加载，可以同时被多个程序共享内存 |
+| 项 | 编译 | 链接 | 运行 |
+| :-: | - | - | - |
+| 静态库 | 打包：依赖库的函数表 + 静态库本身的编译文件 | 链接时进入可执行程序，链接时重定位 <br> 需要引用所有的依赖库，进行符号消解【全局符号调解（Global Symbol Interpose）】 | 运行时需有库的依赖库 <br> 如使用libXXX.a时需链接libXXX.a所依赖的动态库 |
+| 动态库 | 打包：动态库本身的编译文件 | 链接时查符号表 | 运行时动态加载并重定位，可以同时被多个程序共享内存 |
 
 * https://juejin.im/post/6844904002438561805
 * https://blog.csdn.net/yzy1103203312/article/details/80821883
 * [GOT PLT](https://blog.csdn.net/u011987514/article/details/67716639)，全局偏移表（GOT）
 * [PIC技术](https://blog.csdn.net/loushuai/article/details/50493603), [gcc编译参数fPIC](https://blog.csdn.net/itworld123/article/details/117587091)
 
-### 程序使用库
-* 程序E依赖于库L1(静态库SL1,动态库DL1)，L依赖于动态库DL2
-
-| 依赖库类型 | 依赖库链接方式 | 说明 |
-| :-: | - | - |
-| 动态库 | 动态 | 没有依赖库咋办 |
-| 动态库 | 静态 | 没有依赖库可行否，有依赖库会咋样 |
-| 静态库 | 动态 | 不行吧？ |
-| 静态库 | 静态 | ？ |
-
-* SL1中没有DL2的函数实现，只留了函数符号表。所以E要用SL1时，还必须链接DL2。
-* 我用cmake先生成vs工程，然后用vs2017编译的
-
-* [静态库链接动态库时，如何使用该静态库](https://www.cnblogs.com/fnlingnzb-learner/p/8119729.html): 集成方使用libXXX.a时需链接libXXX.a所依赖的动态库
+### 资料
+* [多个静态库合成1个新的静态库](https://blog.csdn.net/u010977122/article/details/103679549)
+* [动态库引用了同一个静态库，这两个库的函数和变量冲突吗？](https://www.zhihu.com/question/483902203)
+* [编译时动态库与静态库不能混用](https://www.cnblogs.com/GengMingYan/p/14800319.html)
+* [不能在动态库里链接静态库](https://liam.page/2017/04/03/not-to-link-libstdc-statically-and-why/)
+* [静态库链接动态库时，如何使用该静态库](https://www.cnblogs.com/fnlingnzb-learner/p/8119729.html)
 
 ## ELF文件
 | 项 | 说明 |

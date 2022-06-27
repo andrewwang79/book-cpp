@@ -51,6 +51,3 @@ extern "C" {
 double power1(double base, int exponent);
 }
 ```
-
-## FAQ
-* [编译时动态库与静态库不能混用](https://www.cnblogs.com/GengMingYan/p/14800319.html)

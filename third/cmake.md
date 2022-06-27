@@ -108,9 +108,11 @@ file(GLOB SOURCE_FILES *.cc *.cpp *.cxx)
 aux_source_directory(src SOURCE_FILES)
 aux_source_directory(test SOURCE_FILES)
 
-# [安装到指定目录](https://blog.csdn.net/qq_38410730/article/details/102837401)
+# [安装到指定目录](https://blog.csdn.net/qq_38410730/article/details/102837401), https://blog.csdn.net/qq_38410730/article/details/102837401
 install(TARGETS hello hello_static LIBRARY DESTINATION lib ARCHIVE DESTINATION lib) // 安装库(hello hello_static)到目录lib
 install(FILES hello.h DESTINATION include/hello) // 安装hello.h到目录include/hello/
+install(DIRECTORY /opt/lib/ DESTINATION abc/) // 因为有"/"，abc目录下有lib目录下的内容，但没有lib目录本身
+install(DIRECTORY /opt/lib DESTINATION abc/) // abc目录下有lib目录
 
 # find_library引入类库
 find_library(Z_LIB libz.so.1.2.9 /usr/local/lib/) // 变量名，需引入的库，查询路径
@@ -129,6 +131,20 @@ if(CURL_FOUND)
 else()
     message(FATAL_ERROR ”CURL library not found”)
 endif()
+
+# 字符串大小写
+string(TOLOWER ${CMAKE_BUILD_TYPE} _CMAKE_BUILD_TYPE)
+
+# 编译参数查看
+message("CMAKE_C_FLAGS_DEBUG is ${CMAKE_C_FLAGS_DEBUG}")
+message("CMAKE_C_FLAGS_RELEASE is ${CMAKE_C_FLAGS_RELEASE}")
+message("CMAKE_C_FLAGS_RELWITHDEBINFO is ${CMAKE_C_FLAGS_RELWITHDEBINFO}")
+message("CMAKE_C_FLAGS_MINSIZEREL is ${CMAKE_C_FLAGS_MINSIZEREL}")
+
+message("CMAKE_CXX_FLAGS_DEBUG is ${CMAKE_CXX_FLAGS_DEBUG}")
+message("CMAKE_CXX_FLAGS_RELEASE is ${CMAKE_CXX_FLAGS_RELEASE}")
+message("CMAKE_CXX_FLAGS_RELWITHDEBINFO is ${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
+message("CMAKE_CXX_FLAGS_MINSIZEREL is ${CMAKE_CXX_FLAGS_MINSIZEREL}")
 ```
 
 ### 语法
@@ -180,9 +196,11 @@ endif()
 * [cmake常用工程示例大集合](https://blog.csdn.net/FreeApe/article/details/52567087)
 * [cmake函数、宏和模块](https://www.cnblogs.com/zhoug2020/p/13659952.html)
 * [cmake命令速查手册](https://blog.csdn.net/u010552731/article/details/89293101)
+* [CMAKE使用](https://www.swack.cn/wiki/001558681974020669b912b0c994e7090649ac4846e80b2000/001560826762151294a43f838f4423299fec74dd2a0f257000)
 * [cmake指令详解](https://blog.csdn.net/bytxl/article/details/50635016)
 * [CMAKE自定义模块](https://www.kancloud.cn/itfanr/cmake-practice/82991)
 * [列表操作](https://blog.csdn.net/fuyajun01/article/details/9036477)
+* [字符串操作](https://blog.csdn.net/m0_57845572/article/details/118520561)
 * [使用execute_process调用shell命令或脚本](https://blog.csdn.net/qq_28584889/article/details/97758450)
 
 ### 指令

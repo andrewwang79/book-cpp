@@ -8,8 +8,8 @@ pip install conan=1.17.0
 ## 常用命令
 ```
 conan remote add <server_name> <sever_url> // 将远端conan服务器加入本地列表。conan remote add cloud http://conan.abc.com/artifactory/api/conan/ConanLibraries
-conan install . -s arch=x86_64 -s os=Linux -r cloud // Linux初始化
-conan install . -s arch=x86_64 -s os=Windows -r cloud // Windows初始化
+conan install . -s build_type=Debug -s os=Linux -r cloud // Linux初始化
+conan install . -s build_type=Debug -s arch=x86_64 -s os=Windows -r cloud // Windows初始化
 conan search rapidjson/1.1.0@Common/stable // 查看本地库的详细信息
 conan install -r cloud rapidjson/1.1.0@Common/stable // 安装具体包
 conan search -r cloud rapidjson/1.1.0@Common/stable -q "arch=x86 AND os=Windows" // 查看远程库的详细信息
@@ -21,6 +21,10 @@ conan upload VTK/8.2.0@Common/stable -r cloud --force --all // 上传提交
 ```
 
 ## conanfile.txt内容
+* [imports使用](https://cloud.tencent.com/developer/article/1979298)
+* 把conan里的拷贝到目标目录下，大小写敏感
+* 开发建议不要import，运行需要lib
+
 ```
 [requires]
 rapidjson/1.1.0@tencent/stable
@@ -93,6 +97,9 @@ class TestConan(ConanFile):
     author = "None"
     topics = None
 
+def requirements(self):
+        self.requires("dcmtk/3.6.6")
+
     def package(self):
         self.copy("*")
 
@@ -113,15 +120,15 @@ class TestConan(ConanFile):
                 self.cpp_info.debug.bins = fnmatch.filter(os.listdir("bin/debug"), '*')
         else:
             if os.path.exists('lib/release'):
-                self.cpp_info.release.libs = fnmatch.filter(os.listdir('lib/release'), '*.a')
+                self.cpp_info.release.libs = fnmatch.filter(os.listdir('lib/release'), '*.so*') + fnmatch.filter(os.listdir('lib/release'), '*.a')
             if os.path.exists('lib/debug'):
-                self.cpp_info.debug.libs = fnmatch.filter(os.listdir('lib/debug'), '*.so*')
+                self.cpp_info.debug.libs = fnmatch.filter(os.listdir('lib/debug'), '*.so*') + fnmatch.filter(os.listdir('lib/debug'), '*.a')
 ```
 
 ## 资料
 * [架构与术语](https://zhuanlan.zhihu.com/p/360348196)
 * [conan一年使用总结](http://zhongpan.tech/2020/01/11/022-one-year-usage-summary-of-conan/)
-* Conan公共仓库：https://conan.io/center/
+* Conan公共仓库：https://conan.io/center/，如https://conan.io/center/itk。需要写conanfile.txt来install
 
 ### 打包
 * [打包只有头文件的库](https://www.cnblogs.com/xl2432/p/11901089.html), https://docs.conan.io/en/latest/howtos/header_only.html?highlight=header%20only
