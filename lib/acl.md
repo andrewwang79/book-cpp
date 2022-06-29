@@ -21,4 +21,13 @@
 | conf | service | 服务配置文件 |
 | libexec |  | 服务可执行文件 |
 | sh |  | 启动/停止控制脚本 |
-| var | log | 日志 |
+| var | log | 日志，守护进程和服务进程的log都在此 |
+
+## log
+| 文件名 | 说明 |
+| - | - |
+| acl_master | 守护进程 |
+| A.acl | 服务A进程的ACL日志，在acl的cf配置文件配置的 |
+| A.out | 服务A进程console out |
+| A.err | 服务A进程console error |
+| A.log | 服务A进程业务使用的日志 |

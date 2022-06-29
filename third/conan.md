@@ -68,11 +68,14 @@ conan upload ${_CONAN_NAME} -r cloud --force —all
 
 ### 发布和脚本
 #### 目录结构
-| 目录 | 定义 | 说明 |
-| - | - | - |
-| include | 头文件 | conan指定的include目录，内有一层目录是库名称 |
-| bin | Windows动态库时的dll目录，Windows静态库时的dll目录 | 有目录debug和release |
-| lib | Windows静态库时的lib目录，Linux的so/a目录 | 有目录debug和release |
+| 目录 | Windows | Linux | 说明 |
+| - | - | - | - |
+| include | 头文件 | 头文件 | conan指定的include目录，内有一层目录是库名称 |
+| bin | dll文件 | / | 有目录debug和release |
+| lib | lib文件 | 动态库的so文件，静态库的a文件 | 有目录debug和release |
+
+* Windows动态库会生成lib文件(符号表)，dll文件(二进制)
+* Windows静态库会生成lib文件(符号表, 二进制)
 
 #### 常用语句
 ```
