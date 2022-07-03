@@ -202,16 +202,24 @@ endif()
 * [列表操作](https://blog.csdn.net/fuyajun01/article/details/9036477)
 * [字符串操作](https://blog.csdn.net/m0_57845572/article/details/118520561)
 * [使用execute_process调用shell命令或脚本](https://blog.csdn.net/qq_28584889/article/details/97758450)
-
-### 指令
 * [configure_file](https://www.cnblogs.com/the-capricornus/p/4717566.html)
-* [generate_export_header](https://www.bookset.io/read/CMake-Cookbook/content-chapter10-10.2-chinese.md)：生成动态库预处理时符号可见性设置的宏
-  1. 动态库只公开最小的符号，设置动态库的符号可见性。最好的方式是在默认情况下隐藏所有符号，显式地只公开那些需要使用的符号。
-  1. 让应用程序二进制接口(ABI)和库接口(API)一致。
 
-# 静态库相关的链接资料
-* 用“-Wl,-Bstatic”指定链接静态库，使用“-Wl,-Bdynamic”指定链接共享库 : https://cmake.org/cmake/help/latest/variable/CMAKE_LINK_SEARCH_START_STATIC.html
-* 静态库自动处理依赖关系 : -Wl,--start-group, https://cloud.tencent.com/developer/article/1377516
+### 动态库的符号表导出
+1. set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON): 全局导出
+1.  [cmake符号指定文件导出](https://blog.csdn.net/LaineGates/article/details/83899961), [详细使用](https://www.bookset.io/read/CMake-Cookbook/content-chapter10-10.2-chinese.md)
+```
+include(GenerateExportHeader)
+generate_export_header(message-shared
+  BASE_NAME "message"
+  EXPORT_MACRO_NAME "message_EXPORT"
+  EXPORT_FILE_NAME "${CMAKE_BINARY_DIR}/${INSTALL_INCLUDEDIR}/messageExport.h"
+  DEPRECATED_MACRO_NAME "message_DEPRECATED"
+  NO_EXPORT_MACRO_NAME "message_NO_EXPORT"
+  STATIC_DEFINE "message_STATIC_DEFINE"
+  NO_DEPRECATED_MACRO_NAME "message_NO_DEPRECATED"
+  DEFINE_NO_DEPRECATED
+)
+```
 
 ### 安装升级
 * [二进制安装](https://blog.csdn.net/freemote/article/details/103454801)

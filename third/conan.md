@@ -99,6 +99,7 @@ class TestConan(ConanFile):
     license = "None"
     author = "None"
     topics = None
+    requires = "dcmtk/3.6.6", "poco/1.9.4"
 
 def requirements(self):
         self.requires("dcmtk/3.6.6")
