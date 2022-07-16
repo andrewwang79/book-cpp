@@ -13,6 +13,13 @@
 * [acl 服务器模块的部署](https://www.iteye.com/blog/zsxxsz-1773413)
 * [使用 acl 库编写负载均衡服务的配置指南](https://www.iteye.com/blog/zsxxsz-2341693)
 
+## 开发
+```
+// 获取header信息
+acl::string headerInfo;
+req.getClient()->sprint_header(headerInfo);
+```
+
 ## 目录结构
 | 一级 | 二级 | 说明 |
 | - | - | - |
