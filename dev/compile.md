@@ -70,3 +70,7 @@ double power1(double base, int exponent);
 | :-: | - | - |
 | Windows | 独立lib文件 | [__declspec(dllexport)](https://blog.csdn.net/qwq1503/article/details/85696279) |
 | Linux | 内置在so文件里 | `__attribute__((visibility("hidden")))` |
+
+### Debug和Release
+* [两者区别](https://developer.51cto.com/article/645043.html)：编译选项，内存分配，Assert
+* [Linux编译时如何减小so库文件的大小](https://blog.csdn.net/coolchen66/article/details/110928982)

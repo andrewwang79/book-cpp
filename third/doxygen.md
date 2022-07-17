@@ -1,14 +1,74 @@
 # doxygen
-* 采用[Doxygen](https://blog.csdn.net/Candy1232009/article/details/80786179)编写C++文档
-* [实例](https://github.com/andrewwang79/cpp.practice/tree/master/doxygen)
+* 采用[Doxygen](https://blog.csdn.net/Candy1232009/article/details/80786179)编写C++文档，[Doxygen官方所有指令](https://www.doxygen.nl/manual/commands.html)
+* [vscode 自动生成Doxygen格式注释](https://www.its404.com/article/ABC_ORANGE/119538802)
+* [C++项目代码实例](https://github.com/andrewwang79/cpp.practice/tree/master/doxygen)
+
+![](../s/third/doxygen.png)
 
 ## 编写
-### 函数定义
-* 在函数前加，以下是API函数实例，参见https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/DogService.h
+### 文件
+```
+/**
+ * @file 文件名
+ * @brief 简介
+ * @details 细节
+ * @mainpage 工程概览
+ * @author 作者
+ * @email 邮箱
+ * @version 版本号
+ * @date 年-月-日
+ * @copyright SKY
+ * @license 版权
+ */
+```
+
+### 类
+```
+/**
+ * @brief  类简介，比如功能说明
+ * @details 细节
+ * @date   2021.05.12
+ * @author wangyaqi
+ * @warning   警告
+ * @attention 注意事项
+ * @note 备注说明。可用于类修改记录
+ * | 时间 | 作者 | 说明 |
+ * | :-: | - | - |
+ * | 20210.05.12 | wangyaqi | 增加函数xxx |
+ */
+```
+
+### 函数
+```
+/**
+ * @brief  函数简介，比如功能说明
+ * @date   2021.05.12
+ * @author wangyaqi
+ * @param
+ * | 名称 | 字段 | 类型 | 必须 | 说明 |
+ * | :-: | - | - | - | - |
+ * | 类型 | type | string | Y | 类型枚举 |
+ * | 序列号 | sn | string | Y | 唯一 |
+ * | 引用字段A[out] | refA | string& | Y | 说明 |
+ * @return 返回值说明
+ *   @retval 0 成功
+ *   @retval -1 失败
+ * @exception 超出范围的异常
+ * @warning   警告
+ * @attention 注意事项
+ * @note 备注说明。可用于函数修改记录
+ * | 时间 | 作者 | 说明 |
+ * | :-: | - | - |
+ * | 20210.05.12 | wangyaqi | 增加输入参数xxx |
+ */
+```
+
+### API接口
+* 在函数前加，参见https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/DogService.h
 
 ```
 /**
- * @brief  简介，比如功能说明
+ * @brief  接口简介，比如功能说明
  * @date   2021.05.12
  * @author wangyaqi
  * @param
@@ -20,7 +80,7 @@
  * | 名称 | 字段 | 类型 | 必须 | 说明 |
  * | :-: | - | - | - | - |
  * | 结果 | result | string | Y | 结果情况 |
- * | 区域 | detection/polygon | array<double> | Y | 2D |
+ * | 区域 | detection/polygon | array<double> | Y | 2D点 |
  * 返回码
  * | 返回码 | 名称 | 说明 |
  * | :-: | - | - |
@@ -33,13 +93,9 @@
  * | :-: | - | - |
  * | 20210.05.12 | wangyaqi | 增加输入参数xxx |
  */
- ```
+```
 
-* 效果
-
-![](../s/third/doxygen.png)
-
-### 主页内容说明
+### 文档的主页内容
 * 在任意文件添加，参见https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/main.cpp
 
 ```
@@ -52,8 +108,8 @@
 */
 ```
 
-### 新增导航树页面
-* 在项目里添加md文件，参见https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/article.md
+### 文档的导航树页面
+* 在项目里添加md文件新增导航树的项，参见https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/article.md
 
 ### 生成UML图
 * 安装graphviz，确保以下参数。参考自https://blog.csdn.net/Cross_Entropy/article/details/117265884
