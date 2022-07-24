@@ -16,6 +16,7 @@ make install
 * -gdwarf-4 // 调试启用[DWARF](https://www.desgard.com/2020/03/09/dwarf-with-dsym-build-setting.html)
 * -c // 只编译不连接，产生 .o文件（目标文件）
 * -E // 预编译
+* -Wall // 编译后显示所有警告
 
 ### 头文件和库文件
 * CPLUS_INCLUDE_PATH：程序编译时的c++头文件路径。对应命令参数是-I path

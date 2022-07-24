@@ -3,6 +3,10 @@
 * [C++ 异常处理](https://www.runoob.com/cplusplus/cpp-exceptions-handling.html)
 * [内存分配(brk/mmap)](https://blog.csdn.net/yusiguyuan/article/details/39496057)
 * [C和C++互调用](https://zhuanlan.zhihu.com/p/123269132)
+* [指针基本概念](https://blog.csdn.net/weixin_39982452/article/details/113048527)
+  * 指针：int* p
+  * 指针的数据：*p
+  * 指针的地址：&p
 
 ## 进程Fork和Exec
 * [Linux下Fork与Exec使用](https://www.cnblogs.com/alantu2018/p/8462513.html)

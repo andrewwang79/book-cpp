@@ -18,7 +18,7 @@
   1. Linux宿主机 : 把上一步生成文件"id_rsa.pub"的内容追加到文件"~/.ssh/authorized_keys"
   1. 首次需先用cmd登录，因为首次要交互式confirm: ssh user@192.168.1.99
 * [ssh连接用的是windows用户名的解决](https://blog.csdn.net/LittleSeedling/article/details/120606054)
-* 1个IP多端口时，需设置不同的昵称“Host”。配置文件参考：
+* 1个IP多端口时，不同端口需设置不同的昵称“Host”，注意Host不能有"ip:port"的写法。配置文件参考：
 
 ```
 Host 192.168.1.27-CPP

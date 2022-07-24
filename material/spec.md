@@ -27,23 +27,28 @@ LOG_INFO("ABC finish");
 LOG_INFO_FMT("result : code[{}], length[{}]", code, 100);
 ```
 
+### 划重点
+* 禁止在头文件实现函数，template函数只能在头文件实现
+* 类里有指针new的，必须在析构函数内delete
+
 ### 命名
 * 整体采用驼峰命名
 
 | 项 | 规则 | 示例 |
 | - | - | - |
-| namespace | 首字小写驼峰，多个单词尽量分多层namespace | product |
+| 定义相关 |  |  |
+| namespace | 首字小写驼峰，多个单词尽量分多层namespace | alg |
+| typedef | 首字大写驼峰 | ThreeDimMaskType |
+| 结构相关 |  |  |
 | 枚举和值 | 大写底横 | EAT_TIME |
-| typedef | 首字大写驼峰 | ThreeUcMaskType |
-|  |  |  |
 | 结构 | 首字大写驼峰 | RequestDto |
 | 结构变量 | 首字小写驼峰 | requestId |
-|  |  |  |
 | 类 | 首字大写驼峰 | Person |
-| 类函数 | 首字小写驼峰 | sayHello |
+| 类函数 | 首字小写驼峰，动词在前 | sayHello |
 | 类变量 | 首字小写驼峰+底横 | lunchNumber_ |
-|  |  |  |
-| 文件夹 | 首字小写驼峰，多个单词尽量分多层目录 | test |
+| 文件系统 |  |  |
+| 文件夹 | 首字小写驼峰，多个单词尽量分多层目录 | alg |
+| 文件 | 同类名 | Person |
 
 ### 示例
 ```
@@ -59,15 +64,15 @@ enum EAT_TIME {
   NOON
 };
 
-using ThreeUcMaskType = itk::Image<uint8_t, 3>;
-typedef itk::ImageDuplicator<ThreeUCMaskType> ThreeDuplicatorType;
+using ThreeDimMaskType = itk::Image<uint8_t, 3>;
+typedef itk::ImageDuplicator<ThreeDimMaskType> ThreeDuplicatorType;
 
 struct RequestDto {
   int requestId;
   string value;
 }
 
-namespace product {
+namespace alg {
 class Person {
  public:
   Person();
@@ -90,21 +95,21 @@ class Person {
 
 ```
 库名称
-  inc/库名称/    // 头文件
-  src           // 源文件
-  test          // 单元测试
-  example       // 测试demo
+  include/库名称/    // 头文件
+  src               // 源文件
+  test              // 单元测试
+  example           // 测试demo
 ```
 
-* 库内cpp文件加载头文件：#include "库名称/CustomTimer.h"
-* 同一个工程内其他项目使用：include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../库名称/inc)
+* 库内cpp文件加载头文件：#include "库名称/Timer.h"
+* 同一个工程内其他项目使用：include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../库名称/include)
 
 ## 文档编写
-* [Doxygen](/third/doxygen)
+* 注释见[Doxygen](/third/doxygen)
 
 ## 代码提交规范
 1. 代码提交前必须格式化
-1. 代码格式化的单独提交，不要和业务混在一起
+1. 大批量代码的格式化需单独提交，不要和业务混在一起
 1. 在README.md记录修改内容，比如新增目录的用途
 1. 配套的UT代码
 

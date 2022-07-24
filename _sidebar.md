@@ -13,6 +13,7 @@
     * [clang-format](third/clang_format.md)
     * [doxygen](third/doxygen.md)
     * [vscode](third/vscode.md)
+    * [QT](third/qt.md)
   * [第三方库](lib/SUMMARY.md)
     * [ACL](lib/acl.md)
     * [log](lib/log.md)
