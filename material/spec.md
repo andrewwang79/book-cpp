@@ -29,7 +29,8 @@ LOG_INFO_FMT("result : code[{}], length[{}]", code, 100);
 
 ### 划重点
 * 禁止在头文件实现函数，template函数只能在头文件实现
-* 类里有指针new的，必须在析构函数内delete
+* 类里有指针new的，必须在析构函数内delete。见[valgrind](../third/valgrind)
+* 对外提供的业务库，1个库只有1个头文件。内部库(如通用库)除外。
 
 ### 命名
 * 整体采用驼峰命名
