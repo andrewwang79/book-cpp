@@ -2,16 +2,19 @@
 * [gcc,make,cmake](https://blog.csdn.net/libaineu2004/article/details/77119908)
 
 ## 常用命令
-### 库文件
-* 查看运行时的链接库路径：echo $LD_LIBRARY_PATH
-* 重新加载库：ldconfig /usr/local/lib
-* 查看动态库或执行程序的依赖库：ldd xxx.so/exe
-* 查看符号：nm -D xxx.so | grep 函数名, [符号表](https://wenku.baidu.com/view/5282f0a080d049649b6648d7c1c708a1284a0ae9.html)
-* 查看文件(执行文件/库)是否是debug版本：readelf -S ri.out |grep debug
-*  查看库路径是否有库：ldconfig -p | grep libGL
+### 动态库
+* 查看运行链接库的路径：echo $LD_LIBRARY_PATH
+* 重新加载指定路径的动态库到系统中：ldconfig /usr/local/lib
+* 查看系统库的所有动态库：ldconfig -p
+* 查看系统库中是否有某个动态库：ldconfig -p | grep libGL
+* 查看动态库的符号：nm -D xxx.so | grep 函数名, [符号表](https://wenku.baidu.com/view/5282f0a080d049649b6648d7c1c708a1284a0ae9.html)
 * [Lib文件缺失的通用解决办法](https://www.jianshu.com/p/289205fae296)，查找对应package
   * dpkg -S /usr/lib/x86_64-linux-gnu/libcuda.so
   * apt-file search libOpenGL.so
+* 查看动态库或程序的依赖库：ldd xxx.so     ldd xxx.exe
+* 查看动态库或程序是否是debug版本：readelf -S xxx.so |grep debug
+
+### ELF
 * ELF文件信息查看
   * nm ELF文件
   * size ELF文件

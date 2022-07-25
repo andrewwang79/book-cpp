@@ -3,10 +3,17 @@
 * [C++ 异常处理](https://www.runoob.com/cplusplus/cpp-exceptions-handling.html)
 * [内存分配(brk/mmap)](https://blog.csdn.net/yusiguyuan/article/details/39496057)
 * [C和C++互调用](https://zhuanlan.zhihu.com/p/123269132)
-* [指针基本概念](https://blog.csdn.net/weixin_39982452/article/details/113048527)
+
+## 指针
+* [指针基本概念](https://blog.csdn.net/weixin_39982452/article/details/113048527) : 指针也是一种变量，只不过它的内存单元中保存的是一个地址：
   * 指针：int* p
   * 指针的数据：*p
   * 指针的地址：&p
+* 各种日常使用示例 : [1](https://blog.csdn.net/chen1234520nnn/article/details/83189244), [2](https://liitdar.blog.csdn.net/article/details/80972088)
+  * 字符串常量是其第一个字符的地址。数组名是其第一个元素的地址
+  * **的用途
+    * 多维数组：比如char**
+    * 作为函数输入参数，获取char ** pp; *pp = new char[100];
 
 ## 进程Fork和Exec
 * [Linux下Fork与Exec使用](https://www.cnblogs.com/alantu2018/p/8462513.html)
