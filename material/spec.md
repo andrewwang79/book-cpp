@@ -30,7 +30,8 @@ LOG_INFO_FMT("result : code[{}], length[{}]", code, 100);
 ### 划重点
 * 函数不要大于40行(不含注释空行等)
 * 禁止在头文件实现函数，template函数只能在头文件实现
-* 类里有指针的成员变量需在析构函数内delete。内存泄漏见[valgrind](../third/valgrind)
+* 类里有指针成员变量的需在析构函数内delete。内存泄漏见[valgrind](../third/valgrind)
+* 尽量用智能指针
 * 少用static的函数和变量，多用类和成员变量
 * 尽量用namespace
 * 对外提供的业务库，1个库尽量对外只需要1个头文件
