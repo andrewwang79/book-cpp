@@ -11,7 +11,7 @@ conan remote add <server_name> <sever_url> // 将远端conan服务器加入本�
 conan install . -s build_type=Debug -s os=Linux -r cloud // Linux初始化
 conan install . -s build_type=Debug -s arch=x86_64 -s os=Windows -r cloud // Windows初始化
 conan search rapidjson/1.1.0@Common/stable // 查看本地库的详细信息
-conan install -r cloud rapidjson/1.1.0@Common/stable // 安装具体包
+conan install -r cloud rapidjson/1.1.0@Common/stable // 安装具体某个包
 conan search -r cloud rapidjson/1.1.0@Common/stable -q "arch=x86 AND os=Windows" // 查看远程库的详细信息
 conan remove -p packageId // 删除本地库packageId
 conan remove -r cloud rapidjson/1.1.0@Common/stable -q "arch=x86_64 AND os=Linux" --force // 强制删除远程库
@@ -137,3 +137,10 @@ def requirements(self):
 ### 打包
 * [打包只有头文件的库](https://www.cnblogs.com/xl2432/p/11901089.html), https://docs.conan.io/en/latest/howtos/header_only.html?highlight=header%20only
 * [conan打包脚本](https://chromium.googlesource.com/external/github.com/google/flatbuffers/+/c0698cc33f1e534bb59c455909b88cc2726089af/conanfile.py)
+
+### FAQ
+```
+错误：conan install时报错   ERROR: invalid literal for int() with base 10: ''
+原因：conan代码没做为空检查，在文件内容为空时导致报错
+解决：重新下载包，或者从其他地方复制conanmanifest.txt，确保有内容。
+```

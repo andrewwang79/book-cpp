@@ -114,6 +114,11 @@ install(FILES hello.h DESTINATION include/hello) // 安装hello.h到目录includ
 install(DIRECTORY /opt/lib/ DESTINATION abc/) // 因为有"/"，abc目录下有lib目录下的内容，但没有lib目录本身
 install(DIRECTORY /opt/lib DESTINATION abc/) // abc目录下有lib目录
 
+# 文件复制
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/abc.cfg DESTINATION ${CMAKE_BINARY_DIR}/bin/config) // 单文件
+file(GLOB cfgFiles "${CMAKE_CURRENT_SOURCE_DIR}/*.cfg")
+file(COPY ${cfgFiles} DESTINATION ${CMAKE_BINARY_DIR}/bin/config) // 多文件
+
 # find_library引入类库
 find_library(Z_LIB libz.so.1.2.9 /usr/local/lib/) // 变量名，需引入的库，查询路径
 message(STATUS "Z_LIB lib path:" ${Z_LIB})
