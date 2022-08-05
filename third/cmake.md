@@ -208,6 +208,7 @@ endif()
 * [字符串操作](https://blog.csdn.net/m0_57845572/article/details/118520561)
 * [使用execute_process调用shell命令或脚本](https://blog.csdn.net/qq_28584889/article/details/97758450)
 * [configure_file](https://www.cnblogs.com/the-capricornus/p/4717566.html)
+* [find_package原理](https://blog.csdn.net/lianshaohua/article/details/108402470)
 
 ### 动态库的符号表导出
 1. set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON): 全局导出

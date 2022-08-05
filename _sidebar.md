@@ -14,10 +14,10 @@
     * [doxygen](third/doxygen.md)
     * [valgrind](third/valgrind.md)
     * [vscode](third/vscode.md)
-    * [QT](third/qt.md)
   * [第三方库](lib/SUMMARY.md)
     * [ACL](lib/acl.md)
     * [log](lib/log.md)
+    * [QT](lib/qt.md)
   * 开发
     * [编译](dev/compile.md)
     * [调试定位](dev/debug.md)
