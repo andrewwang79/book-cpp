@@ -34,6 +34,7 @@
 | 库文件输出目录 | LIBRARY_OUTPUT_PATH |
 | cmake当前所处的源代码目录，比如子目录 | CMAKE_CURRENT_SOURCE_DIR |
 | cmake当前所处的build目录 | CMAKE_CURRENT_BINARY_DIR |
+| 操作系统 | CMAKE_SYSTEM_NAME |
 
 * [conanbuildinfo.cmake里的变量](https://docs.conan.io/en/latest/reference/generators/cmake.html)
 

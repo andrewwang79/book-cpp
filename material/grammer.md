@@ -39,3 +39,15 @@ auto u2 = std::move(u1); // u2获得内存所有权，u1此时等于nullptr
 * [智能指针shared_ptr、unique_ptr、weak_ptr](https://blog.csdn.net/wanggao_1990/article/details/97932162)
 * [unique_ptr](https://blog.csdn.net/afei__/article/details/80670283), [从C++20 shared_ptr移除unique()方法浅析多线程同步](https://blog.csdn.net/zxpoiu/article/details/111255182)
 * [weak_ptr](https://blog.csdn.net/c_base_jin/article/details/79440999)
+
+### 操作系统的宏定义
+* [操作系统的宏定义](https://blog.51cto.com/u_8081755/3351682), _WIN32包括Windows的32位和64位
+* 宏定义使用
+```
+#ifdef _WIN32
+  //define something for Windows (32-bit and 64-bit, this part is common)
+#elif __linux__
+  //define something for Windows (64-bit only)
+#else
+#endif
+```
