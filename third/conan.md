@@ -13,6 +13,7 @@ conan install . -s build_type=Debug -s arch=x86_64 -s os=Windows -r cloud // Win
 conan search rapidjson/1.1.0@Common/stable // 查看本地库的详细信息
 conan install -r cloud rapidjson/1.1.0@Common/stable // 安装具体某个包
 conan search -r cloud rapidjson/1.1.0@Common/stable -q "arch=x86 AND os=Windows" // 查看远程库的详细信息
+conan remove packageName // 删除本地库packageName，name如rapidjson/1.1.0@Common/stable
 conan remove -p packageId // 删除本地库packageId
 conan remove -r cloud rapidjson/1.1.0@Common/stable -q "arch=x86_64 AND os=Linux" --force // 强制删除远程库
 

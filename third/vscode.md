@@ -73,7 +73,7 @@ Host 192.168.1.27-HOST
   "environment": [
       {
           "name": "PATH",
-          "value": "C:/third/lib/debug/" # conan库目录，debug时可加载依赖库。Linux通过ldconfig加载。
+          "value": "C:/third/lib/debug/" # 第三方库的目录，debug时可加载依赖库。Linux也可通过ldconfig加载
       }
   ]
 }
