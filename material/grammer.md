@@ -6,6 +6,16 @@
 值到字符串：string s = std::to_string(intVal);
 ```
 * [文件名和文件行](https://blog.csdn.net/nyist_zxp/article/details/107890791)
+* 静态实例
+```
+class ClassAbc {
+public:
+  static ClassAbc& getInstance() {
+    static ClassAbc instance;
+    return instance;
+  }
+}
+```
 
 ## 智能指针
 ### [使用](https://javajgs.com/archives/114676)
@@ -42,17 +52,16 @@ auto u2 = std::move(u1); // u2获得内存所有权，u1此时等于nullptr
 * 不计数的弱引用，解决shared_ptr双向引用的问题
 * [weak_ptr](https://blog.csdn.net/c_base_jin/article/details/79440999)
 
-## 知识
-* [C++类型转换：隐式类型转换、类类型转换、显示类型转换](https://segmentfault.com/a/1190000016582440)
+## map
 * [map](https://blog.csdn.net/sevenjoin/article/details/81943864)
-* [function](https://blog.csdn.net/weixin_43712770/article/details/120738647)
-* [模板类和模板函数](http://c.biancheng.net/view/320.html)
-* [模板别名](https://wizardforcel.gitbooks.io/cpp-11-faq/content/55.html)
-* [C++17中的std::any](https://hedzr.com/c++/variant/any-in-c++17/)
-* [右值引用](https://changkun.de/modern-cpp/zh-cn/03-runtime/index.html#3-3-%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8)
+```
+std::map<std::string, ClassAbc> abcMap;
+abcMap.insert("key", { "classProperty1", "classProperty2" });
+```
 
-### 操作系统的宏定义
+## 操作系统的宏定义
 * [操作系统的宏定义](https://blog.51cto.com/u_8081755/3351682), _WIN32包括Windows的32位和64位
+* [宏定义的#和##](https://blog.csdn.net/qq_27074387/article/details/51646681)
 * 宏定义使用
 ```
 #ifdef _WIN32
@@ -62,3 +71,15 @@ auto u2 = std::move(u1); // u2获得内存所有权，u1此时等于nullptr
 #else
 #endif
 ```
+
+## enum
+* [enum与int转换](https://blog.csdn.net/Dream_Weave/article/details/83411570)
+
+## 知识
+* [C++类型转换：隐式类型转换、类类型转换、显示类型转换](https://segmentfault.com/a/1190000016582440)
+* [function](https://blog.csdn.net/weixin_43712770/article/details/120738647)
+* [模板类和模板函数](http://c.biancheng.net/view/320.html)
+* [模板别名](https://wizardforcel.gitbooks.io/cpp-11-faq/content/55.html)
+* [C++17中的std::any](https://hedzr.com/c++/variant/any-in-c++17/)
+* [右值引用](https://changkun.de/modern-cpp/zh-cn/03-runtime/index.html#3-3-%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8)
+* [explicit构造函数](https://www.cnblogs.com/likebeta/archive/2012/07/31/explicit.html), 所有单参数的构造函数都必须是显示的

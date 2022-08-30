@@ -18,5 +18,9 @@
 * [C++使用Boost实现HTTP服务端——同步、异步、协程](https://blog.csdn.net/luchengtao11/article/details/100928141)
 * [Boost Beast要点解析](https://blog.csdn.net/guxch/article/details/106780832)
 
+## BreakPad
+* [跨平台的崩溃转储和分析框架](https://github.com/google/breakpad), [介绍](https://www.jianshu.com/p/295ebf42b05b)
+* [Windows全局异常捕获和分析.dmp文件](https://blog.csdn.net/ZLOZL/article/details/117607946)
+
 ## ITK
 * 编译时remote模块下载失败: git clone到/Modules/Remote目录，目录名和git tag详见对应的cmake文件

@@ -1,6 +1,7 @@
 # C++知识
 ## 资料
-* [C++ 异常处理](https://www.runoob.com/cplusplus/cpp-exceptions-handling.html)
+* [重载(overload)、覆盖(override)、隐藏(hide)](https://cloud.tencent.com/developer/article/1017796)，多态
+* [C++ 异常处理](https://www.runoob.com/cplusplus/cpp-exceptions-handling.html), [异常类架构](https://blog.csdn.net/fengbingchun/article/details/78303734)
 * [内存分配(brk/mmap)](https://blog.csdn.net/yusiguyuan/article/details/39496057)
 * [C和C++互调用](https://zhuanlan.zhihu.com/p/123269132)
 
@@ -14,6 +15,17 @@
   * **的用途
     * 多维数组：比如char**
     * 作为函数输入参数，获取char ** pp; *pp = new char[100];
+
+## 变量
+* [全局变量、静态全局变量、静态局部变量和局部变量](https://blog.csdn.net/mm_hh/article/details/77126878)
+* https://blog.51cto.com/yang/3989082, https://blog.csdn.net/weixin_43222324/article/details/106989714
+* 全局变量
+  * 放在程序的全局存储区。不属于任何函数体，生命期一直到程序的结束。
+  * 所有文件都可以使用，其他文件只需通过extern来引用。
+* 静态全局/局部变量
+  * 放在程序的全局存储区。仅在变量的作用范围内可见【全局是定义它的文件内有效，局部变量只在定义它的函数内有效】。
+  * 下一次调用时还是原来的值[因为在全局存储区]，比如静态局部变量(函数)的值在每次修改后，下一次使用就是修改后的值。
+  * 在2个文件里有同名的静态全局变量：会在链接时报错变量重复
 
 ## 进程Fork和Exec
 * [Linux下Fork与Exec使用](https://www.cnblogs.com/alantu2018/p/8462513.html)
