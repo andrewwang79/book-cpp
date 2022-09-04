@@ -1,9 +1,9 @@
 * C++
   * [介绍](README.md)
   * 资料
-    * [知识](material/kb.md)
-    * [语法](material/grammer.md)
+    * [C++知识](material/kb.md)
     * [编译原理](material/compile.md)
+    * [开发语法](material/grammer.md)
     * [开发规范](material/spec.md)
   * 第三方工具
     * [开发工具](third/dev.md)

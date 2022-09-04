@@ -65,15 +65,6 @@ double power1(double base, int exponent);
 * [Linux用CMAKE的rpath将lib路径内置到可执行文件](https://blog.csdn.net/z296671124/article/details/86699720)
 * [windows加载dll时，搜索的路径顺序](https://blog.csdn.net/m0_60352504/article/details/120070816)
 
-### 动态库的符号可见性
-* 动态库只公开最小的符号，设置动态库的符号可见性。最好的方式是在默认情况下隐藏所有符号，显式地只公开那些需要使用的符号。
-* 让应用程序二进制接口(ABI)和库接口(API)一致。
-
-| 系统 | 存放 | 语法 |
-| :-: | - | - |
-| Windows | 独立lib文件 | [__declspec(dllexport)](https://blog.csdn.net/qwq1503/article/details/85696279) |
-| Linux | 内置在so文件里 | `__attribute__((visibility("hidden")))` |
-
 ### Debug和Release
 * [两者区别](https://developer.51cto.com/article/645043.html)：编译选项，内存分配，Assert
 * [Linux编译时如何减小so库文件的大小](https://blog.csdn.net/coolchen66/article/details/110928982)
