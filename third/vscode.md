@@ -39,14 +39,14 @@ Host 192.168.1.27-HOST
 ```
 # Linux调试程序配置
 {
-    "name": "XyzTest Debug(Linux)",
+    "name": "XyzTest(Linux)",
     "type": "cppdbg",
     "request": "launch",
+    "cwd": "${workspaceRoot}",
     "program": "${workspaceRoot}/build/bin/XyzTest",
     "args": [
         "a1"
     ],
-    "cwd": "${workspaceRoot}",
     "preLaunchTask": "cp_config", # 自定义task，可以不用
     "stopAtEntry": false,
     "setupCommands": [
@@ -60,14 +60,14 @@ Host 192.168.1.27-HOST
 
 # Windows调试程序配置
 {
-  "name": "XyzTest Debug(Windows)",
+  "name": "XyzTest(Windows)",
   "type": "cppvsdbg",
   "request": "launch",
+  "cwd": "${workspaceRoot}",
   "program": "${workspaceRoot}/build/bin/XyzTest.exe",
   "args": [
       "a1"
   ],
-  "cwd": "${workspaceRoot}/build/bin/",
   "preLaunchTask": "cp_config", # 自定义task，可以不用
   "stopAtEntry": false,
   "environment": [

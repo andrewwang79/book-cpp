@@ -228,6 +228,14 @@ generate_export_header(message-shared
 )
 ```
 
+### CMAKE_PREFIX_PATH设置
+* https://www.cnblogs.com/Fitanium/p/16181605.html
+* 命令搜索使用路径 : find_package、find_program、find_library、find_file、find_path
+```
+cmake  -DCMAKE_PREFIX_PATH="path1;path2"
+list(APPEND CMAKE_PREFIX_PATH "path1")
+```
+
 ### 安装升级
 * [二进制安装](https://blog.csdn.net/freemote/article/details/103454801)
 * 源码安装
