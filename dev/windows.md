@@ -1,7 +1,10 @@
 # Windows开发
 
 ## 常用命令
-* [查看dll或exe文件的依赖项和符号表](https://blog.csdn.net/weixin_44120025/article/details/118651103) : dumpbin /dependents dll/exe文件路径, dumpbin /symbols dll/exe文件路径
+* [查看dll或exe文件的依赖项和符号表](https://blog.csdn.net/weixin_44120025/article/details/118651103)
+  * dumpbin /dependents dll/exe // 依赖库
+  * dumpbin /exports dll // 符号表
+  * dumpbin /symbols dll/exe // 感觉没啥用
 
 ## __declspec(dllimport/dllexport)
 * https://www.jianshu.com/p/ea45468f25f1
