@@ -4,7 +4,7 @@
 ## 常用命令
 ### 动态库
 * 查看运行链接库的路径：echo $LD_LIBRARY_PATH
-* 重新加载指定路径的动态库到系统中：ldconfig /usr/local/lib
+* 重新加载指定路径的动态库到系统：ldconfig /usr/local/lib
 * 查看系统库的所有动态库：ldconfig -p
 * 查看系统库中是否有某个动态库：ldconfig -p | grep libGL
 * 查看动态库的符号：nm -D xxx.so | grep 函数名, [符号表](https://wenku.baidu.com/view/5282f0a080d049649b6648d7c1c708a1284a0ae9.html)
@@ -13,6 +13,7 @@
   * apt-file search libOpenGL.so
 * 查看动态库或程序的依赖库：ldd xxx.so     ldd xxx.exe
 * 查看动态库或程序是否是debug版本：readelf -S xxx.so |grep debug
+* 查看程序运行时调用的动态链接库 : cat /proc/5590/maps
 
 ### ELF
 * ELF文件信息查看

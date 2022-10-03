@@ -152,18 +152,7 @@ message("CMAKE_CXX_FLAGS_DEBUG is ${CMAKE_CXX_FLAGS_DEBUG}")
 message("CMAKE_CXX_FLAGS_RELEASE is ${CMAKE_CXX_FLAGS_RELEASE}")
 message("CMAKE_CXX_FLAGS_RELWITHDEBINFO is ${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
 message("CMAKE_CXX_FLAGS_MINSIZEREL is ${CMAKE_CXX_FLAGS_MINSIZEREL}")
-```
 
-### 语法
-```
-# 添加头文件目录
-include_directories(directory1 directory2 ...)
-
-# 添加需要链接的库文件目录
-link_directories(directory1 directory2 ...)
-
-# 添加需要链接的库文件全路径
-link_libraries(full_path）
 
 # 链接具体的库，可以是库名称、库文件名和文件全路径
 target_link_libraries(${TARGET_NAME} log4cplus) # 库名称，不需要lib前缀，默认优先链接动态库
@@ -196,6 +185,24 @@ if(EXISTS "${ROOT}/file.xml")
 else()
    ...
 endif()
+
+# IF命令 https://blog.csdn.net/weixin_41923935/article/details/122196384
+if((NOT condition) AND (condition OR (condition)))
+
+# 调试
+return (0) # 退出
+```
+
+### 语法
+```
+# 添加头文件目录
+include_directories(directory1 directory2 ...)
+
+# 添加需要链接的库文件目录
+link_directories(directory1 directory2 ...)
+
+# 添加需要链接的库文件全路径
+link_libraries(full_path)
 ```
 
 ## 资料
@@ -208,9 +215,23 @@ endif()
 * [CMAKE自定义模块](https://www.kancloud.cn/itfanr/cmake-practice/82991)
 * [列表操作](https://blog.csdn.net/fuyajun01/article/details/9036477)
 * [字符串操作](https://blog.csdn.net/m0_57845572/article/details/118520561)
-* [使用execute_process调用shell命令或脚本](https://blog.csdn.net/qq_28584889/article/details/97758450)
 * [configure_file](https://www.cnblogs.com/the-capricornus/p/4717566.html)
 * [find_package原理](https://blog.csdn.net/lianshaohua/article/details/108402470)
+
+###  动态库添加版本信息
+* [动态库添加版本信息](https://blog.csdn.net/qq295109601/article/details/118063009)
+```
+# Windows
+Version.rc.in(来自VisualStudio) -> Version.rc
+add_library(lib SHARED ${SOURCES} ${VERSION_FILES})
+
+# Linux
+SET_TARGET_PROPERTIES(lib PROPERTIES VERSION 1.2.3 SOVERSION 1)
+```
+
+###  执行外部命令
+* [使用execute_process调用shell命令或脚本](https://blog.csdn.net/qq_28584889/article/details/97758450)
+* [执行外部命令](https://zhuanlan.zhihu.com/p/396036530)
 
 ### 动态库的符号表导出
 1. set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON): 全局导出

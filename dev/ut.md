@@ -11,13 +11,27 @@
 * gtest编译同样的源代码和UT，生成文件的签名是不一样，应该是加了随机数，类似tar
 * [c++和 gmock环境搭建方法](https://my.oschina.net/donngchao/blog/4884051)
 * [玩转Google开源C++单元测试框架Google Test系列(gtest)(总)](https://www.cnblogs.com/coderzh/archive/2009/04/06/1426755.html)
+* [gtest命令](https://www.cnblogs.com/xmilt/p/9647408.html), --gtest_list_tests, --gtest_filter
+* [断言](https://www.jianshu.com/p/c7c702c0abb9)
+* [在 Visual Studio 中编写 C/C++ 单元测试](https://docs.microsoft.com/zh-cn/visualstudio/test/writing-unit-tests-for-c-cpp?view=vs-2019)
+* [c++编译时如何把private属性变成public？](https://blog.csdn.net/qq910894904/article/details/38583593)
 
 ### mock
 * https://zhuanlan.zhihu.com/p/101906555
 
-### 资料
-* [在 Visual Studio 中编写 C/C++ 单元测试](https://docs.microsoft.com/zh-cn/visualstudio/test/writing-unit-tests-for-c-cpp?view=vs-2019)
-* [c++编译时如何把private属性变成public？](https://blog.csdn.net/qq910894904/article/details/38583593)
+### 语法
+```
+EXPECT_TRUE(condition);
+EXPECT_EQ(val1, val2);
+EXPECT_GT(val1, val2);
+EXPECT_STREQ(str1.c_str(), str2.c_str());
+test fixture对象
+class XyzTest : public ::testing::Test {
+ protected:
+  void SetUp() override { }
+  void TearDown() override { }
+};
+```
 
 ## lcov
 * 安装

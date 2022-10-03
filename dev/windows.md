@@ -5,9 +5,10 @@
   * dumpbin /dependents dll/exe // 依赖库
   * dumpbin /exports dll // 符号表
   * dumpbin /symbols dll/exe // 感觉没啥用
+* [查看程序运行时调用的动态链接库](https://blog.csdn.net/fightsyj/article/details/107043353) : 资源监视器 -> CPU标签页 -> 关联的模块
 
-## __declspec(dllimport/dllexport)
-* https://www.jianshu.com/p/ea45468f25f1
+## 导入导出
+* [__declspec(dllimport/dllexport)](https://www.jianshu.com/p/ea45468f25f1)
   * __declspec(dllexport)：导出符号，也就是定义该函数的dll
   * __declspec(dllimport)：导入符号，也就是使用该函数
 
