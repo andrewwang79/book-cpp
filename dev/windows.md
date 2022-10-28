@@ -23,3 +23,6 @@
 API_DECLSPEC void HelloWorld();
 class API_DECLSPEC XyzClass{};
 ```
+
+## 库
+* 编译链接时会lib文件里会记录其对应的dll，所以不能修改dll文件名

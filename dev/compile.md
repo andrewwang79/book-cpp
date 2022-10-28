@@ -11,7 +11,7 @@
 * [Lib文件缺失的通用解决办法](https://www.jianshu.com/p/289205fae296)，查找对应package
   * dpkg -S /usr/lib/x86_64-linux-gnu/libcuda.so
   * apt-file search libOpenGL.so
-* 查看动态库或程序的依赖库：ldd xxx.so     ldd xxx.exe
+* 查看动态库或程序的依赖库：ldd xxx.so/xxx.exe
 * 查看动态库或程序是否是debug版本：readelf -S xxx.so |grep debug
 * 查看程序运行时调用的动态链接库 : cat /proc/5590/maps
 

@@ -20,6 +20,8 @@ conan remove -r cloud rapidjson/1.1.0@Common/stable -q "arch=x86_64 AND os=Linux
 conan export-pkg conanfile.py VTK/8.2.0@Common/stable-debug1 -s arch=x86_64 -s os=Linux -s build_type=Debug -f // 本地打包
 conan upload VTK/8.2.0@Common/stable -r cloud --force --all // 上传提交
 
+// https://docs.conan.io/en/1.22/reference/commands/misc/user.html
+conan user // 所有用户
 conan user <user_name> -r <server_name> -p <user_pwd> --skip-auth // 配置指定服务的用户
 conan user --clean // 重置所有服务的用户
 ```
