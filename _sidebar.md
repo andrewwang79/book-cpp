@@ -15,6 +15,7 @@
     * [valgrind](third/valgrind.md)
     * [vscode](third/vscode.md)
   * [第三方库](lib/SUMMARY.md)
+    * [boost](lib/boost.md)
     * [ACL](lib/acl.md)
     * [log](lib/log.md)
     * [QT](lib/qt.md)

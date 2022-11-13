@@ -73,6 +73,12 @@ abcMap.insert("key", { "classProperty1", "classProperty2" });
 #endif
 ```
 
+## 常量定义
+```
+字符串：定义全局变量
+const string A=“a”;
+```
+
 ## enum
 * [enum与int转换](https://blog.csdn.net/Dream_Weave/article/details/83411570)
 

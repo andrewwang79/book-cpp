@@ -117,9 +117,10 @@ install(DIRECTORY /opt/lib DESTINATION abc/) // abc目录下有lib目录
 
 # 文件复制
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/config/ DESTINATION config) // 目录复制
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/abc.cfg DESTINATION config) // 只支持单文件复制
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/abc.cfg DESTINATION config) // 单文件复制
+// 特定后缀的多文件复制，如果是【${CMAKE_CURRENT_SOURCE_DIR}/*】则复制目录下的所有(含所有子目录)
 file(GLOB cfgFiles "${CMAKE_CURRENT_SOURCE_DIR}/*.cfg")
-file(COPY ${cfgFiles} DESTINATION config) // 多文件复制
+file(COPY ${cfgFiles} DESTINATION config)
 
 # find_library引入类库
 find_library(Z_LIB libz.so.1.2.9 /usr/local/lib/) // 变量名，需引入的库，查询路径

@@ -79,6 +79,11 @@ Host 192.168.1.27-HOST
 }
 ```
 
+### tasks.json
+```
+"command": "cmd1 ; cmd2"
+```
+
 ### c_cpp_properties.json
 ```
 # 头文件include目录配置
