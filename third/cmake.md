@@ -140,8 +140,10 @@ else()
     message(FATAL_ERROR ”CURL library not found”)
 endif()
 
-# 字符串大小写
-string(TOLOWER ${CMAKE_BUILD_TYPE} _CMAKE_BUILD_TYPE)
+# 字符串
+* [字符串操作](https://blog.csdn.net/m0_57845572/article/details/118520561)
+string(TOLOWER ${CMAKE_BUILD_TYPE} _CMAKE_BUILD_TYPE) # 大小写
+string(CONCAT TARGET_STRING "x" "y" "z") # 合并，TARGET_STRING是xyz
 
 # 编译参数查看
 message("CMAKE_C_FLAGS_DEBUG is ${CMAKE_C_FLAGS_DEBUG}")
@@ -160,6 +162,7 @@ target_link_libraries(${TARGET_NAME} log4cplus) # 库名称，不需要lib前缀
 target_link_libraries(${TARGET_NAME} liblog4cplus.so) # 显式指定链接动态库
 target_link_libraries(${TARGET_NAME} liblog4cplus.a) # 显式指定链接静态库
 target_link_libraries(${TARGET_NAME} /usr/local/lib/liblog4cplus.so)
+target_link_libraries(${TARGET_NAME} A B) # A依赖于B
 
 # 添加子目录，子目录是库、测试程序或者是install用途。子目录是库的一部分代码就不要用add_subdirectory
 add_subdirectory(test)
@@ -173,12 +176,14 @@ set(MSG_TXT "${MSG} world")
 message(STATUS "SOURCE_FILES = ${SOURCE_FILES}.")
 
 # 列表项操作
-set(SOURCE_FILES a.cpp b.cpp)
-list(APPEND SOURCE_FILES c.cpp)
-list(REMOVE_ITEM SOURCE_FILES a.cpp))
-
-# 字符串合并
-string(CONCAT TARGET_STRING "x" "y" "z") # TARGET_STRING是xyz
+* [列表操作](https://blog.csdn.net/fuyajun01/article/details/9036477)
+set(SOURCE_FILES a.cpp b.cpp)         // 创建列表
+list(APPEND SOURCE_FILES c.cpp)       // append
+list(REMOVE_ITEM SOURCE_FILES a.cpp)) // remove
+list(REMOVE_ITEM SOURCE_FILES a.cpp)) // remove
+FOREACH(item ${SOURCE_FILES})         //循环
+  message(${item})
+ENDFOREACH()
 
 # 文件存在判断
 if(EXISTS "${ROOT}/file.xml")
@@ -206,17 +211,20 @@ link_directories(directory1 directory2 ...)
 link_libraries(full_path)
 ```
 
+## CMake编写
+* [include](https://blog.csdn.net/qq_38410730/article/details/102677143)
+* [cmake函数、宏和模块](https://www.cnblogs.com/zhoug2020/p/13659952.html)
+* [CMAKE自定义模块](https://www.kancloud.cn/itfanr/cmake-practice/82991)
+
 ## 资料
 * [cmake使用示例与整理总结](https://blog.csdn.net/wzzfeitian/article/details/40963457)
 * [cmake常用工程示例大集合](https://blog.csdn.net/FreeApe/article/details/52567087)
-* [cmake函数、宏和模块](https://www.cnblogs.com/zhoug2020/p/13659952.html)
 * [cmake命令速查手册](https://blog.csdn.net/u010552731/article/details/89293101)
 * [CMAKE使用](https://www.swack.cn/wiki/001558681974020669b912b0c994e7090649ac4846e80b2000/001560826762151294a43f838f4423299fec74dd2a0f257000)
 * [cmake指令详解](https://blog.csdn.net/bytxl/article/details/50635016)
-* [CMAKE自定义模块](https://www.kancloud.cn/itfanr/cmake-practice/82991)
-* [列表操作](https://blog.csdn.net/fuyajun01/article/details/9036477)
-* [字符串操作](https://blog.csdn.net/m0_57845572/article/details/118520561)
 * [configure_file](https://www.cnblogs.com/the-capricornus/p/4717566.html)
+
+### find_package
 * [find_package原理](https://blog.csdn.net/lianshaohua/article/details/108402470)
 
 ###  动态库添加版本信息

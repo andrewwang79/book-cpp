@@ -27,7 +27,7 @@
 * glib版本：find / -name libstdc++.so.6 && strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX
 
 ## gcc
-* gcc -I 头文件
+* https://cpp.wangyaqi.cn/#/third/gcc
 
 ## make
 * https://www.ruanyifeng.com/blog/2015/02/make.html
