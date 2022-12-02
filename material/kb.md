@@ -1,9 +1,9 @@
 # C++知识
 ## 资料
 * [重载(overload)、覆盖(override)、隐藏(hide)](https://cloud.tencent.com/developer/article/1017796)，多态
-* [C++ 异常处理](https://www.runoob.com/cplusplus/cpp-exceptions-handling.html), [异常类架构](https://blog.csdn.net/fengbingchun/article/details/78303734)
 * [内存分配(brk/mmap)](https://blog.csdn.net/yusiguyuan/article/details/39496057)
 * [C和C++互调用](https://zhuanlan.zhihu.com/p/123269132)
+* [资源获取就是初始化（RAII/Resource Acquisition Is Initialization）](https://zhuanlan.zhihu.com/p/34660259) : 管理资源、避免泄漏的机制
 
 ## 指针
 * [指针基本概念](https://blog.csdn.net/weixin_39982452/article/details/113048527) : 指针也是一种变量，只不过它的内存单元中保存的是一个地址：
@@ -41,10 +41,19 @@
   * fork()用来创建一个新的进程，该进程几乎是当前进程的一个完全拷贝，利用了父进程的代码段、堆栈段、数据段，当父子进程中对共有的数据段进行重新设值或调用不同方法时，才会导致数据段及堆栈段的不同
   * exec()用来启动另外的进程以取代当前运行的进程，除了PID仍是原来的值外，代码段、堆栈段、数据段已经完全被改写了
 
+## 异常处理机制
+* [C++ 异常处理](https://www.runoob.com/cplusplus/cpp-exceptions-handling.html)
+* [异常类架构](https://blog.csdn.net/fengbingchun/article/details/78303734)
+
 ## crash
+* 获取终止并处理，但无法取消终止：[std::set_terminate](https://en.cppreference.com/w/cpp/error/set_terminate)
 * 不在预料之中的错误，是没办法catch的，如：
 1. 地址访问错误：空指针，野指针，内存越界、数组越界等
 1. 内存分配失败、文件不存在等
+
+## 进程间通信
+* [Windows进程同步之互斥量内核对象](https://blog.csdn.net/iteye_18480/article/details/82514068)
+* [windows进程通信-共享内存和信号量](https://blog.csdn.net/xihuanniNI/article/details/78958346)
 
 ## reflect
 * 动态创建，参考自Nebula框架，详见https://www.bbsmax.com/A/QV5ZZapn5y/
