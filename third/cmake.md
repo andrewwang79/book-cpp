@@ -229,6 +229,7 @@ link_libraries(full_path)
 
 ###  动态库添加版本信息
 * [动态库添加版本信息](https://blog.csdn.net/qq295109601/article/details/118063009)
+
 ```
 # Windows
 Version.rc.in(来自VisualStudio) -> Version.rc
