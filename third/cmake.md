@@ -35,6 +35,7 @@
 | cmake当前所处的源代码目录，比如子目录 | CMAKE_CURRENT_SOURCE_DIR |
 | cmake当前所处的build目录 | CMAKE_CURRENT_BINARY_DIR |
 | 操作系统 | CMAKE_SYSTEM_NAME |
+| 操作系统BOOL值 | WIN32, UNIX |
 
 * [conanbuildinfo.cmake里的变量](https://docs.conan.io/en/latest/reference/generators/cmake.html)
 
@@ -130,16 +131,6 @@ if(NOT Z_LIB)
 endif()
 target_link_libraries(${TARGET_NAME} ${Z_LIB})
 
-# [find_package引入外部依赖包](https://zhuanlan.zhihu.com/p/97369704)
-变量：<LibaryName>_FOUND, <LibaryName>_INCLUDE_DIR, <LibaryName>_LIBRARIES
-find_package(CURL)
-if(CURL_FOUND)
-    target_include_directories(${TARGET_NAME} PRIVATE ${CURL_INCLUDE_DIR})
-    target_link_libraries(TARGET_NAME} ${CURL_LIBRARIES})
-else()
-    message(FATAL_ERROR ”CURL library not found”)
-endif()
-
 # 字符串
 * [字符串操作](https://blog.csdn.net/m0_57845572/article/details/118520561)
 string(TOLOWER ${CMAKE_BUILD_TYPE} _CMAKE_BUILD_TYPE) # 大小写
@@ -226,6 +217,20 @@ link_libraries(full_path)
 
 ### find_package
 * [find_package原理](https://blog.csdn.net/lianshaohua/article/details/108402470)
+* [find_package引入外部依赖包](https://zhuanlan.zhihu.com/p/97369704)
+
+```
+变量：<LibaryName>_FOUND, <LibaryName>_INCLUDE_DIR, <LibaryName>_LIBRARIES
+
+示例：
+find_package(CURL)
+if(CURL_FOUND)
+    target_include_directories(${TARGET_NAME} PRIVATE ${CURL_INCLUDE_DIR})
+    target_link_libraries(TARGET_NAME} ${CURL_LIBRARIES})
+else()
+    message(FATAL_ERROR ”CURL library not found”)
+endif()
+```
 
 ###  动态库添加版本信息
 * [动态库添加版本信息](https://blog.csdn.net/qq295109601/article/details/118063009)
