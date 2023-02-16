@@ -9,6 +9,9 @@
 | Markdown查看 | Markdown Preview Enhanced |
 | GIT | GitLens |
 
+### Remote
+* 在服务器目录/root/.vscode-server/，里面有log能看
+
 ### GitLens
 * [取消每行后面代码变更记录](https://blog.csdn.net/z284949127/article/details/111297448)
 

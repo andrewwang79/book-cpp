@@ -10,9 +10,10 @@
 ### 资料
 * [VS2019 + Qt5.12 配置完成后，无法打开 Qt 源文件解决方案](https://blog.csdn.net/weixin_47156401/article/details/120626400)
 
-## 使用
+## 知识
+* [教程1](https://blog.csdn.net/tiao_god/category_9462012.html)
 * [窗口部件类图](https://blog.csdn.net/kilotwo/article/details/79238545)
 
-## 图像处理规则
+### 图像处理规则
 1. 都采用世界坐标
 1. ITK和VTK和世界坐标可转换

@@ -51,10 +51,6 @@
 1. 地址访问错误：空指针，野指针，内存越界、数组越界等
 1. 内存分配失败、文件不存在等
 
-## 进程间通信
-* [Windows进程同步之互斥量内核对象](https://blog.csdn.net/iteye_18480/article/details/82514068)
-* [windows进程通信-共享内存和信号量](https://blog.csdn.net/xihuanniNI/article/details/78958346)
-
 ## reflect
 * 动态创建，参考自Nebula框架，详见https://www.bbsmax.com/A/QV5ZZapn5y/
 * 原理：
