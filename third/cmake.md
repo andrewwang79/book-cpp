@@ -25,14 +25,14 @@
 * CMake
 
 | 名称 | 编码 |
-| :-: | - |
+| - | - |
 | 编译类型 | CMAKE_BUILD_TYPE |
-| 源代码目录 | CMAKE_SOURCE_DIR |
+| 最外层CMakeLists.txt所在目录 | CMAKE_SOURCE_DIR |
 | build目录 | CMAKE_BINARY_DIR |
 | 项目文件目录 | PROJECT_BINARY_DIR |
 | 执行文件输出目录 | EXECUTABLE_OUTPUT_PATH |
 | 库文件输出目录 | LIBRARY_OUTPUT_PATH |
-| cmake当前所处的源代码目录，比如子目录 | CMAKE_CURRENT_SOURCE_DIR |
+| cmake当前所处的源代码目录 | CMAKE_CURRENT_SOURCE_DIR |
 | cmake当前所处的build目录 | CMAKE_CURRENT_BINARY_DIR |
 | 操作系统 | CMAKE_SYSTEM_NAME |
 | 操作系统BOOL值 | WIN32, UNIX |
@@ -105,10 +105,10 @@ option(ENABLE_VALGRIND_TEST "Set CMAKE_CXX_FLAGS for valgrind use" OFF)
 if(ENABLE_VALGRIND_TEST)
 endif()
 
-# 设置多个目录的cpp文件
-file(GLOB SOURCE_FILES *.cc *.cpp *.cxx)
-aux_source_directory(src SOURCE_FILES)
-aux_source_directory(test SOURCE_FILES)
+# 目录文件放到列表变量里
+file(GLOB_RECURSE SOURCE_FILES *.cpp) // 递归当前目录下符合后缀的文件放到列表SOURCE_FILES
+file(GLOB SOURCE_FILES *.cc *.cpp *.cxx) // 当前目录下符合后缀的文件放到列表SOURCE_FILES
+aux_source_directory(src SOURCE_FILES) // 根目录/src下符合默认后缀的文件放到列表SOURCE_FILE
 
 # [安装到指定目录](https://blog.csdn.net/qq_38410730/article/details/102837401), https://blog.csdn.net/qq_38410730/article/details/102837401
 install(TARGETS hello hello_static LIBRARY DESTINATION lib ARCHIVE DESTINATION lib) // 安装库(hello hello_static)到目录lib
@@ -119,7 +119,7 @@ install(DIRECTORY /opt/lib DESTINATION abc/) // abc目录下有lib目录
 # 文件复制
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/config/ DESTINATION config) // 目录复制
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/abc.cfg DESTINATION config) // 单文件复制
-// 特定后缀的多文件复制，如果是【${CMAKE_CURRENT_SOURCE_DIR}/*】则复制目录下的所有(含所有子目录)
+// 复制特定后缀的文件列表，如果是【${CMAKE_CURRENT_SOURCE_DIR}/*】则复制目录下的所有(含所有子目录)
 file(GLOB cfgFiles "${CMAKE_CURRENT_SOURCE_DIR}/*.cfg")
 file(COPY ${cfgFiles} DESTINATION config)
 
@@ -170,8 +170,7 @@ message(STATUS "SOURCE_FILES = ${SOURCE_FILES}.")
 * [列表操作](https://blog.csdn.net/fuyajun01/article/details/9036477)
 set(SOURCE_FILES a.cpp b.cpp)         // 创建列表
 list(APPEND SOURCE_FILES c.cpp)       // append
-list(REMOVE_ITEM SOURCE_FILES a.cpp)) // remove
-list(REMOVE_ITEM SOURCE_FILES a.cpp)) // remove
+list(REMOVE_ITEM SOURCE_FILES a.cpp)  // remove
 FOREACH(item ${SOURCE_FILES})         //循环
   message(${item})
 ENDFOREACH()
@@ -202,10 +201,36 @@ link_directories(directory1 directory2 ...)
 link_libraries(full_path)
 ```
 
+### 全局变量
+```
+// 父文件
+set(GLOBAL_VAR CACHE INTERNAL "") // 全局变量初始化
+// 子文件
+set(GLOBAL_VAR ${GLOBAL_VAR} "GLOBAL_VALID_CONTENT" CACHE INTERNAL "") // 追加内容，修改会生效到全局变量
+set(GLOBAL_VAR ${GLOBAL_VAR} "FILE_VALID_CONTENT" "") // 追加内容，修改只在本文件内有效
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} GLOBAL_VAR) // 追加内容，修改只在本文件内有效
+```
+
 ## CMake编写
 * [include](https://blog.csdn.net/qq_38410730/article/details/102677143)
 * [cmake函数、宏和模块](https://www.cnblogs.com/zhoug2020/p/13659952.html)
+* [CMake中的function和macro](https://blog.csdn.net/fb_941219/article/details/89358576)
 * [CMAKE自定义模块](https://www.kancloud.cn/itfanr/cmake-practice/82991)
+
+### 宏
+* LIST作为输入参数的使用方法
+
+```
+# TARGET_NAME是字符串
+# LINK_LIBRARIES是LIST，必须用set定义成变量后再作为输入参数使用，macro里使用方法是${${LINK_LIBRARIES}}
+macro(fn1 TARGET_NAME LINK_LIBRARIES)
+    target_link_libraries(${TARGET_NAME} ${${LINK_LIBRARIES}})
+endmacro()
+
+# 使用
+set(LINK_LIBRARIES a b)
+fn1("test1" LINK_LIBRARIES)
+```
 
 ## 资料
 * [cmake使用示例与整理总结](https://blog.csdn.net/wzzfeitian/article/details/40963457)

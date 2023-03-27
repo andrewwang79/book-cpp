@@ -45,3 +45,4 @@ ldconfig // 重新加载链接库路径，对应文件是"/etc/ld.so.conf"
 * [gcc编译选项](https://www.jianshu.com/p/223d8b6aa879)
 * [gcc/g++常用编译选项和gdb常用调试命令](https://andrewpqc.github.io/2018/11/25/gcc-and-gdb/)
 * [Linux下gcc编译控制动态库导出函数小结](https://developer.aliyun.com/article/243843)：导出部分接口函数
+* [Linux交叉编译到Arm](https://aijishu.com/a/1060000000023713)

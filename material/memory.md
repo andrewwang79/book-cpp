@@ -44,5 +44,6 @@ wait_signal(任务X执行完成);
 
 # 进程间通信
 * [Linux进程通信方式：pipe无名管道、fifo有名管道、共享内存映射、socket、消息队列](https://zhuanlan.zhihu.com/p/57454565)
+* [semaphore和mutex](https://blog.csdn.net/zwan0518/article/details/8761000)：semaphore是多元信号量，mutex是锁(二元信号量)
 * [Windows进程同步之互斥量内核对象](https://blog.csdn.net/iteye_18480/article/details/82514068)
 * [windows进程通信-共享内存和信号量](https://blog.csdn.net/xihuanniNI/article/details/78958346)
