@@ -3,7 +3,7 @@
 * [重载(overload)、覆盖(override)、隐藏(hide)](https://cloud.tencent.com/developer/article/1017796)，多态
 * [内存分配(brk/mmap)](https://blog.csdn.net/yusiguyuan/article/details/39496057)
 * [C和C++互调用](https://zhuanlan.zhihu.com/p/123269132)
-* [资源获取就是初始化（RAII/Resource Acquisition Is Initialization）](https://zhuanlan.zhihu.com/p/34660259) : 管理资源、避免泄漏的机制
+* [资源获取就是初始化（RAII/Resource Acquisition Is Initialization）](https://zhuanlan.zhihu.com/p/34660259) : 管理资源、避免泄漏的机制。替代finally的作用
 
 ## 指针
 * [指针基本概念](https://blog.csdn.net/weixin_39982452/article/details/113048527) : 指针也是一种变量，只不过它的内存单元中保存的是一个地址：

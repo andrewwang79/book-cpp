@@ -60,16 +60,21 @@ std::map<std::string, ClassAbc> abcMap;
 abcMap.insert("key", { "classProperty1", "classProperty2" });
 ```
 
-## 操作系统的宏定义
-* [操作系统的宏定义](https://blog.51cto.com/u_8081755/3351682), _WIN32包括Windows的32位和64位
+## 宏定义
 * [宏定义的#和##](https://blog.csdn.net/qq_27074387/article/details/51646681)
+* [操作系统的宏定义](https://blog.51cto.com/u_8081755/3351682), _WIN32包括Windows的32位和64位
 * 宏定义使用
 ```
+操作系统
 #ifdef _WIN32
   //define something for Windows (32-bit and 64-bit, this part is common)
 #elif __linux__
   //define something for Windows (64-bit only)
 #else
+#endif
+
+编译方式
+#ifdef DEBUG
 #endif
 ```
 
