@@ -3,6 +3,7 @@
 * [字符串和值转换](https://www.programiz.com/cpp-programming/string-float-conversion)
 ```
 字符串到值：float num_float = std::stof(str);
+char*到值：int val = atoi(char);
 值到字符串：string s = std::to_string(intVal);
 ```
 * [文件名和文件行](https://blog.csdn.net/nyist_zxp/article/details/107890791)
