@@ -1,10 +1,11 @@
 * C++
   * [介绍](README.md)
   * 资料
-    * [C++知识](material/kb.md)
+    * [理论知识](material/kb.md)
     * [库的设计原理](material/lib.md)
     * [开发语法](material/grammer.md)
     * [开发规范](material/spec.md)
+    * [大规模系统的代码结构](material/large_scale_code.md)
   * 第三方工具
     * [开发工具](third/dev.md)
     * [gcc](third/gcc.md)
