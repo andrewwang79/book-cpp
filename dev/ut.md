@@ -15,6 +15,13 @@
 * [断言](https://www.jianshu.com/p/c7c702c0abb9)
 * [在 Visual Studio 中编写 C/C++ 单元测试](https://docs.microsoft.com/zh-cn/visualstudio/test/writing-unit-tests-for-c-cpp?view=vs-2019)
 * [c++编译时如何把private属性变成public？](https://blog.csdn.net/qq910894904/article/details/38583593)
+* [运行特定的测试用例](https://blog.csdn.net/caz28/article/details/128618899)
+
+### 使用
+```
+exe --gtest_list_tests // 列出所有测试用例
+exe --gtest_filter="testcase_name" // 执行特定测试用例
+```
 
 ### mock
 * https://zhuanlan.zhihu.com/p/101906555

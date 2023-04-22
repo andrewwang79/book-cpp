@@ -28,10 +28,17 @@ p.reset(new int(1024));//正确。p指向一个新对象
 shared_ptr<int> p1 = new int(1024);//错误：必须使用直接初始化形式
 shared_ptr<int> p2(new int(1024));//正确：使用了直接初始化形式
 
-// shared_ptr, 尽量不要用shared_ptr<Class> ptrClass(new Class());
+// 标准用法
+shared_ptr<Class> ptrClass(new Class()); // 尽量不要用
 shared_ptr<Class> ptrClass = make_shared<Class>();
+
+// 有构造函数的模板类
+shared_ptr<模板类<类型参数类>> ptrClass(new 模板类<类型参数类>(构造函数的参数));
+shared_ptr<模板类<类型参数类>> ptrClass = make_shared<模板类<类型参数类>>(构造函数的参数);
+
+// 智能指针继承关系类向下转换
 shared_ptr<Class> ptrDynamicClass = make_shared<ChildClass>();
-shared_ptr<ChildClass> ptrChildClass = dynamic_pointer_cast<ChildClass>(ptrDynamicClass); // 智能指针继承关系类向下转换
+shared_ptr<ChildClass> ptrChildClass = dynamic_pointer_cast<ChildClass>(ptrDynamicClass);
 
 // unique_ptr
 unique_ptr<Class> u1 = make_unique<Class>();
@@ -65,6 +72,7 @@ abcMap.insert("key", { "classProperty1", "classProperty2" });
 * [宏定义的#和##](https://blog.csdn.net/qq_27074387/article/details/51646681)
 * [操作系统的宏定义](https://blog.51cto.com/u_8081755/3351682), _WIN32包括Windows的32位和64位
 * 宏定义使用
+
 ```
 操作系统
 #ifdef _WIN32
@@ -87,6 +95,13 @@ const string A=“a”;
 
 ## enum
 * [enum与int转换](https://blog.csdn.net/Dream_Weave/article/details/83411570)
+
+## 异常
+```
+try {
+} catch (exception& ex) {}
+} catch (...) {}
+```
 
 ## 知识
 * [C++类型转换：隐式类型转换、类类型转换、显示类型转换](https://segmentfault.com/a/1190000016582440)
