@@ -1,26 +1,27 @@
-# clang-format
+# 代码规范和格式化
+## VisualStudioCode
+* 格式化：安装插件"Clang-Format"，放置"文件"里的2个文件
+* [vscode批量格式化代码](https://blog.csdn.net/koukouwuwu/article/details/111879677) : 安装插件"Format Files"
+* vscode配置：默认行尾字符(Files:Eol)设置成"\n"
+* vscode配置：保存时自动格式化
 
-## 资料
+## VisualStudio
+1. 保存时自动格式化：安装插件"Format document on Save"(扩展 –> 管理扩展 –> 联机 –> 搜索)
+1. 文件自动UTF8：安装插件"ForceUTF8(No BOM)"
+1. 格式化(使用谷歌代码规范)，有两种方法，推荐方法2:
+    1. 系统方法：勾选：工具 -> 选项 -> 文本编辑器 -> C/C++ -> 格式设置 -> 默认格式设置样式 -> Google
+    2. 自定义方法：[操作](https://blog.csdn.net/qq_33101873/article/details/121426522)，注意如果拷贝文件".clang-format"一定要在资源管理器里操作
+
+## clang-format使用和文件
 * [.clang-format文件常用参数](https://bugwz.com/2019/01/08/clang-format/)
-
-## VisualStudioCode配置
-* 安装插件"Clang-Format"，配置"文件"里的2个文件
-* [vscode批量格式化代码](https://blog.csdn.net/koukouwuwu/article/details/111879677) : 插件"Format Files"
-* 默认行尾字符(Files:Eol)设置成"\n"
+* 头文件被其他头文件依赖，必须放在最上面，但是格式化后自动放下面了：通过备注或者换行把这个头文件放在最上面，和其他头文件隔离开：
+```
+// FIRST_INCLUDES_BEGIN
+#include "dependence.h"
+// FIRST_INCLUDES_END
+```
 
 ### 文件
-* .vscode/settings.json
-```
-{
-    "clang-format.language.cpp.fallbackStyle": "Google",
-    "clang-format.language.cpp.style": "file",
-    "C_Cpp.clang_format_fallbackStyle": "Google",
-    "C_Cpp.clang_format_style": "file",
-    "C_Cpp.clang_format_sortIncludes": true,
-    "editor.formatOnSave": true
-}
-```
-
 * .clang-format
 ```
 # Run manually to reformat a file:
@@ -33,6 +34,21 @@ DerivePointerAlignment: false
 PointerAlignment: Left
 ```
 
-# VisualStudio
-* [VisualStudio](https://docs.microsoft.com/zh-cn/cpp/ide/writing-and-refactoring-code-cpp?view=msvc-170)
-* 设置 : 工具 -> 选项 -> 文本编辑器 -> C/C++ -> 格式设置 -> 默认格式设置样式 ->
+* .vscode/settings.json
+```
+{
+    "clang-format.language.cpp.fallbackStyle": "Google",
+    "clang-format.language.cpp.style": "file",
+    "C_Cpp.clang_format_fallbackStyle": "Google",
+    "C_Cpp.clang_format_style": "file",
+    "C_Cpp.clang_format_sortIncludes": true,
+    "editor.formatOnSave": true
+}
+```
+
+## 资料
+* [在 Visual Studio 中编辑和重构 C++ 代码](https://docs.microsoft.com/zh-cn/cpp/ide/writing-and-refactoring-code-cpp?view=msvc-170)
+
+### EditorConfig
+1. 放置文件[.editorconfig](https://github.com/andrewwang79/cpp.practice/blob/master/.editorconfig)
+1. 代码规范配置：取消勾选：工具 -> 选项 -> 文本编辑器 -> C/C++ -> 启用ClangFormat支持

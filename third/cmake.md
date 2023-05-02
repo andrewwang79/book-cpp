@@ -100,10 +100,16 @@ set(COMPILE_PDB_OUTPUT_DIRECTORY "")
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
-# option
+# option(只在cmake生效)
 option(ENABLE_VALGRIND_TEST "Set CMAKE_CXX_FLAGS for valgrind use" OFF)
 if(ENABLE_VALGRIND_TEST)
 endif()
+
+# 源代码的宏定义
+add_definitions(-DABC=1)
+源代码里使用：
+#ifdef ABC
+#endif
 
 # 目录文件放到列表变量里
 file(GLOB_RECURSE SOURCE_FILES *.cpp) // 递归当前目录下符合后缀的文件放到列表SOURCE_FILES
