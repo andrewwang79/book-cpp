@@ -16,12 +16,19 @@ std::string str = qstr.toStdString();
 std::string str = "Hello, world!";
 QString qstr = QString::fromStdString(str);
 
-
 // QString
 QString("Select id from user where account = '%1' and password = '%2'").arg(userName, password); // 格式化
 QString s;
 isNull情况: s.clear(), s = nullptr
 isEmpty情况：(s = nullptr)以外的都符合情况
+
+// SQLite的时间
+SQL : create_time TEXT NOT NULL DEFAULT (datetime('now', 'localtime'))
+获取当前时间 : QDateTime::currentDateTime();
+// SQLite的执行。bindValue会自动适配数据类型(如字符串或int)，不需要因为字符串而在SQL上加''(如加':account')
+QSqlQuery sq;
+sq.prepare("SELECT id FROM user WHERE account = :account");
+sq.bindValue(":account", value);
 ```
 
 ## 知识

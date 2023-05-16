@@ -7,11 +7,11 @@
     * [开发规范](material/spec.md)
     * [大规模系统的代码结构](material/large_scale_code.md)
   * 第三方工具
+    * [开发规范工具](third/spec.md)
     * [开发工具](third/dev.md)
     * [gcc](third/gcc.md)
     * [cmake](third/cmake.md)
     * [conan](third/conan.md)
-    * [clang-format](third/clang_format.md)
     * [doxygen](third/doxygen.md)
     * [valgrind](third/valgrind.md)
     * [vscode](third/vscode.md)

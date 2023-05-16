@@ -98,8 +98,9 @@ const string A=“a”;
 
 ## 异常
 ```
+#include <exception>
 try {
-} catch (exception& ex) {}
+} catch (std::exception& ex) {}
 } catch (...) {}
 ```
 

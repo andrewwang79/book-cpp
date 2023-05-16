@@ -129,5 +129,5 @@ class Person {
 
 ## 资料
 * [单元测试](../dev/ut)
-* [clang-format](../third/clang-format)
+* [clang-format](../third/spec)
 * [editorconfig](https://juejin.im/post/5b9cba4c6fb9a05cf67a79a4)
