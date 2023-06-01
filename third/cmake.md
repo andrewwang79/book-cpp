@@ -224,18 +224,26 @@ aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} GLOBAL_VAR) // 追加内容，�
 * [CMAKE自定义模块](https://www.kancloud.cn/itfanr/cmake-practice/82991)
 
 ### 宏
-* LIST作为输入参数的使用方法
+* LIST作为输入参数的使用方法，有两种方法，见fn1和fn2
 
 ```
-# TARGET_NAME是字符串
-# LINK_LIBRARIES是LIST，必须用set定义成变量后再作为输入参数使用，macro里使用方法是${${LINK_LIBRARIES}}
+# TARGET_NAME是字符串，LINK_LIBRARIES是LIST。LIST必须用set定义成变量后再作为输入参数使用
+
+# 方法1：
 macro(fn1 TARGET_NAME LINK_LIBRARIES)
     target_link_libraries(${TARGET_NAME} ${${LINK_LIBRARIES}})
 endmacro()
-
 # 使用
 set(LINK_LIBRARIES a b)
 fn1("test1" LINK_LIBRARIES)
+
+# 方法2：
+macro(fn2 TARGET_NAME LINK_LIBRARIES)
+    target_link_libraries(${TARGET_NAME} ${LINK_LIBRARIES})
+endmacro()
+# 使用
+set(LINK_LIBRARIES a b)
+fn2("test2" "${LINK_LIBRARIES}") # 加双引号相当于输入1个列表参数，不加双引号相当于输入多个参数。如果这参数是最后一个是可以不加双引号
 ```
 
 ## 资料
@@ -315,3 +323,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_USE_OPENSSL=OFF .
 make -j$((`nproc`+1)) && make install
 cd .. && rm -rf cmake-3.14.0 && rm cmake-3.14.0.tar.gz
 ```
+
+### 具体命令和性能分析
+* 看详细命令 : make VERBOSE=1
+* 生成执行CMake过程的性能分析报告 : cmake --profiling-format=google-trace --profiling-output=profile.json
