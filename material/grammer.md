@@ -17,6 +17,10 @@ public:
   }
 }
 ```
+* misc
+```
+std::this_thread::sleep_for(std::chrono::seconds(10));
+```
 * 函数参数默认值在函数声明的参数列表上定义
 
 ## 智能指针
