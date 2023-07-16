@@ -16,11 +16,18 @@ std::string str = qstr.toStdString();
 std::string str = "Hello, world!";
 QString qstr = QString::fromStdString(str);
 
+// QString和数字互转
+int num;
+QString str = QString::number(num);
+
 // QString
 QString("Select id from user where account = '%1' and password = '%2'").arg(userName, password); // 格式化
 QString s;
 isNull情况: s.clear(), s = nullptr
 isEmpty情况：(s = nullptr)以外的都符合情况
+
+// log
+qDebug() << "name: " << name;
 
 // SQLite的时间
 SQL : create_time TEXT NOT NULL DEFAULT (datetime('now', 'localtime'))
@@ -29,6 +36,15 @@ SQL : create_time TEXT NOT NULL DEFAULT (datetime('now', 'localtime'))
 QSqlQuery sq;
 sq.prepare("SELECT id FROM user WHERE account = :account");
 sq.bindValue(":account", value);
+
+// 子线程执行
+QFuture<bool> tFuture = QtConcurrent::run([=]() -> bool {
+    return true;
+});
+while (!tFuture.isFinished()) {
+  QApplication::processEvents(QEventLoop::AllEvents, 500);  //唤醒主界面
+}
+bool success = tFuture.result();
 ```
 
 ## 知识

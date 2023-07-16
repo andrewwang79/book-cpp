@@ -45,6 +45,16 @@ cd 代码目录 && conan install . -s arch=x86_64 -s os=Linux -r cloud --update
 cmake . && make -j$((`nproc`+1)) && make install
 ```
 
+## 软件包配置工具
+* 不同操作系统有配套的几个版本可以安装。如apt-get install -y libboost-all-dev
+* 库名最后是"-dev"是编译库，除了运行的release库，还有头文件和debug库等。
+* 安装的.pc文件包含动态库的信息：名称、版本号、头文件路径、库文件路径等
+
+```
+pkg-config --list-all | grep openssl // 查询全部
+pkg-config --modversion openssl // 查询特定软件包信息
+```
+
 ## 操作
 ### 库调用无效的解决
 ```

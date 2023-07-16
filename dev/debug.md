@@ -67,13 +67,14 @@ cap_add:
 * -DCMAKE_BUILD_TYPE不要用Release，用RelWithDebInfo
 
 ### Ubuntu启用coredump
-* 宿主机
-  1. ulimit -c unlimited
-  1. 调整core文件到/tmp/core(默认是当前目录)：echo '/tmp/coredump/core.%t.%e.%p' | sudo tee /proc/sys/kernel/core_pattern
-  1. 执行“docker-compose文件里设置启用GDB工具”
-* docker
-  1. ulimit -c unlimited
+1. 宿主机(注意用户要和docker创建者一致)
+    1. ulimit -c unlimited
+    1. 调整core文件到/tmp/core(默认是当前目录)：mkdir -p /tmp/coredump/ && echo '/tmp/coredump/core.%t.%e.%p' | tee /proc/sys/kernel/core_pattern
+    1. 执行“docker-compose文件里设置启用GDB工具”
+1. docker
+    1. ulimit -c unlimited
 
+* 长期有效可以nano /etc/security/limits.conf：* - core unlimited
 #### 禁用
 ```
 ulimit -c 0

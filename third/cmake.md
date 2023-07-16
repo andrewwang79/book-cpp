@@ -4,9 +4,10 @@
 
 ## 执行使用
 * https://cmake.org/cmake/help/v3.14/manual/cmake.1.html
-* 语法：cmake -S 代码目录 -B build目录 -G 编译软件 -D参数名称=参数值，示例如下：
-  * cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/opt/XYZ // 源代码在当前目录，build过程文件在build目录。推荐用独立目录build存放过程，避免污染源代码目录
-  * cd build && clear && make -j$((`nproc`+1)) // 在build目录构建
+* 执行：cmake -S 代码目录 -B build目录 -G 编译软件 -D参数名称=参数值  -DCMAKE_INSTALL_PREFIX=安装目录。推荐用独立目录build存放过程，避免污染源代码目录。
+  * 示例：cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/opt/XYZ // 源代码在当前目录，build过程文件在build目录
+  1. clear && mkdir build && cd build && cmake .. && make -j$((`nproc`+1)) // 在build目录构建
+  1. make install && cd .. && rm -rf build // 安装
 * cmake过程文件清理：find . -name CMakeFiles | xargs rm -rf && find . -name cmake_install.cmake | xargs rm -rf && find . -name CMakeCache.txt | xargs rm -rf && find . -name Makefile | xargs rm -rf
 
 ## 参数
@@ -153,7 +154,6 @@ message("CMAKE_CXX_FLAGS_RELEASE is ${CMAKE_CXX_FLAGS_RELEASE}")
 message("CMAKE_CXX_FLAGS_RELWITHDEBINFO is ${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
 message("CMAKE_CXX_FLAGS_MINSIZEREL is ${CMAKE_CXX_FLAGS_MINSIZEREL}")
 
-
 # 链接具体的库，可以是库名称、库文件名和文件全路径
 target_link_libraries(${TARGET_NAME} log4cplus) # 库名称，不需要lib前缀，默认优先链接动态库
 target_link_libraries(${TARGET_NAME} liblog4cplus.so) # 显式指定链接动态库
@@ -171,6 +171,7 @@ set(MSG_TXT "${MSG} world")
 
 # 提示信息
 message(STATUS "SOURCE_FILES = ${SOURCE_FILES}.")
+message(FATAL_ERROR ”CURL library not found”) // 错误，会退出cmake
 
 # 列表项操作
 * [列表操作](https://blog.csdn.net/fuyajun01/article/details/9036477)

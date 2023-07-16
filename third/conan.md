@@ -111,12 +111,12 @@ def requirements(self):
         self.requires("dcmtk/3.6.6")
 
     def package(self):
-        self.copy("*")
+        self.copy("*", symlinks=True)
 
     def package_info(self):
         self.cpp_info.includedirs = ["include"]
         self.cpp_info.release.libdirs = ["lib/release"]
-        self.cpp_info.debug.libdirs = ['lib/debug']
+        self.cpp_info.debug.libdirs = ["lib/debug"]
         self.cpp_info.realse.bindirs = ["bin/release"]
         self.cpp_info.debug.bindirs = ["bin/debug"]
         if self.settings.os == "Windows":

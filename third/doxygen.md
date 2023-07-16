@@ -12,12 +12,10 @@
  * @file 文件名
  * @brief 简介
  * @details 细节
- * @mainpage 工程概览
  * @author 作者
  * @email 邮箱
- * @version 版本号
- * @date 年-月-日
- * @copyright SKY
+ * @date 年.月.日
+ * @copyright Copyright (c) 2022@SKY
  * @license 版权
  */
 ```
@@ -25,11 +23,9 @@
 ### 类
 ```
 /**
- * @brief  类简介，比如功能说明
+ * @brief 类简介，比如功能说明
  * @details 细节
- * @date   2021.05.12
- * @author wangyaqi
- * @warning   警告
+ * @warning 警告
  * @attention 注意事项
  * @note 备注说明。可用于类修改记录
  * | 时间 | 作者 | 说明 |
@@ -41,20 +37,18 @@
 ### 函数
 ```
 /**
- * @brief  函数简介，比如功能说明
- * @date   2021.05.12
- * @author wangyaqi
+ * @brief 函数简介，比如功能说明
  * @param
  * | 名称 | 字段 | 类型 | 必须 | 说明 |
  * | :-: | - | - | - | - |
- * | 类型 | type | string | Y | 类型枚举 |
  * | 序列号 | sn | string | Y | 唯一 |
  * | 引用字段A[out] | refA | string& | Y | 说明 |
  * @return 返回值说明
  *   @retval 0 成功
  *   @retval -1 失败
+ * @example 使用示例
  * @exception 超出范围的异常
- * @warning   警告
+ * @warning 警告
  * @attention 注意事项
  * @note 备注说明。可用于函数修改记录
  * | 时间 | 作者 | 说明 |

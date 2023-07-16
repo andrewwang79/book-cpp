@@ -91,6 +91,10 @@ abcMap.insert("key", { "classProperty1", "classProperty2" });
 #endif
 ```
 
+## 指令
+#warning "abc" // 编译警告
+#error "xyz" // 编译错误，强制退出编译过程
+
 ## 常量定义
 ```
 字符串：定义全局变量
@@ -106,6 +110,16 @@ const string A=“a”;
 try {
 } catch (std::exception& ex) {}
 } catch (...) {}
+```
+
+## Lambda函数
+> C++11中引入的一种匿名函数，它可以在需要函数对象的任何地方使用，并且可以捕获上下文中的变量。
+
+```
+
+int x = 10;
+auto add_x = [x](int a) -> int { return a + x; };
+[x]是Lambda函数外的上下文变量x，=是类实例本身；(int a)表示输入参数是int；-> int表示返回一个整数；{ }表示实现函数体。
 ```
 
 ## 知识
