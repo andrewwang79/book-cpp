@@ -16,7 +16,7 @@ ldconfig // 重新加载链接库路径，对应文件是"/etc/ld.so.conf"
 | 头文件路径 | -I |  |
 | 预编译 | -E |  |
 | 只编译不连接 | -c | 产生 .o文件（目标文件） |
-| 编译后显示所有警告 | -Wall |  |
+| 编译后显示所有警告 | -Wall | [更多警告选项](https://blog.csdn.net/bandaoyu/article/details/115419255) |
 | 调试启用[DWARF](https://www.desgard.com/2020/03/09/dwarf-with-dsym-build-setting.html) | -gdwarf-4 |  |
 | 链接静态库 | -static |  |
 | 生成动态连接库 | -shared |  |

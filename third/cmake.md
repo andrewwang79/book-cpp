@@ -328,3 +328,8 @@ cd .. && rm -rf cmake-3.14.0 && rm cmake-3.14.0.tar.gz
 ### 具体命令和性能分析
 * 看详细命令 : make VERBOSE=1
 * 生成执行CMake过程的性能分析报告 : cmake --profiling-format=google-trace --profiling-output=profile.json
+
+### 编译文件过大
+```
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj") # 这是windows的参数
+```

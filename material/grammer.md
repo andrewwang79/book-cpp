@@ -73,6 +73,7 @@ abcMap.insert("key", { "classProperty1", "classProperty2" });
 ```
 
 ## 宏定义
+* 宏定义不受命名空间的影响
 * [宏定义的#和##](https://blog.csdn.net/qq_27074387/article/details/51646681)
 * [操作系统的宏定义](https://blog.51cto.com/u_8081755/3351682), _WIN32包括Windows的32位和64位
 * 宏定义使用
@@ -92,14 +93,15 @@ abcMap.insert("key", { "classProperty1", "classProperty2" });
 ```
 
 ## 指令
+```
 #warning "abc" // 编译警告
 #error "xyz" // 编译错误，强制退出编译过程
+```
 
-## 常量定义
-```
-字符串：定义全局变量
-const string A=“a”;
-```
+# const
+const uint8_t* pt：指向的数据是常量，指针本身的值可以修改
+uint8_t* const pt：指针本身是常量，指向的数据可以修改
+const uint8_t* const pt：指针本身和指向的数据都是常量，都不可修改
 
 ## enum
 * [enum与int转换](https://blog.csdn.net/Dream_Weave/article/details/83411570)
@@ -116,14 +118,30 @@ try {
 > C++11中引入的一种匿名函数，它可以在需要函数对象的任何地方使用，并且可以捕获上下文中的变量。
 
 ```
-
 int x = 10;
 auto add_x = [x](int a) -> int { return a + x; };
 [x]是Lambda函数外的上下文变量x，=是类实例本身；(int a)表示输入参数是int；-> int表示返回一个整数；{ }表示实现函数体。
 ```
 
-## 知识
+# 类型转换
 * [C++类型转换：隐式类型转换、类类型转换、显示类型转换](https://segmentfault.com/a/1190000016582440)
+
+| 项 | 说明 | 实例 |
+| - | - | - |
+| 隐式类型转换 | 最宽的数据类型成为目标转换类型 | double difference(int ival1, int ival2) { return ival1 - ival2; // 返回值被提升为double类型 } |
+| 显式类型转换-C | (type-id) | double x = (double)intVal; |
+| 显式类型转换-C++ | static_cast、dynamic_cast、reinterpret_cast、const_cast | / |
+
+> 显式类型转换-C++
+
+| 项 | 定义 | 转换源 | 说明 | 实例 |
+| - | - | - | - | - |
+| static_cast | 静态类型转换 | 任意数据 | 不安全，void*转换 | double y = static_cast<double>(x); |
+| dynamic_cast | 动态类型转换 | 继承类 | 确保是继承关系 | DerivedClass* BaseClass* basePtr = new DerivedClass(); derivedPtr = dynamic_cast<DerivedClass*>(basePtr); |
+| reinterpret_cast | 重新解释的转换 | 任意数据 | 危险 | / |
+| const_cast | 去除常量属性的转换 | 常量 | 危险 | const int x = 10; int* nonConstPtr = const_cast<int*>(&x); |
+
+## 知识
 * [function](https://blog.csdn.net/weixin_43712770/article/details/120738647)
 * [模板类和模板函数](http://c.biancheng.net/view/320.html)
 * [模板别名](https://wizardforcel.gitbooks.io/cpp-11-faq/content/55.html)
