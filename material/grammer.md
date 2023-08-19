@@ -6,6 +6,23 @@
 char*到值：int val = atoi(char);
 值到字符串：string s = std::to_string(intVal);
 ```
+* [map](https://blog.csdn.net/sevenjoin/article/details/81943864)
+```
+std::map<std::string, ClassAbc> abcMap;
+abcMap.insert("key", { "classProperty1", "classProperty2" });
+```
+* 变量声明时的赋值
+```
+ClassX {ClassA a; std::map<int, int> b;}
+ClassA a, b;
+std::vector<ClassX> classXs{{a, {{1, 1}, {2, 2}}}, {b, {{1, 5}}}};
+```
+* const
+```
+const uint8_t* pt：指向的数据是常量，指针本身的值可以修改
+uint8_t* const pt：指针本身是常量，指向的数据可以修改
+const uint8_t* const pt：指针本身和指向的数据都是常量，都不可修改
+```
 * [文件名和文件行](https://blog.csdn.net/nyist_zxp/article/details/107890791)
 * 静态实例
 ```
@@ -21,7 +38,6 @@ public:
 ```
 std::this_thread::sleep_for(std::chrono::seconds(10));
 ```
-* 函数参数默认值在函数声明的参数列表上定义
 
 ## 智能指针
 ### [使用](https://javajgs.com/archives/114676)
@@ -65,13 +81,6 @@ auto u2 = std::move(u1); // u2获得内存所有权，u1此时等于nullptr
 * 不计数的弱引用，解决shared_ptr双向引用的问题
 * [weak_ptr](https://blog.csdn.net/c_base_jin/article/details/79440999)
 
-## map
-* [map](https://blog.csdn.net/sevenjoin/article/details/81943864)
-```
-std::map<std::string, ClassAbc> abcMap;
-abcMap.insert("key", { "classProperty1", "classProperty2" });
-```
-
 ## 宏定义
 * 宏定义不受命名空间的影响
 * [宏定义的#和##](https://blog.csdn.net/qq_27074387/article/details/51646681)
@@ -97,11 +106,6 @@ abcMap.insert("key", { "classProperty1", "classProperty2" });
 #warning "abc" // 编译警告
 #error "xyz" // 编译错误，强制退出编译过程
 ```
-
-# const
-const uint8_t* pt：指向的数据是常量，指针本身的值可以修改
-uint8_t* const pt：指针本身是常量，指向的数据可以修改
-const uint8_t* const pt：指针本身和指向的数据都是常量，都不可修改
 
 ## enum
 * [enum与int转换](https://blog.csdn.net/Dream_Weave/article/details/83411570)
