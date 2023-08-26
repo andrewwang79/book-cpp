@@ -26,7 +26,8 @@ conan user <user_name> -r <server_name> -p <user_pwd> --skip-auth // 配置指�
 conan user --clean // 重置所有服务的用户
 ```
 
-## conanfile.txt内容
+## 项目内的conan安装
+### conanfile.txt
 * [imports使用](https://cloud.tencent.com/developer/article/1979298)
 * 把conan里的拷贝到目标目录下，大小写敏感
 * 开发建议不要import，运行需要lib
@@ -41,6 +42,33 @@ cmake
 [imports]
 include, * -> /opt/third/include
 lib, * -> /opt/third/lib
+```
+
+### conanfile.py
+* conan install . -o enable_module1=True -o enable_module2=False
+
+```
+from conans import ConanFile, tools
+
+class TestConan(ConanFile):
+    name = "test"
+    version = "0.0.0"
+    settings = "os", "compiler", "build_type", "arch"
+    description = "conan template test file."
+    url = "None"
+    license = "None"
+    author = "None"
+    topics = None
+
+    requires = "dcmtk/3.6.6", "poco/1.9.4"
+
+    options = {"enable_module1": [True, False], "enable_module2": [True, False]}
+    default_options = {"enable_module1": False, "enable_module2": False}
+
+    def requirements(self):
+        if self.options.enable_module1:
+            self.output.info("Enable Module1.")
+            self.requires("spdlog/1.10.0")
 ```
 
 ## conan制作规范
@@ -61,7 +89,7 @@ lib, * -> /opt/third/lib
 | 动态库/静态库 | 都放到libdirs里，文件后缀区分 | 默认动态库，可指定具体文件名 |
 
 ```
-conan install ../${productName}/conanfile.txt -s arch=x86_64 -s os=Linux -r cloud --update
+conan install ../${productName}/conanfile.txt/py -s arch=x86_64 -s os=Linux -r cloud --update
 conan install ..\\${productName}\\${conanfileTxtName} -s arch=${_CONAN_ARCH} -s os=Windows -s compiler.version=${compilerVersion} -r cloud --update
 
 conan export-pkg ${conanfilePyName} ${_CONAN_NAME} -s arch=${arch} -s os=Windows -f
@@ -105,10 +133,6 @@ class TestConan(ConanFile):
     license = "None"
     author = "None"
     topics = None
-    requires = "dcmtk/3.6.6", "poco/1.9.4"
-
-def requirements(self):
-        self.requires("dcmtk/3.6.6")
 
     def package(self):
         self.copy("*", symlinks=True)

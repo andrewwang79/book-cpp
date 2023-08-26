@@ -6,24 +6,36 @@
 char*到值：int val = atoi(char);
 值到字符串：string s = std::to_string(intVal);
 ```
+
 * [map](https://blog.csdn.net/sevenjoin/article/details/81943864)
 ```
 std::map<std::string, ClassAbc> abcMap;
 abcMap.insert("key", { "classProperty1", "classProperty2" });
 ```
+
 * 变量声明时的赋值
 ```
 ClassX {ClassA a; std::map<int, int> b;}
 ClassA a, b;
 std::vector<ClassX> classXs{{a, {{1, 1}, {2, 2}}}, {b, {{1, 5}}}};
 ```
+
 * const
 ```
 const uint8_t* pt：指向的数据是常量，指针本身的值可以修改
 uint8_t* const pt：指针本身是常量，指向的数据可以修改
 const uint8_t* const pt：指针本身和指向的数据都是常量，都不可修改
+
+常量成员函数不会修改类的成员变量，用于类的常量实例
+class MyClass {
+    void printMessage() const { }
+};
+const MyClass obj;
+obj.printMessage();
 ```
+
 * [文件名和文件行](https://blog.csdn.net/nyist_zxp/article/details/107890791)
+
 * 静态实例
 ```
 class ClassAbc {
@@ -34,6 +46,29 @@ public:
   }
 }
 ```
+
+* pair和tuple
+```
+2个用pair，超过用tuple
+
+std::vector<std::pair<A, B>> vec;
+vec.emplace_back(a1, b1);
+for (const auto& pair : vec) {
+    sum += pair.first.getValue() + pair.second.getValue();
+}
+
+std::vector<std::tuple<A, B, C>> vec;
+vec.emplace_back(a1, b1, c1);
+for (const auto& tuple : vec) {
+    sum += std::get<0>(tuple).getValue() + std::get<1>(tuple).getValue() + std::get<2>(tuple).getValue();
+}
+```
+
+* [C++17中的std::any](https://hedzr.com/c++/variant/any-in-c++17/)
+```
+int value = std::any_cast<int>(a);
+```
+
 * misc
 ```
 std::this_thread::sleep_for(std::chrono::seconds(10));
@@ -149,6 +184,5 @@ auto add_x = [x](int a) -> int { return a + x; };
 * [function](https://blog.csdn.net/weixin_43712770/article/details/120738647)
 * [模板类和模板函数](http://c.biancheng.net/view/320.html)
 * [模板别名](https://wizardforcel.gitbooks.io/cpp-11-faq/content/55.html)
-* [C++17中的std::any](https://hedzr.com/c++/variant/any-in-c++17/)
 * [右值引用](https://changkun.de/modern-cpp/zh-cn/03-runtime/index.html#3-3-%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8)
 * [explicit构造函数](https://www.cnblogs.com/likebeta/archive/2012/07/31/explicit.html), 所有单参数的构造函数都必须是显示的
