@@ -105,7 +105,36 @@ class Person {
 };
 ```
 
-## 自研库及其使用
+## 库发布头文件加载路径方案
+
+| 项 | 说明 | 优势 | 劣势 |
+| - | - | - | - |
+| 方案1 | 用宏定义区分头文件加载的路径 | 灵活度高 | 头文件管理麻烦，需自己处理 |
+| 方案1 | 头文件目录(include)下加同项目的目录结构 | 头文件管理方便(按规则即可) | include目录层级多 |
+
+### 对外目录结构
+```
+lib1
+  module1
+    header1.h
+  module2
+    submodule21
+      header21.h
+```
+
+### 方案1
+* CMakeLists.txt
+  * 定义宏LIB1_EXPORT（使用方不用定义宏）
+* 对外头文件
+```
+#ifdef LIB1_EXPORT
+  #include 内部规则的路径
+#else
+  #include 外部规则的路径
+#endif
+```
+
+## 库结构及其引用
 * 目录结构
 
 ```

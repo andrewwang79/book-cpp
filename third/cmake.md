@@ -6,8 +6,9 @@
 * https://cmake.org/cmake/help/v3.14/manual/cmake.1.html
 * 执行：cmake -S 代码目录 -B build目录 -G 编译软件 -D参数名称=参数值  -DCMAKE_INSTALL_PREFIX=安装目录。推荐用独立目录build存放过程，避免污染源代码目录。
   * 示例：cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/opt/XYZ // 源代码在当前目录，build过程文件在build目录
-  1. clear && mkdir build && cd build && cmake .. && make -j$((`nproc`+1)) // 在build目录构建
-  1. make install && cd .. && rm -rf build // 安装
+* 在build目录构建 : clear && mkdir build && cd build && cmake .. && make -j$((`nproc`+1))
+* 构建指定可执行文件 : cmake --build <build_directory> --target <executable_target>
+* make install && cd .. && rm -rf build // 安装
 * cmake过程文件清理：find . -name CMakeFiles | xargs rm -rf && find . -name cmake_install.cmake | xargs rm -rf && find . -name CMakeCache.txt | xargs rm -rf && find . -name Makefile | xargs rm -rf
 
 ## 参数
