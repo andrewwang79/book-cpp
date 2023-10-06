@@ -121,10 +121,12 @@ aux_source_directory(src SOURCE_FILES) // 根目录/src下符合默认后缀的�
 # [安装到指定目录](https://blog.csdn.net/qq_38410730/article/details/102837401), https://blog.csdn.net/qq_38410730/article/details/102837401
 install(TARGETS hello hello_static LIBRARY DESTINATION lib ARCHIVE DESTINATION lib) // 安装库(hello hello_static)到目录lib
 install(FILES hello.h DESTINATION include/hello) // 安装hello.h到目录include/hello/
-install(DIRECTORY /opt/lib/ DESTINATION abc/) // 因为有"/"，abc目录下有lib目录下的内容，但没有lib目录本身
-install(DIRECTORY /opt/lib DESTINATION abc/) // abc目录下有lib目录
 
-# 文件复制
+## 目录安装：源目录最后是"/"代表目录内容，不是"/"代表目录本身
+install(DIRECTORY /opt/lib/ DESTINATION abc) // 目标目录下是源目录的内容，如abc/1.so
+install(DIRECTORY /opt/lib DESTINATION abc) // 目标目录下会创建源目录，如abc/lib/1.so
+
+# 文件复制，默认目录路径是${CMAKE_BINARY_DIR}
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/config/ DESTINATION config) // 目录复制
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/abc.cfg DESTINATION config) // 单文件复制
 // 复制特定后缀的文件列表，如果是【${CMAKE_CURRENT_SOURCE_DIR}/*】则复制目录下的所有(含所有子目录)

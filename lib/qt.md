@@ -77,11 +77,21 @@ QString("SELECT %1").arg(QString::number(22);
 1. Qt会在信号接收对象所在的线程中调用槽函数。如果信号和接收对象在同一线程中，则槽函数将直接在该线程中执行。如果信号和接收对象不在同一线程中，则Qt会将槽函数的执行请求发送到接收对象所在的线程，并在那里执行槽函数。
 
 ## 安装
+### Qt + VisualStudio2017
 1. 安装VisualStudio2017：安装时需选择“使用C++的桌面开发”，勾选右边的”MSVC 2017”和“Windows10SDK”
 1. 安装QT：[下载](https://download.qt.io/archive/online_installers/4.4/)
 1. 安装VS插件：安装好后配置QT的安装路径。
   * 在线安装：在VS2017的"扩展和更新-联机"中搜索插件"Qt Visual Studio Tools"
   * 离线安装：下载[插件](https://download.qt.io/development_releases/vsaddin)，推荐版本2.9.0
+
+### Qt5 + Linux
+* Linux如果不是桌面版，可以在Windows使用远程终端软件打开Qt程序，会通过Linux上类似XWindows机制在Windows开发调试
+* [安装说明](https://wiki.qt.io/Install_Qt_5_on_Ubuntu)
+```
+wget https://download.qt.io/archive/qt/5.12/5.12.9/qt-opensource-linux-x64-5.12.9.run
+chmod +x qt-opensource-linux-x64-5.12.9.run
+./qt-opensource-linux-x64-5.12.9.run # 只能安装到默认路径/opt/Qt5.12.9，选择其他目录会有潜在风险
+```
 
 ### 资料
 * [VS2019 + Qt5.12 配置完成后，无法打开 Qt 源文件解决方案](https://blog.csdn.net/weixin_47156401/article/details/120626400)
