@@ -211,6 +211,7 @@ link_directories(directory1 directory2 ...)
 link_libraries(full_path)
 ```
 
+## CMake实践
 ### 全局变量
 ```
 // 父文件
@@ -221,11 +222,33 @@ set(GLOBAL_VAR ${GLOBAL_VAR} "FILE_VALID_CONTENT" "") // 追加内容，修改�
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} GLOBAL_VAR) // 追加内容，修改只在本文件内有效
 ```
 
-## CMake编写
-* [include](https://blog.csdn.net/qq_38410730/article/details/102677143)
+### bool判断
+```
+set(VARX ON)
+if (DEFINED VARX)
+  message(STATUS "A") # 所需条件：ON或OFF
+endif()
+if (VARX)
+  message(STATUS "B") # 所需条件：ON
+endif()
+if (NOT VARX)
+  message(STATUS "C") # 所需条件：OFF或unset(VARX)
+endif()
+```
+
+### function
 * [cmake函数、宏和模块](https://www.cnblogs.com/zhoug2020/p/13659952.html)
 * [CMake中的function和macro](https://blog.csdn.net/fb_941219/article/details/89358576)
 * [CMAKE自定义模块](https://www.kancloud.cn/itfanr/cmake-practice/82991)
+
+```
+函数参数是数组的使用方法，需加""
+function(ArrayTest LIBS)
+    message(STATUS "LIBS[${LIBS}]")
+endfunction()
+set(_LIBS a b c)
+ArrayTest("${_LIBS}")
+```
 
 ### 宏
 * LIST作为输入参数的使用方法，有两种方法，见fn1和fn2
@@ -250,23 +273,21 @@ set(LINK_LIBRARIES a b)
 fn2("test2" "${LINK_LIBRARIES}") # 加双引号相当于输入1个列表参数，不加双引号相当于输入多个参数。如果这参数是最后一个是可以不加双引号
 ```
 
-## 资料
-* [cmake使用示例与整理总结](https://blog.csdn.net/wzzfeitian/article/details/40963457)
-* [cmake常用工程示例大集合](https://blog.csdn.net/FreeApe/article/details/52567087)
-* [cmake命令速查手册](https://blog.csdn.net/u010552731/article/details/89293101)
-* [CMAKE使用](https://www.swack.cn/wiki/001558681974020669b912b0c994e7090649ac4846e80b2000/001560826762151294a43f838f4423299fec74dd2a0f257000)
-* [cmake指令详解](https://blog.csdn.net/bytxl/article/details/50635016)
-* [configure_file](https://www.cnblogs.com/the-capricornus/p/4717566.html)
-
 ### find_package
 * [find_package原理](https://blog.csdn.net/lianshaohua/article/details/108402470)
 * [find_package引入外部依赖包](https://zhuanlan.zhihu.com/p/97369704)
 
-```
-变量：<LibaryName>_FOUND, <LibaryName>_INCLUDE_DIR, <LibaryName>_LIBRARIES
+* 全局缓存变量
+    1. %LibaryName%_FOUND
+    1. %LibaryName%_INCLUDE_DIR : 头文件路径
+    1. %LibaryName%_LIBRARIES : 库文件路径的列表
+    1. %LibaryName%_MODULE_LIBRARY : 里面的具体模块库文件路径，如OPENSSL_CRYPTO_LIBRARY
+    1. %LibaryName%_VERSION
 
-示例：
-find_package(CURL)
+* 使用
+
+```
+find_package(CURL REQUIRED PATHS /path/to/library)
 if(CURL_FOUND)
     target_include_directories(${TARGET_NAME} PRIVATE ${CURL_INCLUDE_DIR})
     target_link_libraries(TARGET_NAME} ${CURL_LIBRARIES})
@@ -275,7 +296,12 @@ else()
 endif()
 ```
 
-###  动态库添加版本信息
+* 库的Find%LibaryName%.cmake编写
+    * 使用find_library只能做精准匹配，可以通过正则表达式获取符合的库，特别是有版本号的
+    * 通过头文件获取版本信息
+    * 赋值所有的变量到CACHE
+
+### 动态库添加版本信息
 * [动态库添加版本信息](https://blog.csdn.net/qq295109601/article/details/118063009)
 
 ```
@@ -316,6 +342,24 @@ cmake  -DCMAKE_PREFIX_PATH="path1;path2"
 list(APPEND CMAKE_PREFIX_PATH "path1")
 ```
 
+### 具体命令和性能分析
+* 看详细命令 : make VERBOSE=1
+* 生成执行CMake过程的性能分析报告 : cmake --profiling-format=google-trace --profiling-output=profile.json
+
+### 编译文件过大
+```
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj") # 这是windows的参数
+```
+
+## 资料
+* [cmake使用示例与整理总结](https://blog.csdn.net/wzzfeitian/article/details/40963457)
+* [cmake常用工程示例大集合](https://blog.csdn.net/FreeApe/article/details/52567087)
+* [cmake命令速查手册](https://blog.csdn.net/u010552731/article/details/89293101)
+* [CMAKE使用](https://www.swack.cn/wiki/001558681974020669b912b0c994e7090649ac4846e80b2000/001560826762151294a43f838f4423299fec74dd2a0f257000)
+* [cmake指令详解](https://blog.csdn.net/bytxl/article/details/50635016)
+* [configure_file](https://www.cnblogs.com/the-capricornus/p/4717566.html)
+* [include文件](https://blog.csdn.net/qq_38410730/article/details/102677143)
+
 ### 安装升级
 * [二进制安装](https://blog.csdn.net/freemote/article/details/103454801)
 * 源码安装
@@ -326,13 +370,4 @@ tar zxvf cmake-3.14.0.tar.gz && cd cmake-3.14.0
 cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_USE_OPENSSL=OFF .
 make -j$((`nproc`+1)) && make install
 cd .. && rm -rf cmake-3.14.0 && rm cmake-3.14.0.tar.gz
-```
-
-### 具体命令和性能分析
-* 看详细命令 : make VERBOSE=1
-* 生成执行CMake过程的性能分析报告 : cmake --profiling-format=google-trace --profiling-output=profile.json
-
-### 编译文件过大
-```
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj") # 这是windows的参数
 ```
