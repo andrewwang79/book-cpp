@@ -20,7 +20,8 @@
 ### 使用
 ```
 exe --gtest_list_tests // 列出所有测试用例
-exe --gtest_filter="testcase_name" // 执行特定测试用例
+exe --gtest_filter="testcase_name*" // 执行特定测试用例，支持模糊匹配
+exe --gtest_output=xml:testcase_name.xml // 执行结果导出到xml
 ```
 
 ### mock

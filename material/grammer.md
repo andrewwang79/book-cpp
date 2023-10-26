@@ -21,6 +21,7 @@ std::vector<ClassX> classXs{{a, {{1, 1}, {2, 2}}}, {b, {{1, 5}}}};
 ```
 
 * const
+
 ```
 const uint8_t* pt：指向的数据是常量，指针本身的值可以修改
 uint8_t* const pt：指针本身是常量，指向的数据可以修改
@@ -37,6 +38,7 @@ obj.printMessage();
 * [文件名和文件行](https://blog.csdn.net/nyist_zxp/article/details/107890791)
 
 * 静态实例
+
 ```
 class ClassAbc {
 public:
@@ -48,6 +50,7 @@ public:
 ```
 
 * pair和tuple
+
 ```
 2个用pair，超过用tuple
 
