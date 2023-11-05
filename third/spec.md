@@ -13,6 +13,7 @@
     2. 自定义方法：[操作](https://blog.csdn.net/qq_33101873/article/details/121426522)，注意如果拷贝文件".clang-format"一定要在资源管理器里操作
 
 ## clang-format
+* apt-get install clang-format // 安装
 * [.clang-format文件常用参数](https://bugwz.com/2019/01/08/clang-format/)
 * clang-format -i --style=file <file> // 手工格式化，可以看详细信息，查找问题时比较好用
 

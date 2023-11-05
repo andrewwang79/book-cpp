@@ -161,6 +161,9 @@ class TestConan(ConanFile):
 
 ## 资料
 * [架构与术语](https://zhuanlan.zhihu.com/p/360348196)
+  * recipe 构建包的脚本
+  * artifact 构件
+  * package 包，recipe+artifact
 * [conan一年使用总结](http://zhongpan.tech/2020/01/11/022-one-year-usage-summary-of-conan/)
 * Conan公共仓库：https://conan.io/center/，如https://conan.io/center/itk。需要写conanfile.txt来install
 

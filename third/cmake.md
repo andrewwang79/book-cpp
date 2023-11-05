@@ -201,6 +201,8 @@ return (0) # 退出
 
 ### 语法
 ```
+include_directories/link_directories，生效范围：执行所属节点，函数则所属节点是调用方
+
 # 添加头文件目录
 include_directories(directory1 directory2 ...)
 
@@ -209,6 +211,12 @@ link_directories(directory1 directory2 ...)
 
 # 添加需要链接的库文件全路径
 link_libraries(full_path)
+
+# 获取属性
+get_target_property(TARGET_INCLUDE_DIRS ${TARGET_NAME} INCLUDE_DIRECTORIES)
+get_target_property(TARGET_SOURCES ${TARGET_NAME} SOURCES)
+get_property(TARGET_LIB_DIRS DIRECTORY PROPERTY LINK_DIRECTORIES)
+get_target_property(TARGET_LIBS ${TARGET_NAME} LINK_LIBRARIES)
 ```
 
 ## CMake实践
@@ -242,12 +250,23 @@ endif()
 * [CMAKE自定义模块](https://www.kancloud.cn/itfanr/cmake-practice/82991)
 
 ```
-函数参数是数组的使用方法，需加""
-function(ArrayTest LIBS)
-    message(STATUS "LIBS[${LIBS}]")
+函数的输入参数是数组的使用方法：参数名加""，如"${inputs}"
+函数的输出参数是数组的使用方法：参数名不加任何修饰，如inputs。fn里加PARENT_SCOPE
+function(arrayIOTest _inputs _outputs)
+    message(STATUS "_inputs[${_inputs}]")
+    foreach(item IN LISTS _inputs)
+        string(TOUPPER ${item} upper_item)
+        list(APPEND _outputs ${upper_item})
+    endforeach()
+    set(${_outputs} PARENT_SCOPE)
+    message("Output List: ${_outputs}") # 输出，fn里参数的首项是参数名称("outputs")：outputs;ANDREW;WANG
 endfunction()
-set(_LIBS a b c)
-ArrayTest("${_LIBS}")
+
+set(inputs "andrew" "wang")
+arrayIOTest("${inputs}" outputs)
+# arrayIOTest("andrew; wang" outputs) # 用字符串当成数组来调用。数组分隔符是"; "，必须有空格
+
+message("Output List: ${outputs}") # 输出，返回的outputs会去掉首项：ANDREW;WANG
 ```
 
 ### 宏
