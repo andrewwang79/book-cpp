@@ -1,4 +1,10 @@
 # conan
+## 概念
+* [架构与术语](https://zhuanlan.zhihu.com/p/360348196)
+  * recipe 构建包的脚本，一般是conanfile.py
+  * artifact 构件，库
+  * package 包，recipe+artifact
+
 ## 安装
 ```
 Conan的使用需基于Python, 安装方式很简单:
@@ -19,6 +25,9 @@ conan remove -r cloud rapidjson/1.1.0@Common/stable -q "arch=x86_64 AND os=Linux
 
 conan export-pkg conanfile.py VTK/8.2.0@Common/stable-debug1 -s arch=x86_64 -s os=Linux -s build_type=Debug -f // 本地打包
 conan upload VTK/8.2.0@Common/stable -r cloud --force --all // 上传提交
+
+conan info pcl/1.12.1@Common/stable -r cloud // 获取package信息
+conan get pcl/1.12.1@Common/stable -r cloud // 获取recipe信息
 
 // https://docs.conan.io/en/1.22/reference/commands/misc/user.html
 conan user // 所有用户
@@ -160,10 +169,6 @@ class TestConan(ConanFile):
 ```
 
 ## 资料
-* [架构与术语](https://zhuanlan.zhihu.com/p/360348196)
-  * recipe 构建包的脚本
-  * artifact 构件
-  * package 包，recipe+artifact
 * [conan一年使用总结](http://zhongpan.tech/2020/01/11/022-one-year-usage-summary-of-conan/)
 * Conan公共仓库：https://conan.io/center/，如https://conan.io/center/itk。需要写conanfile.txt来install
 

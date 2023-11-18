@@ -14,6 +14,9 @@ boost::replace_all(path, "//", "/"); // 字符串替换
 (boost::format("log info : path[%s], val[%d].") % path % val))
 ```
 
+## 网络
+* [网络库boost asio](https://zhuanlan.zhihu.com/p/634878993)
+
 ## 资料
 * [C++使用Boost实现HTTP服务端——同步、异步、协程](https://blog.csdn.net/luchengtao11/article/details/100928141)
 * [Boost Beast要点解析](https://blog.csdn.net/guxch/article/details/106780832)

@@ -20,6 +20,7 @@
     * [ACL](lib/acl.md)
     * [log](lib/log.md)
     * [QT](lib/qt.md)
+    * [ZMQ](lib/zmq.md)
   * 开发
     * [编译](dev/compile.md)
     * [调试定位](dev/debug.md)

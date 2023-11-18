@@ -85,12 +85,13 @@ QString("SELECT %1").arg(QString::number(22);
   * 离线安装：下载[插件](https://download.qt.io/development_releases/vsaddin)，推荐版本2.9.0
 
 ### Qt5 + Linux
-* Linux如果不是桌面版，可以在Windows使用远程终端软件打开Qt程序，会通过Linux上类似XWindows机制在Windows开发调试
+* Linux如果不是桌面版，可以在Windows使用远程终端软件/vscode等打开Qt程序实现开发和调试(XWindows机制), [远程开发VsCode终端中运行PyQt5程序](https://blog.csdn.net/qq_41092406/article/details/118201187)
 * [安装说明](https://wiki.qt.io/Install_Qt_5_on_Ubuntu)
 ```
 wget https://download.qt.io/archive/qt/5.12/5.12.9/qt-opensource-linux-x64-5.12.9.run
 chmod +x qt-opensource-linux-x64-5.12.9.run
 ./qt-opensource-linux-x64-5.12.9.run # 只能安装到默认路径/opt/Qt5.12.9，选择其他目录会有潜在风险
+选择所需的qt模块，如X64的
 ```
 
 ### 资料

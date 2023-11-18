@@ -114,7 +114,7 @@ add_definitions(-DABC=1)
 #endif
 
 # 目录文件放到列表变量里
-file(GLOB_RECURSE SOURCE_FILES *.cpp) // 递归当前目录下符合后缀的文件放到列表SOURCE_FILES
+file(GLOB_RECURSE SOURCE_FILES *.cpp) // **递归**当前目录下符合后缀的文件放到列表SOURCE_FILES
 file(GLOB SOURCE_FILES *.cc *.cpp *.cxx) // 当前目录下符合后缀的文件放到列表SOURCE_FILES
 aux_source_directory(src SOURCE_FILES) // 根目录/src下符合默认后缀的文件放到列表SOURCE_FILE
 
