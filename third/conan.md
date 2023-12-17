@@ -1,9 +1,10 @@
 # conan
 ## 概念
 * [架构与术语](https://zhuanlan.zhihu.com/p/360348196)
-  * recipe 构建包的脚本，一般是conanfile.py
-  * artifact 构件，库
-  * package 包，recipe+artifact
+  * recipe : 构建包的脚本，一般是conanfile.py
+  * artifact : 构件，库
+  * package : 包，是recipe+artifact。
+    * 同一个包名的recipe只有1个(后上传的recipe会覆盖老的)。比如已上传Windows的package，现在上传Linux的package，这个包名就使用Linux里的recipe。所以**一个包名的recipe必须一样**，否则替换后，老package会有不能使用的风险。
 
 ## 安装
 ```

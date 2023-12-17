@@ -102,6 +102,9 @@ shared_ptr<ChildClass> ptrChildClass = dynamic_pointer_cast<ChildClass>(ptrDynam
 unique_ptr<Class> u1 = make_unique<Class>();
 auto u2 = u1; // unique_ptr不支持普通的拷贝或赋值操作。编译报错，需要用下面的move
 auto u2 = std::move(u1); // u2获得内存所有权，u1此时等于nullptr
+
+// shared_from_this
+std::enable_shared_from_this从类成员函数中获取1个新的std::shared_ptr(类对象需用shared_ptr创建)，而不是this指针。确保对象在成员函数里执行异步操作时自身不会被意外销毁。
 ```
 
 ### 知识
@@ -118,6 +121,31 @@ auto u2 = std::move(u1); // u2获得内存所有权，u1此时等于nullptr
 #### weak_ptr
 * 不计数的弱引用，解决shared_ptr双向引用的问题
 * [weak_ptr](https://blog.csdn.net/c_base_jin/article/details/79440999)
+
+## 类成员变量及其初始化
+| 类型 | 定义方法 | 初始化位置 | 使用场景 |
+| - | - | - | - |
+| 标准 | ClassA a_ | 构造函数的初始化列表 | 在ClassX构造函数里创建的 |
+| 引用 | ClassB& b_ | 构造函数的初始化列表 | 推荐只用于单例或父子类的子级，因为对象生命周期管理不可控 |
+| 智能指针 | std::unique_ptr<ClassC> c_ | 任意位置 | 无法在ClassX构造函数里创建的，比如构造需要的参数在ClassX::init()里 |
+
+1. 构造函数的初始化列表 : 成员变量定义顺序和初始化列表顺序要一致，执行顺序是定义顺序
+1. 类型类的构造函数执行：定义时不会，初始化列表时会
+```
+class ClassX {
+public:
+    ClassX(int value, ClassB& b) : a_(value), b_(b) { 初始化列表时会调用构造函数
+        a_ = ClassA(value); // 赋值时会调用构造函数(a_第二次调用构造函数)
+    }
+    init(int value) {
+      c_ = std::make_unique<ClassC>(value);
+    }
+private:
+    ClassA a_;
+    ClassB& b_;
+    std::unique_ptr<ClassC> c_;
+};
+```
 
 ## 宏定义
 * 宏定义不受命名空间的影响
@@ -165,7 +193,7 @@ auto add_x = [x](int a) -> int { return a + x; };
 [x]是Lambda函数外的上下文变量x，=是类实例本身；(int a)表示输入参数是int；-> int表示返回一个整数；{ }表示实现函数体。
 ```
 
-# 类型转换
+## 类型转换
 * [C++类型转换：隐式类型转换、类类型转换、显示类型转换](https://segmentfault.com/a/1190000016582440)
 
 | 项 | 说明 | 实例 |

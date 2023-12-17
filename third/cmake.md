@@ -10,6 +10,7 @@
 * 构建指定可执行文件 : cmake --build <build_directory> --target <executable_target>
 * make install && cd .. && rm -rf build // 安装
 * cmake过程文件清理：find . -name CMakeFiles | xargs rm -rf && find . -name cmake_install.cmake | xargs rm -rf && find . -name CMakeCache.txt | xargs rm -rf && find . -name Makefile | xargs rm -rf
+* cmake -LAH // 列出缓存变量。-L基本变量，-LA所有变量，-LAH所有变量+高级变量
 
 ## 参数
 | 名称 | 编码 | 值 | 说明 |
