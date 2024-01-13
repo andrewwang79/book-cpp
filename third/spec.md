@@ -2,8 +2,14 @@
 ## VisualStudioCode
 * 格式化：安装插件"Clang-Format"，放置"文件"里的2个文件
 * [vscode批量格式化代码](https://blog.csdn.net/koukouwuwu/article/details/111879677) : 安装插件"Format Files"
-* vscode配置：默认行尾字符(Files:Eol)设置成"\n"
-* vscode配置：保存时自动格式化
+* vscode配置：
+  * 默认行尾字符(Files:Eol)设置成"\n"
+  * 保存时自动格式化
+  * settings.json，自定义程序和配置文件
+  ```
+    "clang-format.executable": "/usr/bin/clang-format",
+    "clang-format.path": "${workspaceFolder}/cicd/.clang-format"
+  ```
 
 ## VisualStudio
 1. 保存时自动格式化：安装插件"Format document on Save"(扩展 –> 管理扩展 –> 联机 –> 搜索)
@@ -13,9 +19,16 @@
     2. 自定义方法：[操作](https://blog.csdn.net/qq_33101873/article/details/121426522)，注意如果拷贝文件".clang-format"一定要在资源管理器里操作
 
 ## clang-format
+### 安装
 * apt-get install clang-format // 安装
+* [安装包](https://github.com/llvm/llvm-project/releases/tag/llvmorg-10.0.0)
+* clang-format --version // 确保所有环境(如Windows/Linux)使用的版本是一致的，比如10
+
+### 使用方法
+* [用法详解](https://zhuanlan.zhihu.com/p/641846308)
 * [.clang-format文件常用参数](https://bugwz.com/2019/01/08/clang-format/)
 * clang-format -i --style=file <file> // 手工格式化，可以看详细信息，查找问题时比较好用
+* Windows下脚本 : Get-ChildItem "path\to\your\code" -Recurse -Include *.h, *.cpp | ForEach-Object { clang-format -i $_.FullName }
 
 ### 集成使用
 * 头文件被其他头文件依赖，必须放在最上面，但是格式化后自动放下面了：通过备注或者加空换行把这个头文件放在最上面，和其他头文件隔离开
@@ -25,6 +38,15 @@
 // FIRST_INCLUDES_END
 ```
 
+* 不需要.clang-format的代码块
+```
+ /* clang-format off */
+ int a = 42;
+ a++;
+ ...
+ /* clang-format on */
+```
+
 ### 格式化文件
 * .clang-format
 ```
@@ -32,7 +54,7 @@
 # clang-format -i --style=file <file>
 Language:       Cpp
 BasedOnStyle:   Google
-ColumnLimit:    160
+ColumnLimit:    200
 AllowShortBlocksOnASingleLine: true
 DerivePointerAlignment: false
 PointerAlignment: Left

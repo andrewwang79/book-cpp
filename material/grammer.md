@@ -157,8 +157,10 @@ private:
 操作系统
 #ifdef _WIN32
   //define something for Windows (32-bit and 64-bit, this part is common)
-#elif __linux__
+#elif defined __linux__
   //define something for Windows (64-bit only)
+#elif defined __APPLE__
+#elif defined __unix__
 #else
 #endif
 

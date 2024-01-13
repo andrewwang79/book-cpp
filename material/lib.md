@@ -60,7 +60,7 @@
 * [局部变量和函数参数为什么要放在栈中](https://www.jianshu.com/p/ac325bd601f8)
 
 ## ABI兼容
-* [ABI](https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html)
+* [ABI](https://gcc.gnu.org/onlinedocs/libstdc++/manual/abi.html), [ABI合规性检测器](https://blog.csdn.net/canpool/article/details/118380060)
 
 | 编译环境 | 兼容 |
 | :-: | - |

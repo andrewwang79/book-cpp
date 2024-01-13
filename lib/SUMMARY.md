@@ -20,3 +20,7 @@
 
 ## ITK
 * 编译时remote模块下载失败: git clone到/Modules/Remote目录，目录名和git tag详见对应的cmake文件
+
+## UPnP
+* https://blog.csdn.net/DDFFR/article/details/78800323
+* 使用：添加针对UPnP使用的多播地址范围的路由：ip route add 239.0.0.0/8 dev eth0
