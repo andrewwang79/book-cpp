@@ -1,11 +1,19 @@
 * C++
   * [介绍](README.md)
-  * 资料
-    * [理论知识](material/kb.md)
-    * [库的设计原理](material/lib.md)
-    * [开发语法](material/grammer.md)
-    * [开发规范](material/spec.md)
-    * [大规模系统的代码结构](material/large_scale_code.md)
+  * 开发
+    * [开发语法](dev/grammer.md)
+    * [编译](dev/compile.md)
+    * [调试定位](dev/debug.md)
+    * [单元测试](dev/ut.md)
+    * [内存泄漏](dev/leak.md)
+    * [Windows开发](dev/windows.md)
+  * 知识
+    * [理论知识](kb/SUMMARY.md)
+    * [库的设计原理](kb/lib.md)
+    * [库的设计原理](kb/ipc/SUMMARY.md)
+  * 实践
+    * [开发规范](practice/spec.md)
+    * [大规模系统的代码结构](practice/large_scale_code.md)
   * 第三方工具
     * [开发规范工具](third/spec.md)
     * [开发工具](third/dev.md)
@@ -21,9 +29,3 @@
     * [log](lib/log.md)
     * [QT](lib/qt.md)
     * [ZMQ](lib/zmq.md)
-  * 开发
-    * [编译](dev/compile.md)
-    * [调试定位](dev/debug.md)
-    * [单元测试](dev/ut.md)
-    * [内存泄漏](dev/leak.md)
-    * [Windows开发](dev/windows.md)
