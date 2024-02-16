@@ -1,9 +1,5 @@
 # 进程间通信
 * [Linux进程通信方式：pipe无名管道、fifo有名管道、共享内存映射、socket、消息队列](https://zhuanlan.zhihu.com/p/57454565)
-* [semaphore和mutex](https://blog.csdn.net/zwan0518/article/details/8761000)：semaphore是多元信号量，mutex是锁(二元信号量)
-* [Windows进程同步之互斥量内核对象](https://blog.csdn.net/iteye_18480/article/details/82514068)
-* [windows进程通信-共享内存和信号量](https://blog.csdn.net/xihuanniNI/article/details/78958346)
-
 
 ## 管道
 1. 管道通常指无名管道,读写都需访问磁盘进行I/O操作,速度慢,容量有限  
@@ -30,13 +26,13 @@
 1. 消息队列独立于发送与接收进程。进程终止时,消息队列及其内容并不会被删除  
 1. 消息队列可以实现消息的随机查询,消息不一定要以先进先出的次序读取,也可以按消息的类型读取  
 
-## 共享内存
+## [共享内存](https://cpp.wangyaqi.cn/#/kb/ipc/sharememory)
 1. 共享内存(Shared Memory),指两个或多个进程共享一个给定的存储区  
 1. 共享内存是最快的一种 IPC,因为进程是直接对内存进行存取  
 1. 因为多个进程可以同时操作,所以需要进行同步  
 1. 信号量+共享内存通常结合在一起使用,信号量用来同步对共享内存的访问  
 
-## 信号量
+## [信号量](https://cpp.wangyaqi.cn/#/kb/ipc/semaphore)
 1. 信号量(semaphore)是一个计数器,信号量用于实现进程间的互斥与同步,而不是用于存储进程间通信数据  
 1. 信号量用于进程间同步,若要在进程间传递数据需要结合共享内存  
 1. 信号量基于操作系统的PV操作,程序对信号量的操作都是原子操作  

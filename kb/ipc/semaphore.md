@@ -1,5 +1,23 @@
-# 信号量
+# 锁
+* [semaphore和mutex](https://blog.csdn.net/zwan0518/article/details/8761000)：semaphore是多元信号量，mutex是锁(二元信号量)
+* [Windows进程同步之互斥量内核对象](https://blog.csdn.net/iteye_18480/article/details/82514068)
+* [windows进程通信-共享内存和信号量](https://blog.csdn.net/xihuanniNI/article/details/78958346)
+* [condition_variable](https://www.cnblogs.com/haippy/p/3252041.html)
 
+## mutex
+* mutex很好地解决了多线程资源争抢的问题,但是它有着很明显的缺点:速度太慢。
+
+|    函数   |  返回值类型  |          作用             |
+|-----------|-------------|--------------------------|
+| lock()    |    void     |       将mutex上锁，如果mutex已经被其它线程上锁,那么本线程会阻塞直到解锁         |
+| unlock()  |    void     |    解锁mutex,释放其所有权 |
+| try_lock()|    bool     |       尝试将mutex上锁,如果mutex未被上锁,则将其上锁并返回true;如果mutex已被锁则返回false。     |
+
+## std::atomic
+> [原子操作是最小的且不可并行化的操作](https://cplusplus.com/reference/atomic/atomic/)。如std::atomic_int是std::atomic\<int\>的别名
+多线程需要同步操作atomic对象,从而省去了mutex上锁、解锁的时间消耗。
+
+# 信号量
 ## CreateMutex - 创建互斥量对象
 ```
 CreateMutex用来创建一个有名或无名的互斥量对象,其函数原型为:  

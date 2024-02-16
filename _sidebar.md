@@ -10,7 +10,8 @@
   * 知识
     * [理论知识](kb/SUMMARY.md)
     * [库的设计原理](kb/lib.md)
-    * [库的设计原理](kb/ipc/SUMMARY.md)
+    * [多线程](kb/mp.md)
+    * [进程间通信](kb/ipc/SUMMARY.md)
   * 实践
     * [开发规范](practice/spec.md)
     * [大规模系统的代码结构](practice/large_scale_code.md)
