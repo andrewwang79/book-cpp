@@ -2,6 +2,10 @@
 ## 调试
 * [五种利用strace查故障的简单方法](https://blog.csdn.net/csdn265/article/details/70050168)
 
+### 在Windows远程调试Windows的程序(VS2017)
+* https://blog.csdn.net/thebulesky/article/details/120852560
+* https://learn.microsoft.com/zh-cn/visualstudio/debugger/remote-debugging-cpp
+
 ### 在Windows开发和远程调试Linux服务器的CMake程序
 1. 安装VS2019
 1. 创建CMake项目
