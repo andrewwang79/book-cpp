@@ -76,6 +76,14 @@ QString("SELECT %1").arg(QString::number(22);
 1. 跨窗口或者后台服务的消息通知用emit
 1. Qt会在信号接收对象所在的线程中调用槽函数。如果信号和接收对象在同一线程中，则槽函数将直接在该线程中执行。如果信号和接收对象不在同一线程中，则Qt会将槽函数的执行请求发送到接收对象所在的线程，并在那里执行槽函数。
 
+### 资源变动
+* 资源文件有变动：C:\Qt\5.12.9\msvc2017_64\bin\rcc.exe -binary Resource.qrc -o Resource.rcc
+* ts文件有变动
+  1. 生成qm文件
+      * Qt命令：lrelease file.ts
+      * Qt工具"Linguist"：打开ts文件; 文件 -> 发布翻译(Release)
+  1. 执行“资源文件有改动”
+
 ## 安装
 ### Qt + VisualStudio2017
 1. 安装VisualStudio2017：安装时需选择“使用C++的桌面开发”，勾选右边的”MSVC 2017”和“Windows10SDK”

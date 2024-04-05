@@ -26,3 +26,11 @@ class API_DECLSPEC XyzClass{};
 
 ## 库
 * 编译链接时会lib文件里会记录其对应的dll，所以不能修改dll文件名
+
+## Visual Studio
+```
+错误：该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+原因：Windows的默认编码是GBK(936)，如果不指定UTF8则VisualStudio会用系统默认编码编译项目(GBK下UTF8文件里的中文就会乱)，所以项目要明确编码：
+解决：右键点击项目 -> "属性(Properties)" -> "配置属性(Configuration Properties)" -> "C/C++" -> "命令行(Command Line)"
+在右侧的 "附加选项(Additional Options)" 中，输入 "/utf-8"。
+```
