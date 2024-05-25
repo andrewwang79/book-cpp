@@ -122,6 +122,28 @@ std::enable_shared_from_this从类成员函数中获取1个新的std::shared_ptr
 * 不计数的弱引用，解决shared_ptr双向引用的问题
 * [weak_ptr](https://blog.csdn.net/c_base_jin/article/details/79440999)
 
+## 模板(类/函数)
+* [模板类和模板函数](http://c.biancheng.net/view/320.html)
+* [模板别名](https://wizardforcel.gitbooks.io/cpp-11-faq/content/55.html)
+* 模板类型定义时是不存在函数实例，使用时才会创建出函数实例
+```
+定义模板函数
+template <typename T>
+void myFunction(const T& value) {}
+创建int的函数实例
+myFunction<int>(42);
+创建string的函数实例
+myFunction<std::string>("Hello, world!");
+```
+
+### 库中模板类型的使用方法
+* 使用和定义在同一个库可以隐式实例化
+* 使用和定义在不同的库，需要在定义库里显式实例化。
+    * 原因：
+        * 如果模板函数x定义在库A，当在库B或可执行文件C中使用x，编译器并不知道x的定义，所以不能生成一个函数实例。
+        * 模板类型不能在库里导出，因为模板是在编译时实例化的，链接时不会做实例化。
+    * 库中实例化方案：在cpp中声明  template __declspec(dllexport) void ClassX::myFunction<int>(const int& value);
+
 ## 类成员变量及其初始化
 | 类型 | 定义方法 | 初始化位置 | 使用场景 |
 | - | - | - | - |
@@ -215,7 +237,5 @@ auto add_x = [x](int a) -> int { return a + x; };
 
 ## 知识
 * [function](https://blog.csdn.net/weixin_43712770/article/details/120738647)
-* [模板类和模板函数](http://c.biancheng.net/view/320.html)
-* [模板别名](https://wizardforcel.gitbooks.io/cpp-11-faq/content/55.html)
 * [右值引用](https://changkun.de/modern-cpp/zh-cn/03-runtime/index.html#3-3-%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8)
 * [explicit构造函数](https://www.cnblogs.com/likebeta/archive/2012/07/31/explicit.html), 所有单参数的构造函数都必须是显示的

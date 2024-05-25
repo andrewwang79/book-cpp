@@ -73,6 +73,11 @@ cap_add:
   - SYS_PTRACE
 ```
 
+### Windows下调试没在解决方案里的自有库
+* 需要有源代码、dll和PDB
+* 自用库的发布包不建议包含PDB文件(尺寸太大)。有需要时通过编译获取。
+* 使用方法：https://github.com/andrewwang79/cpp.practice#libdebug
+
 ## coredump
 * coredump产生可以来自系统，也可以来自软件(无视系统是否配置了启用coredump生成)。建议尽量用软件管理自身的，不用系统来管理
 * 软件管理自身coredump的生成：启用禁用核心转储功能，使用自定义的崩溃处理机制
@@ -117,9 +122,6 @@ signal(SIGABRT, customCrashHandler);
   * Mini Dump（小型转储文件）：包含程序在崩溃时的关键信息，如堆栈回溯和寄存器状态。通常不包含完整的局部变量值。
   * Full Dump（完整转储文件）：包含程序在崩溃时的完整内存状态，包括堆栈、寄存器、全局变量和局部变量等。可以提供更全面的调试信息，包括完整的局部变量值。
 
-#### 构建
-* 编译时生成二进制文件及其配套的符号文件(pdb)，Release的参数：生成符号文件(Zi)，关闭优化(Od)
-
 #### 生成coredump
 1. 任务管理器，WinDbg
 1. 软件生成
@@ -138,9 +140,12 @@ echo Done
 #### 使用
 * [Windbg调试coredump](https://blog.csdn.net/CJF_iceKing/article/details/51955540)
 
-1. 搭建使用环境同构建环境一致：代码路径及其内容，二进制文件路径及其内容(含pdb)。文件名不能改
-1. coredump文件名随意，放到pdb文件和执行文件所在的目录
-1. 使用工具看错误代码。VS(简单好用，coredump文件拖进来即可)，[WinDug](https://learn.microsoft.com/zh-CN/windows-hardware/drivers/debugger/)(太麻烦难用)
+* 使用步骤
+1. 用对应版本的代码编译生成符号文件(PDB)。Release下生成PDB文件的编译参数：生成符号文件(Zi)，关闭优化(Od)
+1. 搭建使用环境同构建环境一致：代码路径及其内容，二进制文件路径及其内容(含PDB)。文件名不能改
+1. 使用工具定位错误
+    1. VS：简单好用，coredump文件拖进来即可
+    1. [WinDug](https://learn.microsoft.com/zh-CN/windows-hardware/drivers/debugger/)(太麻烦难用)
 
 ##### Windows符号表服务器
 ```
