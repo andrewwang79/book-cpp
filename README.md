@@ -1,4 +1,4 @@
-# 编程语言-C++
+# 软件开发-C++
 > book : https://cpp.wangyaqi.cn/
 
 * [最佳实践代码](https://github.com/andrewwang79/cpp.practice.git)
