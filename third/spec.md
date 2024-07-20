@@ -50,6 +50,7 @@
 
 ### 格式化文件
 * .clang-format
+
 ```
 # Run manually to reformat a file:
 # clang-format -i --style=file <file>
@@ -67,6 +68,7 @@ IndentPPDirectives: BeforeHash # #ifdef
 ```
 
 * .vscode/settings.json
+
 ```
 {
     "clang-format.language.cpp.fallbackStyle": "Google",
@@ -79,6 +81,7 @@ IndentPPDirectives: BeforeHash # #ifdef
 ```
 
 * settings.json，自定义程序和配置文件
+
 ```
   "clang-format.executable": "/usr/bin/clang-format",
   "clang-format.path": "${workspaceFolder}/cicd/.clang-format"
