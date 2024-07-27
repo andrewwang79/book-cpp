@@ -122,6 +122,11 @@ std::enable_shared_from_this从类成员函数中获取1个新的std::shared_ptr
 * 不计数的弱引用，解决shared_ptr双向引用的问题
 * [weak_ptr](https://blog.csdn.net/c_base_jin/article/details/79440999)
 
+## 右值引用
+* C++11引入的右值引用（rvalue reference）。右值引用允许你捕获右值，并对它们进行操作，主要用来实现移动语义和完美转发
+* [右值引用](https://changkun.de/modern-cpp/zh-cn/03-runtime/index.html#3-3-%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8)
+* 写法：Resource&& other
+
 ## 模板(类/函数)
 * [模板类和模板函数](http://c.biancheng.net/view/320.html)
 * [模板别名](https://wizardforcel.gitbooks.io/cpp-11-faq/content/55.html)
@@ -237,5 +242,4 @@ auto add_x = [x](int a) -> int { return a + x; };
 
 ## 知识
 * [function](https://blog.csdn.net/weixin_43712770/article/details/120738647)
-* [右值引用](https://changkun.de/modern-cpp/zh-cn/03-runtime/index.html#3-3-%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8)
 * [explicit构造函数](https://www.cnblogs.com/likebeta/archive/2012/07/31/explicit.html), 所有单参数的构造函数都必须是显示的

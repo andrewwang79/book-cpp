@@ -33,6 +33,38 @@
 | 实现文件 | 1 | 0 | 1 |
 | 头文件 | 1 | 1(库之间的S是各自独立不通的) | 1 + N |
 
+## 线程安全
+* std::mutex 是一个互斥锁，用于保护共享资源，以防止多个线程同时访问该资源。
+* std::condition_variable 是一个条件变量，用于在线程之间进行通知和等待。与std::mutex一起使用实现线程同步。条件变量允许一个或多个线程等待某个条件，并在条件满足时被唤醒。
+
+### wait_for流程
+1. 释放mtx锁并进入等待状态，直到被通知或者超时
+    * 通知：执行Predicate获取条件，如果条件没满足(不是true)则继续等待。
+    * 超时：结束执行，返回超时
+
+### 代码示例
+* 等待方
+
+```
+// 等待1秒钟或者done变为true。
+std::unique_lock<std::mutex> lock(mtx); // 锁定mtx，保护done
+if(cv.wait_for(lock, std::chrono::seconds(1), [&] { return done; })) {
+  // 在超时时间内，条件满足
+} else { // 到超时时间了，条件未满足
+    timeout_flag.store(true);
+}
+```
+
+* 通知方
+
+```
+{ // 括号内，操作完后自动解锁mtx
+  std::unique_lock<std::mutex> lock(mtx);
+  ready = true;
+}
+cv.notify_one();
+```
+
 ## 进程Fork和Exec
 * [fork出的子进程和父进程](https://blog.csdn.net/u013851082/article/details/76902046)，[fork与僵尸进程](http://shzhangji.com/cnblogs/2013/03/27/fork-and-zombie-process/)
 * [Linux下Fork与Exec使用](https://www.cnblogs.com/alantu2018/p/8462513.html)，[exec系列函数（execl,execlp,execle,execv,execvp)使用](https://www.cnblogs.com/mickole/p/3187409.html)
