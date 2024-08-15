@@ -95,6 +95,8 @@ set_target_properties(${TARGET_NAME}_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
 
 # 设置debug库后缀加D，比如%name%D.so
 set(CMAKE_DEBUG_POSTFIX D)
+# 设置debug库后缀不加D，比如%name%.so
+set_target_properties(${target} PROPERTIES DEBUG_POSTFIX "")
 
 # 设置Windows的PDB文件输出路径
 set(COMPILE_PDB_OUTPUT_DIRECTORY "")

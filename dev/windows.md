@@ -5,6 +5,8 @@
   * dumpbin /dependents dll/exe // 依赖库
   * dumpbin /exports dll // 符号表
   * dumpbin /symbols dll/exe // 感觉没啥用
+  * 第三方工具 : [dependencywalker](https://www.dependencywalker.com/), [Dependencies](https://github.com/lucasg/Dependencies)
+
 * [查看程序运行时调用的动态链接库](https://blog.csdn.net/fightsyj/article/details/107043353) : 资源监视器 -> CPU标签页 -> 关联的模块
 
 ## 导入导出
