@@ -26,13 +26,17 @@ API_DECLSPEC void HelloWorld();
 class API_DECLSPEC XyzClass{};
 ```
 
-## 库
-* 编译链接时会lib文件里会记录其对应的dll，所以不能修改dll文件名
+## DLL加载顺序
+* 应用程序所在目录 -> 当前工作目录 -> Windows系统目录 -> 环境变量PATH的目录
+
+## 库名
+* 库编译链接时lib文件里会记录其对应的dll文件名，所以不能修改dll文件名
+
+## 语法
+* CreateProcessW函数创建新进程时，如果没有指定lpCurrentDirectory参数（即传递 NULL），新进程的默认当前工作目录将是调用进程的当前工作目录。
 
 ## Visual Studio
-```
-错误：该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-原因：Windows的默认编码是GBK(936)，如果不指定UTF8则VisualStudio会用系统默认编码编译项目(GBK下UTF8文件里的中文就会乱)，所以项目要明确编码：
-解决：右键点击项目 -> "属性(Properties)" -> "配置属性(Configuration Properties)" -> "C/C++" -> "命令行(Command Line)"
-在右侧的 "附加选项(Additional Options)" 中，输入 "/utf-8"。
-```
+| 错误 | 原因 | 解决 |
+| - | - | - |
+| 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 | Windows的默认编码是GBK(936)，如果不指定UTF8则VisualStudio会用系统默认编码编译项目(GBK下UTF8文件里的中文就会乱)，所以项目要明确编码 | 项目属性 -> 配置属性 -> C/C++ -> 命令行。附加选项添加：/utf-8 |
+| 非UTF8文件转成UTF8文件，编译时可能会报错 | 同上 | 同上 |
