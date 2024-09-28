@@ -37,3 +37,10 @@ nuget pack vtk.dev.win-v14x-x64.nuspec // 打包
 nuget push -Source "NUGET_REPO_NAME" -ApiKey %NUGET_REPO_APIKEY% vtk.dev.win-v14x-x64.9.1.0-PR.1.nupkg // 上传
 nuget install vtk.win-v14x-x64 -Version 9.1.0-PR.1 -OutputDirectory . // 下载
 ```
+
+## 知识
+### 文件中文编码
+| 情况 | 解决方法 |
+| - | - |
+| 文件编码是UTF8，但文件内的中文字符串编码是GBK。导致编译失败。 | 在UTF-8编码的编辑器中打开文件并重新输入中文字符串，并确保文件保存为UTF-8编码 |
+| 编译程序使用默认的操作系统文件编码，但其不是UTF-8。导致编译失败。 | MSVC: 默认使用系统的区域设置编码（通常是 ANSI 编码）。add_compile_options(/utf-8) <br> GCC 和 Clang: 通常默认使用 UTF-8 编码。add_compile_options(-finput-charset=UTF-8) |

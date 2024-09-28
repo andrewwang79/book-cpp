@@ -114,8 +114,8 @@ UML_LOOK               = YES
 ```
 
 ## 构建
-* 确保输入目录干净，不要有编译过程文件等！
-* 通过配置文件[Doxyfile](https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/Doxyfile.tpl)构建，可以使用变量替换，[脚本参考](https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/gen.sh)
+* 确保输入待分析目录是干净的，只有代码，没有编译过程文件等！
+* 通过配置模板文件[Doxyfile.tpl](https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/Doxyfile.tpl)构建，[脚本](https://github.com/andrewwang79/cpp.practice/blob/master/doxygen/gen.sh)使用变量替换并生成
 
 ```
 #!/bin/bash

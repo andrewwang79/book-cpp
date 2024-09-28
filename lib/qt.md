@@ -1,5 +1,5 @@
 # QT
-## 使用
+## 常用语句
 ```
 // char*转换到string
 char* buffer = new char[512];
@@ -90,6 +90,11 @@ QString("SELECT %1").arg(QString::number(22);
       * Qt命令：lrelease file.ts
       * Qt工具"Linguist"：打开ts文件; 文件 -> 发布翻译(Release)
   1. 执行“资源文件有改动”
+
+### QT通讯
+1. 在组件内部定义connect ： 如果信号和槽的连接逻辑紧密相关于组件的内部行为，可以在组件内部定义 connect。这种方式有助于组件的封装性和自包含性。
+1. 在窗口定义connect：如果信号和槽的连接涉及多个组件的交互，通常在窗口中定义 connect。这样可以集中管理组件之间的交互逻辑，保持组件的独立性和重用性。
+1. 在专门的管理对象定义connect：如中介者(Controller)或事件总线（Event Bus）。前者一般1对1一个窗口，后者是系统级的（signal有分类区分不同的窗口）
 
 ## 安装
 ### Qt + VisualStudio2017
