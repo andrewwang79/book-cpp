@@ -15,6 +15,7 @@
   * 实践
     * [开发规范](practice/spec.md)
     * [大规模系统的代码结构](practice/large_scale_code.md)
+    * [插件](practice/plugin)
   * 第三方工具
     * [开发规范工具](third/spec.md)
     * [开发工具](third/dev.md)
