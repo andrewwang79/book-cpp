@@ -8,7 +8,7 @@
 
 ## 使用
 ```
-valgrind -v --log-file=valgrind.log --tool=memcheck --leak-check=full --show-reachable=yes --show-mismatched-frees=yes ./a.out
+memcheck工具分析 : valgrind -v --log-file=valgrind.log --tool=memcheck --leak-check=full --show-reachable=yes --show-mismatched-frees=yes ./a.out
 ```
 
 ## 使用事项
@@ -18,4 +18,6 @@ valgrind -v --log-file=valgrind.log --tool=memcheck --leak-check=full --show-rea
 ![](../s/third/valgrind.png)
 
 # heaptrack
-* 堆内存分析工具，https://github.com/KDE/heaptrack
+* 堆内存分析工具 : https://github.com/KDE/heaptrack
+
+# santizer

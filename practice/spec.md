@@ -60,8 +60,17 @@
 1. 每个文件有版权公告，类和函数都有注释
 
 #### log
-1. 级别：TRACE、DEBUG、INFO、WARNING、ERROR
-1. 格式
+* 级别
+
+| 级别 | 说明 | 使用场景 |
+| - | - | - |
+| TRACE | 最详细的调试日志 | 一般不用 |
+| DEBUG | 定位问题。如核心逻辑,分支逻辑等 | 生产环境定位问题 |
+| INFO | 业务信息,如流程,接口输入输出,耗时等 | 生产环境标准输出 |
+| WARN | 不会对系统造成影响的非正常流程 |  |
+| ERROR | 会对系统造成影响的非正常流程,可自我修复,不影响系统稳定性 | 异常情况,比如catch中,异常分支逻辑等 |
+
+1. 格式示例
 
 ```c++
 // 定义
@@ -69,7 +78,7 @@
 IMPLEMENT_LOGGER(ClassName)
 
 // 不带参数的格式。标题
-LOG_INFO("ABC finish");
+LOG_INFO("msg");
 // 带参数的格式。标题 : key1[value1], keyX[valueX]。因log库不同可能会有不同写法：
 LOG_INFO_FMT("result : code[{}], length[{}]", code, 100);
 ```
