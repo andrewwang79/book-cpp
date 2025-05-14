@@ -7,8 +7,8 @@
 ## 资源变动
 * 资源文件有变动：C:\Qt\5.12.9\msvc2017_64\bin\rcc.exe -binary Resource.qrc -o Resource.rcc
 * ts文件有变动
-  1. 生成qm文件
-      * Qt命令：lrelease file.ts
+  1. 生成qm文件的两种方法
+      * Qt命令：lrelease file.ts 或者 lrelease file.ts -qm file.qm
       * Qt工具"Linguist"：打开ts文件; 文件 -> 发布翻译(Release)
   1. 执行“资源文件有改动”
 
