@@ -1,5 +1,6 @@
 # conan
 ## 概念
+* [Conan2.0](https://docs.conan.org.cn/2/introduction.html)
 * [架构与术语](https://zhuanlan.zhihu.com/p/360348196)
   * recipe : 构建包的脚本，一般是conanfile.py
   * artifact : 构件，库
