@@ -114,3 +114,13 @@ typeid(ABC::TypeClass).name() // 是"N3ABC9TypeClassE"
 // Windows
 typeid(ABC::TypeClass).name() // 是"Class : ABC::TypeClass"，需去掉前八个字符
 ```
+
+## 编译效率
+* C++编译编译模型的本质特性（编译单元独立性、预处理动态性）决定了文件“零重复解析”难以完全实现。比如项目文件没有任何改动，但每次编译都重新解析所有头文件和源文件(不编译)。
+    * 编译单元独立性：编译器没有全局视图，无法知道其他编译单元是否依赖相同的头文件。
+* 工程实践中已通过工具链优化将编译效率提升至可接受范围。优化措施有预编译头和编译缓存，否则会浪费大量时间在重复工作上。
+
+### 预编译头PCH
+* 将常用头文件和模板头文件纳入PCH : target_precompile_headers
+* 启用 预编译时模板预实例化 : set(CMAKE_PCH_INSTANTIATE_TEMPLATES ON)
+* 预实例化常用模板，如```template class std::vector<int>;```

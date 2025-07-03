@@ -6,6 +6,7 @@
 
 ### Windows
 1. 下载包解压到C:\vcpkg\
+1. 启用"x64 Native Tools Command Prompt for VS 2022"
 1. 运行bootstrap-vcpkg.bat
 1. 环境变量"PATH"追加C:\vcpkg\
 1. ```setx VCPKG_ROOT C:\vcpkg\```
