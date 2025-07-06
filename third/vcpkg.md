@@ -18,7 +18,7 @@
 ## 常用命令
 ```
 vcpkg install fastdds
-vcpkg list
+vcpkg list | findstr "filesystem"
 ```
 
 ## 注意事项
